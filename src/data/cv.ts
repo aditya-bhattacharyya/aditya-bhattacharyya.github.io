@@ -126,7 +126,7 @@ export const publications = [
 	},
 	{
 		title: 'Organic Photoredox-Catalyzed S-Difluoromethylation of Aromatic and Heteroaromatic Thiols: Advancing Thiol Functionalization',
-		authors: 'A. Bhattacharyya, V. Vadde, M. P. Sarmah, M. Muthukumar, A. Mathur, R. Tester',
+		authors: 'A. Bhattacharyya*, V. Vadde, M. P. Sarmah, M. Muthukumar, A. Mathur, R. Tester',
 		journal: 'Advanced Synthesis & Catalysis',
 		time: '2025, 367 (15), e9606',
 		link: 'https://doi.org/10.1002/adsc.9606',
@@ -158,7 +158,7 @@ export const publications = [
 	},
 	{
 		title: 'Organic Photoredox-Catalyzed S-Trifluoromethylation of Aromatic and Heteroaromatic Thiols',
-		authors: 'A. Bhattacharyya, V. Vadde, M. P. Sarmah, M. Muthukumar, A. Mathur, R. Tester',
+		authors: 'A. Bhattacharyya*, V. Vadde, M. P. Sarmah, M. Muthukumar, A. Mathur, R. Tester',
 		journal: 'Organic Letters',
 		time: '2024, 26 (25), 5370–5374',
 		link: 'https://doi.org/10.1021/acs.orglett.4c01818',
@@ -182,7 +182,7 @@ export const publications = [
 	},
 	{
 		title: 'Visible-Light-Induced Homolysis of Earth-Abundant Metal-Substrate Complexes: A Complementary Activation Strategy in Photoredox Catalysis',
-		authors: 'Y. Abderrazak, A. Bhattacharyya, O. Reiser',
+		authors: 'Y. Abderrazak, A. Bhattacharyya*, O. Reiser',
 		journal: 'Angewandte Chemie International Edition',
 		time: '2021, 60 (39), 21100–21115',
 		link: 'https://doi.org/10.1002/anie.202100270',
@@ -198,7 +198,7 @@ export const publications = [
 	},
 	{
 		title: 'Synthetic Routes to 2-Iminothiazolidines: State-of-the-Art 2006–2020',
-		authors: 'A. Bhattacharyya',
+		authors: 'A. Bhattacharyya*',
 		journal: 'Current Organic Chemistry',
 		time: '2020, 24 (24), 2823–2844',
 		link: 'https://doi.org/10.2174/1385272824999201019162400',
@@ -222,7 +222,7 @@ export const publications = [
 	},
 	{
 		title: 'Synthetic Routes to 1,4,5,6-Tetrahydropyrimidines: An Overview and Recent Advances',
-		authors: 'A. Bhattacharyya',
+		authors: 'A. Bhattacharyya*',
 		journal: 'Current Organic Chemistry',
 		time: '2019, 23 (17), 1843–1856',
 		link: 'https://doi.org/10.2174/1385272823666191007163310',
@@ -366,7 +366,7 @@ export const publications = [
 	},
 	{
 		title: 'Tetrabutylammonium Hydrogen Sulfate',
-		authors: 'A. Bhattacharyya',
+		authors: 'A. Bhattacharyya*',
 		journal: 'Synlett',
 		time: '2012, 23 (14), 2142–2143',
 		link: 'https://doi.org/10.1055/s-0032-1317162',
