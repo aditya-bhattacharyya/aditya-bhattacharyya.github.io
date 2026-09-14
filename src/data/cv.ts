@@ -10,7 +10,7 @@ export const experiences = [
 	{
 		company: 'Biocon Bristol Myers Squibb R&D Center (BBRC), Syngene International Ltd.',
 		time: 'Oct 2024 – Jul 2026',
-		title: 'Principal Investigator (Team Lead) | Department of Chemical Synthesis',
+		title: 'Principal Investigator | Department of Chemical Synthesis',
 		location: 'Bengaluru, India',
 		description:
 			'Led synthetic chemistry research and discovery synthesis programs supporting pharmaceutical research.',
@@ -18,7 +18,7 @@ export const experiences = [
 	{
 		company: 'Biocon Bristol Myers Squibb R&D Center (BBRC), Syngene International Ltd.',
 		time: 'Oct 2022 – Sep 2024',
-		title: 'Senior Research Investigator (Team Lead) | Department of Discovery Synthesis',
+		title: 'Senior Research Investigator | Department of Discovery Synthesis',
 		location: 'Bengaluru, India',
 		description:
 			'Led discovery synthesis activities and supported synthetic chemistry programs for drug discovery.',
@@ -44,7 +44,7 @@ export const experiences = [
 export const education = [
 	{
 		school: 'Indian Institute of Technology Kanpur',
-		time: "2026, 30 (15), 1047–1060",
+		time: '2026',
 		degree: 'Ph.D. in Organic Chemistry',
 		location: 'Kanpur, India',
 		description:
@@ -120,7 +120,7 @@ export const publications = [
 		title: 'A Comprehensive Insight into the Synthetic Pathways to Tetrahydrobenzoxazepines, Tetrahydrobenzothiazepines, and Tetrahydrobenzoimidazoazepines',
 		authors: 'A. Bhattacharyya, A. K. Sahoo*',
 		journal: 'Current Organic Chemistry',
-		time: '2026',
+		time: "2026, 30 (15), 1047–1060",
 		link: 'https://doi.org/10.2174/0113852728394398251007105546',
 		abstract: '',
 	},
