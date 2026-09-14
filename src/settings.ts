@@ -5,7 +5,7 @@ export const profile = {
   author_name: 'Aditya Bhattacharyya', // Author name to be highlighted in papers section
   research_areas: [
     { title: 'Photoredox Catalysis', description: 'Visible-light-driven organic transformations and copper photoredox catalysis', field: 'chemistry' },
-    { title: 'Heterocyclic Synthesis', description: 'Small-ring heterocycle synthesis (aziridines, azetidines, quinoxalines) for drug discovery', field: 'chemistry' },
+    { title: 'Heterocyclic Synthesis', description: 'Small-ring heterocycle synthesis (aziridines, azetidines, donor-acceptor cyclopropanes) for drug discovery', field: 'chemistry' },
     { title: 'Reaction Technology', description: 'Flow photochemistry, continuous flow hydrogenations, and automated flash chromatography', field: 'chemistry' }
   ]
 }
