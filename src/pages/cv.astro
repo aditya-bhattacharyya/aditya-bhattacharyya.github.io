@@ -1,19 +1,29 @@
 ---
 import BaseLayout from "../layouts/Layout.astro";
-import TimeLineElement from "../components/cv/TimeLineHeader.astro";
 ---
 
 <BaseLayout title="CV | Dr. Aditya Bhattacharyya" sideBarActiveItemID="cv">
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Dr. Aditya Bhattacharyya</div>
-    <div class="text-xl font-medium mt-1">Associate Scientific Director | Chemical Synthesis</div>
-    <div class="text-sm opacity-70">Biocon Bristol Myers Squibb R&D Center (BBRC), Syngene International Ltd.</div>
+
+  <!-- Header -->
+  <div class="mb-8">
+    <div class="text-3xl w-full font-bold">
+      Dr. Aditya Bhattacharyya
+    </div>
+
+    <div class="text-xl font-medium mt-1">
+      Associate Scientific Director | Chemical Synthesis
+    </div>
+
+    <div class="text-sm opacity-70 mt-1">
+      Biocon Bristol Myers Squibb R&D Center (BBRC), Syngene International Ltd.
+    </div>
   </div>
 
-  <div class="mb-8">
-    <a 
-      href="/Bhattacharyya_CV.pdf" 
-      target="_blank" 
+  <!-- Download CV -->
+  <div class="mb-10">
+    <a
+      href="/Bhattacharyya_CV.pdf"
+      target="_blank"
       class="btn btn-primary"
     >
       📄 Download PDF CV
@@ -22,89 +32,217 @@ import TimeLineElement from "../components/cv/TimeLineHeader.astro";
 
   <!-- Executive Summary -->
   <div class="mb-10">
-    <div class="text-2xl w-full font-bold mb-2">Executive Summary</div>
+    <div class="text-2xl w-full font-bold mb-3">
+      Executive Summary
+    </div>
+
     <p class="text-justify leading-relaxed">
-      Organic & Synthetic Chemist with 6+ years of postdoctoral research experience across Germany and India, combined with 3+ years of pharmaceutical CRO technical leadership. Marie Skłodowska-Curie Individual Fellow (Score: 95.60%) with 37 peer-reviewed publications, 2 granted patents, and >1,800 citations. Specialized in photoredox catalysis, visible-light-driven transformations, and complex small-ring heterocycle synthesis for drug discovery.
+      Organic &amp; Synthetic Chemist with 6+ years of postdoctoral research
+      experience across Germany and India, combined with 3+ years of
+      pharmaceutical CRO technical leadership. Marie Skłodowska-Curie
+      Individual Fellow (Score: 95.60%) with 37 peer-reviewed publications,
+      2 granted patents, and &gt;1,800 citations. Specialized in photoredox
+      catalysis, visible-light-driven transformations, and complex small-ring
+      heterocycle synthesis for drug discovery.
     </p>
   </div>
 
   <!-- Professional Experience -->
   <div class="mb-5">
-    <div class="text-2xl w-full font-bold">Professional Experience</div>
+    <div class="text-2xl w-full font-bold">
+      Professional Experience
+    </div>
   </div>
 
-  <div class="time-line-container grid gap-4 mb-10">
-    <TimeLineElement
-      title="Associate Scientific Director"
-      subtitle="Aug 2026 – Present at Department of Chemical Synthesis, BBRC, Syngene International Ltd., India"
-    />
-    <TimeLineElement
-      title="Principal Investigator (Team Lead)"
-      subtitle="Oct 2024 – Jul 2026 at Department of Chemical Synthesis, BBRC, Syngene International Ltd., India"
-    />
-    <TimeLineElement
-      title="Senior Research Investigator (Team Lead)"
-      subtitle="Oct 2022 – Sep 2024 at Department of Discovery Synthesis, BBRC, Syngene International Ltd., India"
-    />
-    <TimeLineElement
-      title="Postdoctoral Researcher & Marie Curie Fellow"
-      subtitle="Apr 2018 – Sept 2022 at Universität Regensburg, Germany (Advisor: Prof. Dr. Oliver Reiser)"
-    >
-      Research focus: Copper photoredox-catalyzed ring-opening transformations of small ring aza-heterocycles and carbacycles.
-    </TimeLineElement>
-    <TimeLineElement
-      title="CSIR Research Associate & DST Project Scientist"
-      subtitle="Jun 2016 – Mar 2018 at IIT Kanpur, India (Advisor: Prof. Manas K. Ghorai)"
-    />
+  <div class="grid gap-4 mb-10">
+
+    <div class="card bg-base-200">
+      <div class="card-body">
+        <h3 class="card-title text-lg">
+          Associate Scientific Director
+        </h3>
+        <p class="text-sm opacity-70">
+          Aug 2026 – Present · Department of Chemical Synthesis, BBRC,
+          Syngene International Ltd., India
+        </p>
+      </div>
+    </div>
+
+    <div class="card bg-base-200">
+      <div class="card-body">
+        <h3 class="card-title text-lg">
+          Principal Investigator (Team Lead)
+        </h3>
+        <p class="text-sm opacity-70">
+          Oct 2024 – Jul 2026 · Department of Chemical Synthesis, BBRC,
+          Syngene International Ltd., India
+        </p>
+      </div>
+    </div>
+
+    <div class="card bg-base-200">
+      <div class="card-body">
+        <h3 class="card-title text-lg">
+          Senior Research Investigator (Team Lead)
+        </h3>
+        <p class="text-sm opacity-70">
+          Oct 2022 – Sep 2024 · Department of Discovery Synthesis, BBRC,
+          Syngene International Ltd., India
+        </p>
+      </div>
+    </div>
+
+    <div class="card bg-base-200">
+      <div class="card-body">
+        <h3 class="card-title text-lg">
+          Postdoctoral Researcher &amp; Marie Curie Fellow
+        </h3>
+        <p class="text-sm opacity-70">
+          Apr 2018 – Sep 2022 · Universität Regensburg, Germany
+          (Advisor: Prof. Dr. Oliver Reiser)
+        </p>
+
+        <p class="mt-2 text-sm leading-relaxed">
+          Research focus: Copper photoredox-catalyzed ring-opening
+          transformations of small ring aza-heterocycles and carbacycles.
+        </p>
+      </div>
+    </div>
+
+    <div class="card bg-base-200">
+      <div class="card-body">
+        <h3 class="card-title text-lg">
+          CSIR Research Associate &amp; DST Project Scientist
+        </h3>
+        <p class="text-sm opacity-70">
+          Jun 2016 – Mar 2018 · IIT Kanpur, India
+          (Advisor: Prof. Manas K. Ghorai)
+        </p>
+      </div>
+    </div>
+
   </div>
 
   <!-- Education -->
   <div class="mb-5">
-    <div class="text-2xl w-full font-bold">Education</div>
+    <div class="text-2xl w-full font-bold">
+      Education
+    </div>
   </div>
 
-  <div class="time-line-container grid gap-4 mb-10">
-    <TimeLineElement
-      title="Ph.D. in Organic Chemistry"
-      subtitle="2016 at Indian Institute of Technology (IIT) Kanpur, India"
-    >
-      Thesis: Ring-Opening Transformations of Activated Aziridines to Iminothiazolidines, Tetrahydropyrimidines, Oxime Amino Ethers, and Morpholines.
-    </TimeLineElement>
-    <TimeLineElement
-      title="M.Sc. in Organic Chemistry"
-      subtitle="2008 at Bengal Engineering and Science University (IIEST Shibpur), India"
-    >
-      Rank: First Class First (University Silver Medalist)
-    </TimeLineElement>
-    <TimeLineElement
-      title="B.Sc. (Honours) in Chemistry"
-      subtitle="2006 at Bangabasi College, University of Calcutta, India"
-    />
+  <div class="grid gap-4 mb-10">
+
+    <div class="card bg-base-200">
+      <div class="card-body">
+        <h3 class="card-title text-lg">
+          Ph.D. in Organic Chemistry
+        </h3>
+
+        <p class="text-sm opacity-70">
+          2016 · Indian Institute of Technology (IIT) Kanpur, India
+        </p>
+
+        <p class="mt-2 text-sm leading-relaxed">
+          Thesis: Ring-Opening Transformations of Activated Aziridines to
+          Iminothiazolidines, Tetrahydropyrimidines, Oxime Amino Ethers,
+          and Morpholines.
+        </p>
+      </div>
+    </div>
+
+    <div class="card bg-base-200">
+      <div class="card-body">
+        <h3 class="card-title text-lg">
+          M.Sc. in Organic Chemistry
+        </h3>
+
+        <p class="text-sm opacity-70">
+          2008 · Bengal Engineering and Science University (IIEST Shibpur), India
+        </p>
+
+        <p class="mt-2 text-sm">
+          Rank: First Class First (University Silver Medalist)
+        </p>
+      </div>
+    </div>
+
+    <div class="card bg-base-200">
+      <div class="card-body">
+        <h3 class="card-title text-lg">
+          B.Sc. (Honours) in Chemistry
+        </h3>
+
+        <p class="text-sm opacity-70">
+          2006 · Bangabasi College, University of Calcutta, India
+        </p>
+      </div>
+    </div>
+
   </div>
 
   <!-- Honors & Grants -->
   <div class="mb-5">
-    <div class="text-2xl w-full font-bold">Honors & Grants</div>
+    <div class="text-2xl w-full font-bold">
+      Honors &amp; Grants
+    </div>
   </div>
 
   <ul class="list-disc mx-6 mb-10 space-y-2">
-    <li><strong>Biocon-BMS Spot & Bravo Awards</strong> for productivity in BMS project execution & publication (2023–2026)</li>
-    <li><strong>Marie Skłodowska-Curie Individual Fellowship</strong> (€159,460.80), European Union Horizon 2020 (2018–2020)</li>
-    <li><strong>CAS Registry® Innovator Certificate</strong> for novel chemical substance innovations (2023)</li>
-    <li><strong>GATE Examination:</strong> Score 504, Percentile 98.43, All India Rank 102 (2008)</li>
-    <li><strong>CSIR-UGC NET:</strong> Qualified National Eligibility Test in Chemical Sciences (2007, 2008)</li>
+    <li>
+      <strong>Biocon-BMS Spot &amp; Bravo Awards</strong>
+      for productivity in BMS project execution &amp; publication (2023–2026)
+    </li>
+
+    <li>
+      <strong>Marie Skłodowska-Curie Individual Fellowship</strong>
+      (€159,460.80), European Union Horizon 2020 (2018–2020)
+    </li>
+
+    <li>
+      <strong>CAS Registry® Innovator Certificate</strong>
+      for novel chemical substance innovations (2023)
+    </li>
+
+    <li>
+      <strong>GATE Examination:</strong>
+      Score 504, Percentile 98.43, All India Rank 102 (2008)
+    </li>
+
+    <li>
+      <strong>CSIR-UGC NET:</strong>
+      Qualified National Eligibility Test in Chemical Sciences (2007, 2008)
+    </li>
   </ul>
 
   <!-- Professional Service & Memberships -->
   <div class="mb-5">
-    <div class="text-2xl w-full font-bold">Professional Service & Memberships</div>
+    <div class="text-2xl w-full font-bold">
+      Professional Service &amp; Memberships
+    </div>
   </div>
 
   <ul class="list-disc mx-6 mb-10 space-y-2">
-    <li><strong>European Commission Expert Evaluator:</strong> Reviewed 49 Horizon Europe MSCA proposals.</li>
-    <li><strong>Slovak Research Agency Evaluator:</strong> Reviewed 6 national RDI project proposals.</li>
-    <li><strong>Journal Peer Reviewer:</strong> 71 manuscripts for 23 journals (including <i>Angew. Chem. Int. Ed.</i>, <i>Org. Lett.</i>, <i>J. Org. Chem.</i>).</li>
-    <li><strong>Review Editor:</strong> Editorial Board of Organic Chemistry, <i>Frontiers in Chemistry</i>.</li>
-    <li><strong>Memberships:</strong> Royal Society of Chemistry (MRSC), Fellow of Indian Chemical Society (FICS), Marie Curie Alumni Association.</li>
+
+    <li>
+      <strong>Journal Peer Reviewer:</strong>
+      71 manuscripts for 23 journals (including
+      <i>Angew. Chem. Int. Ed.</i>,
+      <i>Org. Lett.</i>, and
+      <i>J. Org. Chem.</i>)
+    </li>
+
+    <li>
+      <strong>Review Editor:</strong>
+      Editorial Board of Organic Chemistry,
+      <i>Frontiers in Chemistry</i>
+    </li>
+
+    <li>
+      <strong>Memberships:</strong>
+      Royal Society of Chemistry (MRSC), Fellow of Indian Chemical Society
+      (FICS), Marie Curie Alumni Association
+    </li>
+
   </ul>
+
 </BaseLayout>
