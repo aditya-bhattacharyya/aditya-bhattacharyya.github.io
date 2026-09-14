@@ -84,30 +84,54 @@ const ALL_PAPERS = publications;
                 <!-- Publication content -->
                 <div class="flex-1 min-w-0">
 
-                  <!-- Year / citation information -->
-                  <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mb-2">
 
-                    <span class="text-xs uppercase tracking-wider font-semibold text-primary">
-                      {paper.time}
-                    </span>
+                  <!-- Journal -->
+                  <div class="mb-3">
 
-                    <span class="text-base-content/30">
-                      •
-                    </span>
-
-                    <span class="text-xs opacity-60 italic">
+                    <span
+                      class="inline-flex items-center
+                             px-3 py-1.5
+                             rounded-lg
+                             bg-primary/10
+                             border border-primary/30
+                             text-primary
+                             text-sm
+                             font-semibold
+                             tracking-wide"
+                    >
                       {paper.journal}
                     </span>
 
                   </div>
 
 
+                  <!-- Year / citation information -->
+                  <div
+                    class="flex flex-wrap items-center gap-x-2 gap-y-1
+                           mb-3
+                           text-xs
+                           opacity-60"
+                  >
+
+                    <span class="font-medium">
+                      {paper.time}
+                    </span>
+
+                  </div>
+
+
                   <!-- Title -->
-                  <h2 class="text-lg md:text-xl font-semibold leading-snug">
+                  <h2
+                    class="text-lg md:text-xl
+                           font-semibold
+                           leading-snug"
+                  >
 
                     <a
                       href={template.base + paper.link}
-                      class="no-underline hover:text-primary transition-colors"
+                      class="no-underline
+                             hover:text-primary
+                             transition-colors"
                     >
                       {paper.title}
                     </a>
@@ -116,7 +140,12 @@ const ALL_PAPERS = publications;
 
 
                   <!-- Authors -->
-                  <p class="text-sm md:text-base mt-3 leading-relaxed text-base-content/75">
+                  <p
+                    class="text-sm md:text-base
+                           mt-3
+                           leading-relaxed
+                           text-base-content/75"
+                  >
 
                     <span class="font-medium text-base-content/90">
                       Authors:
@@ -136,7 +165,8 @@ const ALL_PAPERS = publications;
                       href={paper.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="btn btn-sm btn-primary
+                      class="btn btn-sm
+                             btn-primary
                              text-primary-content
                              font-medium
                              px-4"
