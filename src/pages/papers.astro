@@ -2,52 +2,175 @@
 import Layout from "@/layouts/Layout.astro";
 import { publications } from "@/data/cv";
 import { highlightAuthor } from "@/lib/utils";
-import {template} from "@/settings";
+import { template } from "@/settings";
 
-const ALL_PAPERS = publications; // This will be replaced with dynamic data later
+const ALL_PAPERS = publications;
 ---
 
-<Layout title="Papers">
-  <div class="prose max-w-none">
-    <h1 class="text-3xl font-bold mb-8">Publications</h1>
+<Layout title="Publications">
 
-    <div class="space-y-8">
-      {
-        ALL_PAPERS.map((paper) => (
-          <div class="card bg-base-200">
-            <div class="card-body">
-              <h2 class="card-title text-xl">
-                <a href={template.base + paper.link} class="no-underline hover:text-accent">
-                  {paper.title}
-                </a>
-              </h2>
-              <p class="text-base mb-2">
-                <span class="font-medium">Authors:</span>{" "}
-                <span set:html={highlightAuthor(paper.authors)} />
-              </p>
-              <p class="text-sm mb-3">
-                <span class="italic">{paper.journal}</span> • {paper.time}
-              </p>
-              <p class="text-sm text-base-content/80">{paper.abstract}</p>
-              <div class="card-actions justify-end mt-4">
-                <a href={paper.link} class="btn btn-sm btn-secondary text-secondary-content">
-                  Read Paper
-                </a>
-              </div>
-            </div>
-          </div>
-        ))
-      }
-    </div>
+  <div class="max-w-none">
 
-    <div class="flex justify-center mt-8">
-      <div class="join">
-        <button class="join-item btn btn-sm">«</button>
-        <button class="join-item btn btn-sm">1</button>
-        <button class="join-item btn btn-sm btn-active">2</button>
-        <button class="join-item btn btn-sm">3</button>
-        <button class="join-item btn btn-sm">»</button>
+    <!-- Page header -->
+    <div class="mb-10">
+
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+
+        <div>
+
+          <p class="text-sm uppercase tracking-wider opacity-60 mb-2">
+            Research Output
+          </p>
+
+          <h1 class="text-3xl md:text-4xl font-bold">
+            Publications
+          </h1>
+
+        </div>
+
+        <div class="text-sm opacity-60">
+          {ALL_PAPERS.length} publications
+        </div>
+
       </div>
+
+      <div class="mt-5 max-w-3xl">
+
+        <p class="text-base leading-relaxed opacity-70">
+          Peer-reviewed research articles, reviews, and book chapters spanning
+          synthetic organic chemistry, photoredox catalysis, heterocyclic
+          chemistry, and reaction technology.
+        </p>
+
+      </div>
+
     </div>
+
+
+    <!-- Publication list -->
+    <div class="space-y-4">
+
+      {ALL_PAPERS.map((paper, index) => {
+
+        const serialNumber = ALL_PAPERS.length - index;
+
+        return (
+
+          <article
+            class="group relative rounded-2xl bg-base-200 border border-base-300/50
+                   hover:border-primary/40 hover:shadow-sm
+                   transition-all duration-200"
+          >
+
+            <div class="p-5 md:p-6">
+
+              <div class="flex gap-4 md:gap-6">
+
+                <!-- Reverse serial number -->
+                <div class="shrink-0 w-10 md:w-14 pt-1">
+
+                  <div
+                    class="text-2xl md:text-3xl font-bold
+                           text-base-content/20
+                           group-hover:text-primary/60
+                           transition-colors"
+                  >
+                    {String(serialNumber).padStart(2, "0")}
+                  </div>
+
+                </div>
+
+
+                <!-- Publication content -->
+                <div class="flex-1 min-w-0">
+
+                  <!-- Year / citation information -->
+                  <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mb-2">
+
+                    <span class="text-xs uppercase tracking-wider font-semibold text-primary">
+                      {paper.time}
+                    </span>
+
+                    <span class="text-base-content/30">
+                      •
+                    </span>
+
+                    <span class="text-xs opacity-60 italic">
+                      {paper.journal}
+                    </span>
+
+                  </div>
+
+
+                  <!-- Title -->
+                  <h2 class="text-lg md:text-xl font-semibold leading-snug">
+
+                    <a
+                      href={template.base + paper.link}
+                      class="no-underline hover:text-primary transition-colors"
+                    >
+                      {paper.title}
+                    </a>
+
+                  </h2>
+
+
+                  <!-- Authors -->
+                  <p class="text-sm md:text-base mt-3 leading-relaxed text-base-content/75">
+
+                    <span class="font-medium text-base-content/90">
+                      Authors:
+                    </span>
+
+                    {" "}
+
+                    <span set:html={highlightAuthor(paper.authors)} />
+
+                  </p>
+
+
+                  <!-- Bottom action -->
+                  <div class="mt-5 flex justify-end">
+
+                    <a
+                      href={paper.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn btn-sm btn-primary
+                             text-primary-content
+                             font-medium
+                             px-4"
+                    >
+                      Read Paper ↗
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        );
+
+      })}
+
+    </div>
+
+
+    <!-- Closing note -->
+    <div class="mt-10 pt-6 border-t border-base-300/60">
+
+      <p class="text-sm opacity-50 text-center">
+        Graphical abstracts and additional publication details will be added
+        progressively.
+      </p>
+
+    </div>
+
   </div>
+
 </Layout>
