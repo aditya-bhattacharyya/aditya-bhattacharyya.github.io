@@ -1,37 +1,348 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import Layout from "../layouts/Layout.astro";
+import { profile } from "@/settings";
+import { publications } from "@/data/cv";
+import ProfilePictures from "@/assets/profile_pictures.jpg";
 
-import { profile } from '@/settings'
-import { publications } from '@/data/cv'
-import ProfilePictures from '@/assets/profile_pictures.jpg'
-import Hero from '@/components/ui/Hero.astro'
-import Grid from '@/components/ui/Grid.astro'
-import ArticleList from '@/components/ui/ArticleList.astro'
-
-const { fullName, title, institute, research_areas } = profile
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const recentPublications = publications.slice(0, 5);
 ---
 
-<Layout>
-	<!-- Hero Section -->
-	<section class='flex items-center gap-12 border-b pb-12'>
-		<Hero
-			fullName={fullName}
-			title={title}
-			institute={institute}
-			profilePicture={ProfilePictures}
-		/>
-	</section>
+<Layout title="Dr. Aditya Bhattacharyya | Synthetic Organic Chemist">
 
-	<!-- Research Areas -->
-	<section class='py-12 border-b'>
-		<Grid gridTitle='Research Areas' gridItems={research_areas} />
-	</section>
+  <!-- Hero Section -->
+  <section class="py-8 md:py-14">
 
-	<!-- Recent Publications -->
-	<section class='py-12 border-t'>
-		<ArticleList listTitle='Recent Publications' listItems={publications} />
-	</section>
+    <div class="grid md:grid-cols-[1fr_auto] gap-10 items-center">
+
+      <div>
+
+        <p class="text-sm font-medium uppercase tracking-wider opacity-60 mb-3">
+          Synthetic Organic Chemistry · Photochemistry · Drug Discovery
+        </p>
+
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">
+          Dr. Aditya Bhattacharyya
+        </h1>
+
+        <h2 class="text-xl md:text-2xl font-medium mb-2">
+          Associate Scientific Director | Chemical Synthesis
+        </h2>
+
+        <p class="text-base opacity-70 mb-6">
+          Biocon Bristol Myers Squibb R&amp;D Center (BBRC),
+          Syngene International Ltd.
+        </p>
+
+        <p class="text-lg leading-relaxed max-w-3xl mb-8">
+          Synthetic organic chemist with research and industrial experience
+          spanning photoredox catalysis, visible-light-driven transformations,
+          small-ring heterocycle chemistry, synthetic methodology, and reaction
+          technology for pharmaceutical discovery.
+        </p>
+
+        <div class="flex flex-wrap gap-3">
+
+          <a
+            href="/research"
+            class="btn btn-primary"
+          >
+            Research
+          </a>
+
+          <a
+            href="/papers"
+            class="btn btn-outline"
+          >
+            Publications
+          </a>
+
+          <a
+            href="/cv"
+            class="btn btn-outline"
+          >
+            Curriculum Vitae
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- Profile Picture -->
+      <div class="flex justify-center md:justify-end">
+
+        <div class="avatar">
+          <div class="w-52 md:w-60 rounded-full ring ring-base-300 ring-offset-base-100 ring-offset-4">
+            <img
+              src={ProfilePictures.src}
+              alt="Dr. Aditya Bhattacharyya"
+            />
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Career Highlights -->
+  <section class="border-y py-8 my-6">
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+
+      <div>
+        <div class="text-3xl font-bold">
+          37
+        </div>
+        <div class="text-sm opacity-70 mt-1">
+          Peer-reviewed publications
+        </div>
+      </div>
+
+      <div>
+        <div class="text-3xl font-bold">
+          1,800+
+        </div>
+        <div class="text-sm opacity-70 mt-1">
+          Citations
+        </div>
+      </div>
+
+      <div>
+        <div class="text-3xl font-bold">
+          18
+        </div>
+        <div class="text-sm opacity-70 mt-1">
+          h-index
+        </div>
+      </div>
+
+      <div>
+        <div class="text-3xl font-bold">
+          2
+        </div>
+        <div class="text-sm opacity-70 mt-1">
+          Granted patents
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Research Areas -->
+  <section class="py-12">
+
+    <div class="flex items-end justify-between gap-4 mb-8">
+
+      <div>
+        <p class="text-sm uppercase tracking-wider opacity-60 mb-2">
+          Research
+        </p>
+
+        <h2 class="text-3xl font-bold">
+          Research Areas
+        </h2>
+      </div>
+
+      <a
+        href="/research"
+        class="text-sm font-medium hover:text-accent"
+      >
+        View research →
+      </a>
+
+    </div>
+
+
+    <div class="grid md:grid-cols-2 gap-6">
+
+      {
+        profile.research_areas.map((area) => (
+          <div class="card bg-base-200">
+
+            <div class="card-body">
+
+              <h3 class="card-title">
+                {area.title}
+              </h3>
+
+              <p class="leading-relaxed">
+                {area.description}
+              </p>
+
+            </div>
+
+          </div>
+        ))
+      }
+
+    </div>
+
+  </section>
+
+
+  <!-- Research Focus -->
+  <section class="py-12 border-t">
+
+    <div class="max-w-4xl">
+
+      <p class="text-sm uppercase tracking-wider opacity-60 mb-2">
+        Research Focus
+      </p>
+
+      <h2 class="text-3xl font-bold mb-6">
+        From fundamental reactivity to practical synthesis
+      </h2>
+
+      <p class="text-lg leading-relaxed mb-5">
+        My research combines fundamental synthetic chemistry with practical
+        reaction development. I am particularly interested in discovering
+        new reactivity, understanding reaction mechanisms, and translating
+        these insights into efficient methods for the synthesis of complex
+        organic molecules.
+      </p>
+
+      <p class="text-lg leading-relaxed">
+        My work spans academic research and pharmaceutical discovery,
+        connecting modern synthetic methodology with practical challenges
+        in the preparation and diversification of small molecules.
+      </p>
+
+      <div class="mt-7">
+        <a
+          href="/research"
+          class="btn btn-primary"
+        >
+          Explore my research
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Recent Publications -->
+  <section class="py-12 border-t">
+
+    <div class="flex items-end justify-between gap-4 mb-8">
+
+      <div>
+        <p class="text-sm uppercase tracking-wider opacity-60 mb-2">
+          Selected Work
+        </p>
+
+        <h2 class="text-3xl font-bold">
+          Recent Publications
+        </h2>
+      </div>
+
+      <a
+        href="/papers"
+        class="text-sm font-medium hover:text-accent"
+      >
+        View all publications →
+      </a>
+
+    </div>
+
+
+    <div class="space-y-6">
+
+      {
+        recentPublications.map((paper, index) => (
+          <article class="border-b pb-6">
+
+            <div class="flex gap-4">
+
+              <div class="text-sm opacity-50 pt-1 shrink-0">
+                {index + 1}
+              </div>
+
+              <div>
+
+                <h3 class="text-lg font-semibold leading-snug mb-2">
+                  {paper.title}
+                </h3>
+
+                <p class="text-sm leading-relaxed mb-2">
+                  {paper.authors}
+                </p>
+
+                <p class="text-sm opacity-70">
+                  <span class="italic">{paper.journal}</span>
+                  {paper.time && ` · ${paper.time}`}
+                </p>
+
+              </div>
+
+            </div>
+
+          </article>
+        ))
+      }
+
+    </div>
+
+
+    <div class="mt-8">
+      <a
+        href="/papers"
+        class="btn btn-outline"
+      >
+        Browse all publications
+      </a>
+    </div>
+
+  </section>
+
+
+  <!-- Call to Action -->
+  <section class="py-12 border-t">
+
+    <div class="card bg-base-200">
+
+      <div class="card-body md:flex-row md:items-center md:justify-between gap-6">
+
+        <div>
+
+          <h2 class="text-2xl font-bold mb-2">
+            Explore my academic and professional work
+          </h2>
+
+          <p class="opacity-70">
+            Research interests, publications, professional experience,
+            and curriculum vitae.
+          </p>
+
+        </div>
+
+        <div class="flex flex-wrap gap-3 shrink-0">
+
+          <a
+            href="/cv"
+            class="btn btn-primary"
+          >
+            View CV
+          </a>
+
+          <a
+            href="/papers"
+            class="btn btn-outline"
+          >
+            Publications
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
 </Layout>
