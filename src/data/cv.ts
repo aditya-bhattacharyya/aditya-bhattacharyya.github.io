@@ -263,7 +263,7 @@ export const publications = [
 	{
 		title: 'Stereospecific Syntheses of Enaminonitriles and β-Enaminoesters via Domino Ring-Opening Cyclization (DROC) of Activated Cyclopropanes with Pronucleophilic Malononitriles',
 		authors: 'A. Saha, A. Bhattacharyya, R. Talukdar, M. K. Ghorai',
-		journal: 'Journal of Organic Chemistry',
+		journal: 'The Journal of Organic Chemistry',
 		time: '2018, 83 (4), 2131–2144',
 		link: 'https://doi.org/10.1021/acs.joc.7b03033',
 		abstract: '',
@@ -303,7 +303,7 @@ export const publications = [
 	{
 		title: 'A Stereoselective Route to Tetrahydrobenzoxazepines and Tetrahydrobenzodiazepines via Ring-Opening and Aza-Michael Addition of Activated Aziridines with 2-Hydroxyphenyl and 2-Aminophenyl Acrylates',
 		authors: 'C. K. Shahi, A. Bhattacharyya, Y. Nanaji, M. K. Ghorai',
-		journal: 'Journal of Organic Chemistry',
+		journal: 'The Journal of Organic Chemistry',
 		time: '2017, 82 (1), 37–47',
 		link: 'https://doi.org/10.1021/acs.joc.6b01919',
 		abstract: '',
@@ -311,7 +311,7 @@ export const publications = [
 	{
 		title: 'Stereospecific Synthesis of 2-Iminothiazolidines via Domino Ring-Opening Cyclization of Activated Aziridines with Aryl- and Alkyl Isothiocyanates',
 		authors: 'A. Bhattacharyya, C. V. Kavitha, M. K. Ghorai',
-		journal: 'Journal of Organic Chemistry',
+		journal: 'The Journal of Organic Chemistry',
 		time: '2016, 81 (15), 6433–6443',
 		link: 'https://doi.org/10.1021/acs.joc.6b01551',
 		abstract: '',
@@ -343,7 +343,7 @@ export const publications = [
 	{
 		title: 'Syntheses of Imidazo-, Oxa- and Thiazepine Ring Systems via Ring-Opening of Aziridines/Cu-Catalyzed C–N/C–C Bond Formation',
 		authors: 'M. K. Ghorai, A. K. Sahoo, A. Bhattacharyya',
-		journal: 'Journal of Organic Chemistry',
+		journal: 'The Journal of Organic Chemistry',
 		time: '2014, 79 (14), 6468–6479',
 		link: 'https://doi.org/10.1021/jo500888j',
 		abstract: '',
@@ -375,7 +375,7 @@ export const publications = [
 	{
 		title: 'Syntheses of Chiral β- and γ-Amino Ethers, Morpholines, and Their Homologues via Nucleophilic Ring-Opening of Chiral Activated Aziridines and Azetidines',
 		authors: 'M. K. Ghorai, D. Shukla, A. Bhattacharyya',
-		journal: 'Journal of Organic Chemistry',
+		journal: 'The Journal of Organic Chemistry',
 		time: '2012, 77 (8), 3740–3753',
 		link: 'https://doi.org/10.1021/jo300002u',
 		abstract: '',
