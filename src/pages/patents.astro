@@ -1,0 +1,73 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { patents } from "../data/patents";
+---
+
+<Layout title="Patents | Dr. Aditya Bhattacharyya">
+
+  <div class="max-w-none">
+
+    <!-- Page Header -->
+    <div class="mb-10">
+
+      <p class="text-sm uppercase tracking-wider opacity-60 mb-2">
+        Intellectual Property
+      </p>
+
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">
+        Patents
+      </h1>
+
+      <p class="text-lg leading-relaxed max-w-4xl">
+        Granted patent contributions arising from research in synthetic
+        organic chemistry and heterocyclic synthesis.
+      </p>
+
+    </div>
+
+
+    <!-- Patent List -->
+    <div class="space-y-0">
+
+      {
+        patents.map((patent, index) => (
+          <article class="border-t py-7">
+
+            <div class="grid md:grid-cols-[50px_1fr] gap-3 md:gap-5">
+
+              <!-- Patent Number -->
+              <div class="text-lg font-medium opacity-40">
+                {index + 1}.
+              </div>
+
+
+              <!-- Patent Details -->
+              <div>
+
+                <h2 class="text-lg md:text-xl font-semibold leading-snug mb-3">
+                  {patent.title}
+                </h2>
+
+                <p class="text-sm leading-relaxed mb-2">
+                  <strong>Inventors:</strong> {patent.inventors}
+                </p>
+
+                <p class="text-sm opacity-70">
+                  {patent.patent} · {patent.status} · {patent.year}
+                </p>
+
+              </div>
+
+            </div>
+
+          </article>
+        ))
+      }
+
+      <div class="border-t"></div>
+
+    </div>
+
+  </div>
+
+</Layout>
