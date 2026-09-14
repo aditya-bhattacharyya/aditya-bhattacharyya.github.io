@@ -229,27 +229,11 @@ export const publications = [
 		abstract: '',
 	},
 	{
-		title: 'Process for the Synthesis of 3-Spiropiperidino Indolenines',
-		authors: 'S. Pradhan, C. K. Shahi, A. Bhattacharyya, M. K. Ghorai',
-		journal: 'Indian Patent Application IN 201811022519',
-		time: 'Granted 2019',
-		link: '',
-		abstract: '',
-	},
-	{
 		title: 'Copper’s Rapid Ascent in Visible-Light Photoredox Catalysis',
 		authors: 'A. Hossain, A. Bhattacharyya, O. Reiser',
 		journal: 'Science',
 		time: '2019, 364 (6439), eaav9713',
 		link: 'https://doi.org/10.1126/science.aav9713',
-		abstract: '',
-	},
-	{
-		title: 'Process for the Synthesis of Quinoxalines',
-		authors: 'C. K. Shahi, S. Pradhan, A. Bhattacharyya, M. K. Ghorai',
-		journal: 'Indian Patent Application IN 201711016754',
-		time: 'Granted 2019',
-		link: '',
 		abstract: '',
 	},
 	{
