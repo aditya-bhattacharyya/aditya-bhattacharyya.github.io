@@ -68,6 +68,27 @@ const ALL_PAPERS = publications;
 
         const serialNumber = ALL_PAPERS.length - index;
 
+        /*
+         * The existing paper.time values are formatted like:
+         *
+         * 2026
+         * 2025, 367 (15), e9606
+         * 2024, 35 (20), 2459–2464
+         *
+         * We separate the year and volume so that:
+         *   year   → bold
+         *   volume → italic
+         *   issue/pages → normal
+         */
+
+        const timeMatch = paper.time.match(
+          /^(\d{4})(?:,\s*(\d+)(.*))?$/
+        );
+
+        const year = timeMatch?.[1] ?? paper.time;
+        const volume = timeMatch?.[2] ?? "";
+        const remainingReference = timeMatch?.[3] ?? "";
+
         return (
 
           <article
@@ -118,10 +139,27 @@ const ALL_PAPERS = publications;
                   <div
                     class="mb-3
                            text-xs md:text-sm
-                           font-medium
                            text-base-content/55"
                   >
-                    {paper.time}
+
+                    <span class="font-bold">
+                      {year}
+                    </span>
+
+                    {volume && (
+                      <>
+                        <span class="mx-1">,</span>
+
+                        <span class="italic">
+                          {volume}
+                        </span>
+
+                        <span>
+                          {remainingReference}
+                        </span>
+                      </>
+                    )}
+
                   </div>
 
 
