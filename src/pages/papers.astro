@@ -72,8 +72,8 @@ const ALL_PAPERS = publications;
                   <div
                     class="text-2xl md:text-3xl font-bold
                            text-base-content/20
-                           group-hover:text-primary/60
-                           transition-colors"
+                           group-hover:text-accent
+                           transition-colors duration-200"
                   >
                     {String(serialNumber).padStart(2, "0")}
                   </div>
@@ -85,32 +85,29 @@ const ALL_PAPERS = publications;
                 <div class="flex-1 min-w-0">
 
 
-                  <!-- Journal + reference -->
-                  <div class="mb-3 leading-relaxed">
+                  <!-- Journal -->
+                  <div class="mb-2 leading-relaxed">
 
                     <span
                       class="text-base md:text-lg
                              font-semibold
-                             text-primary"
+                             italic
+                             text-secondary"
                     >
                       {paper.journal}
                     </span>
 
-                    <span
-                      class="mx-2
-                             text-base-content/30"
-                    >
-                      ·
-                    </span>
+                  </div>
 
-                    <span
-                      class="text-sm md:text-base
-                             font-medium
-                             text-base-content/70"
-                    >
-                      {paper.time}
-                    </span>
 
+                  <!-- Bibliographic reference -->
+                  <div
+                    class="mb-3
+                           text-xs md:text-sm
+                           font-medium
+                           text-base-content/55"
+                  >
+                    {paper.time}
                   </div>
 
 
@@ -124,8 +121,9 @@ const ALL_PAPERS = publications;
                     <a
                       href={template.base + paper.link}
                       class="no-underline
-                             hover:text-primary
-                             transition-colors"
+                             text-base-content
+                             hover:text-accent
+                             transition-colors duration-200"
                     >
                       {paper.title}
                     </a>
@@ -138,7 +136,7 @@ const ALL_PAPERS = publications;
                     class="text-sm md:text-base
                            mt-3
                            leading-relaxed
-                           text-base-content/75"
+                           text-base-content/70"
                   >
 
                     <span
@@ -163,8 +161,8 @@ const ALL_PAPERS = publications;
                       target="_blank"
                       rel="noopener noreferrer"
                       class="btn btn-sm
-                             btn-primary
-                             text-primary-content
+                             btn-secondary
+                             text-secondary-content
                              font-medium
                              px-4"
                     >
