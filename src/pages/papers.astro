@@ -85,35 +85,29 @@ const ALL_PAPERS = publications;
                 <div class="flex-1 min-w-0">
 
 
-                  <!-- Journal -->
-                  <div class="mb-3">
+                  <!-- Journal + reference -->
+                  <div class="mb-3 leading-relaxed">
 
                     <span
-                      class="inline-flex items-center
-                             px-3 py-1.5
-                             rounded-lg
-                             bg-primary/10
-                             border border-primary/30
-                             text-primary
-                             text-sm
+                      class="text-base md:text-lg
                              font-semibold
-                             tracking-wide"
+                             text-primary"
                     >
                       {paper.journal}
                     </span>
 
-                  </div>
+                    <span
+                      class="mx-2
+                             text-base-content/30"
+                    >
+                      ·
+                    </span>
 
-
-                  <!-- Year / citation information -->
-                  <div
-                    class="flex flex-wrap items-center gap-x-2 gap-y-1
-                           mb-3
-                           text-xs
-                           opacity-60"
-                  >
-
-                    <span class="font-medium">
+                    <span
+                      class="text-sm md:text-base
+                             font-medium
+                             text-base-content/70"
+                    >
                       {paper.time}
                     </span>
 
@@ -147,7 +141,10 @@ const ALL_PAPERS = publications;
                            text-base-content/75"
                   >
 
-                    <span class="font-medium text-base-content/90">
+                    <span
+                      class="font-medium
+                             text-base-content/90"
+                    >
                       Authors:
                     </span>
 
