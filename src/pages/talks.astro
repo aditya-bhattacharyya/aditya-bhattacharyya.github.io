@@ -9,18 +9,6 @@ const researchTalks = [
     mode: "Virtual",
   },
   {
-    date: "November 2024",
-    event: "BASF Chemicals India Pvt. Ltd., Innovation Campus",
-    location: "Navi Mumbai, India",
-    mode: "In-person",
-  },
-  {
-    date: "October 2023",
-    event: "Sygnature Discovery",
-    location: "Nottingham, England",
-    mode: "Virtual",
-  },
-  {
     date: "June 2023",
     event: "National Chemical Laboratory (NCL)",
     location: "Pune, India",
@@ -180,6 +168,7 @@ const careerTalks = [
 
     <!-- Page introduction -->
     <div class="mb-12">
+
       <p class="text-sm uppercase tracking-wider opacity-60 mb-2">
         Presentations & Professional Engagement
       </p>
@@ -193,6 +182,7 @@ const careerTalks = [
         career-development engagements spanning academic research,
         pharmaceutical science, and the transition from academia to industry.
       </p>
+
     </div>
 
 
@@ -203,6 +193,7 @@ const careerTalks = [
     <section class="mb-16">
 
       <div class="flex items-end justify-between gap-4 mb-7">
+
         <div>
           <p class="text-xs uppercase tracking-widest opacity-50 mb-1">
             Scientific Presentations
@@ -216,24 +207,29 @@ const careerTalks = [
         <div class="text-sm opacity-50 hidden sm:block">
           {researchTalks.length} presentations
         </div>
+
       </div>
 
 
       <div class="space-y-4">
 
         {researchTalks.map((talk) => (
+
           <article
             class="card bg-base-200 border border-base-300/50 hover:border-base-content/20 transition-colors"
           >
+
             <div class="card-body p-5 md:p-6">
 
-              <div class="flex flex-col md:flex-row md:items-start gap-4">
+              <div class="flex flex-col md:flex-row md:items-center gap-4">
 
                 <!-- Date -->
                 <div class="md:w-28 shrink-0">
+
                   <div class="text-sm font-semibold opacity-60">
                     {talk.date}
                   </div>
+
                 </div>
 
 
@@ -255,13 +251,21 @@ const careerTalks = [
                 <div class="shrink-0">
 
                   {talk.mode === "In-person" ? (
-                    <span class="badge badge-primary badge-outline whitespace-nowrap">
+
+                    <span
+                      class="badge bg-primary text-primary-content border-primary font-semibold whitespace-nowrap px-3 py-3"
+                    >
                       In-person
                     </span>
+
                   ) : (
-                    <span class="badge badge-secondary badge-outline whitespace-nowrap">
+
+                    <span
+                      class="badge bg-secondary text-secondary-content border-secondary font-semibold whitespace-nowrap px-3 py-3"
+                    >
                       Virtual
                     </span>
+
                   )}
 
                 </div>
@@ -269,7 +273,9 @@ const careerTalks = [
               </div>
 
             </div>
+
           </article>
+
         ))}
 
       </div>
@@ -284,7 +290,9 @@ const careerTalks = [
     <section class="mb-16">
 
       <div class="flex items-end justify-between gap-4 mb-7">
+
         <div>
+
           <p class="text-xs uppercase tracking-widest opacity-50 mb-1">
             Conference Contributions
           </p>
@@ -292,20 +300,24 @@ const careerTalks = [
           <h2 class="text-2xl md:text-3xl font-bold">
             Poster Presentations
           </h2>
+
         </div>
 
         <div class="text-sm opacity-50 hidden sm:block">
           {posterPresentations.length} presentations
         </div>
+
       </div>
 
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
         {posterPresentations.map((poster) => (
+
           <article
             class="card bg-base-200 border border-base-300/50 hover:border-base-content/20 transition-colors"
           >
+
             <div class="card-body p-5">
 
               <div class="flex items-start justify-between gap-3 mb-3">
@@ -314,22 +326,28 @@ const careerTalks = [
                   {poster.date}
                 </span>
 
-                <span class="badge badge-accent badge-outline whitespace-nowrap">
+                <span
+                  class="badge bg-accent text-accent-content border-accent font-semibold whitespace-nowrap px-3 py-3"
+                >
                   {poster.type}
                 </span>
 
               </div>
 
+
               <h3 class="font-semibold leading-snug">
                 {poster.event}
               </h3>
+
 
               <p class="text-sm opacity-60 mt-2">
                 {poster.location}
               </p>
 
             </div>
+
           </article>
+
         ))}
 
       </div>
@@ -359,9 +377,11 @@ const careerTalks = [
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 
         {careerTalks.map((talk) => (
+
           <article
             class="card bg-base-200 border border-base-300/50 hover:border-base-content/20 transition-colors"
           >
+
             <div class="card-body p-6">
 
               <div class="flex items-center justify-between gap-3 mb-5">
@@ -370,21 +390,28 @@ const careerTalks = [
                   {talk.date}
                 </span>
 
-                <span class="badge badge-secondary badge-outline whitespace-nowrap">
+
+                <span
+                  class="badge bg-secondary text-secondary-content border-secondary font-semibold whitespace-nowrap px-3 py-3"
+                >
                   {talk.mode}
                 </span>
 
               </div>
 
+
               <h3 class="text-lg font-semibold leading-snug">
                 {talk.event}
               </h3>
+
 
               <p class="text-sm opacity-60 mt-3">
                 {talk.host}
               </p>
 
+
               {talk.link && (
+
                 <div class="mt-5">
 
                   <a
@@ -397,10 +424,13 @@ const careerTalks = [
                   </a>
 
                 </div>
+
               )}
 
             </div>
+
           </article>
+
         ))}
 
       </div>
