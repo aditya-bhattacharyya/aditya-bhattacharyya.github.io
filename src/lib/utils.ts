@@ -6,25 +6,36 @@ export function highlightAuthor(authors: string): string {
   const author = profile.author_name
 
   /*
-   * Highlight only the user's own name.
+   * Authorship formatting:
    *
-   * Publication markers such as:
-   *   *  = corresponding author
-   *   †  = equal contribution
+   * Your name + *  → blue + bold
+   * Your name      → bold, normal text color
    *
-   * remain outside the highlighted name.
+   * Other authors are left unchanged.
+   *
+   * * = Corresponding author
+   * † = Equal contribution
    */
 
   const escapedAuthor = author.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
   const authorRegex = new RegExp(
-    `(${escapedAuthor})(?=\\*|†|$)`,
+    `(${escapedAuthor})(\\*?†?)`,
     'g'
   )
 
   return authors.replace(
     authorRegex,
-    `<span class='font-medium underline'>$1</span>`
+    (match, name, markers) => {
+
+      if (markers.includes('*')) {
+
+        return `<span class="font-bold text-info">${name}${markers}</span>`
+
+      }
+
+      return `<span class="font-bold text-inherit">${name}${markers}</span>`
+    }
   )
 }
 
