@@ -117,22 +117,6 @@ export const skills = [
 
 export const publications = [
 	{
-		title: 'DCPDC as an Efficient Carboxylic Acid Activator for the Synthesis of tert-Butyl and Sterically Hindered Esters',
-		authors: 'R. D. Yadav, M. R. Vippila, A. Bhattacharyya, M. Muthukumar, R. Tester, S. Karad, A. Patra',
-		journal: 'Manuscript submitted to Synthesis',
-		time: '2026',
-		link: '',
-		abstract: '',
-	},
-	{
-		title: 'Photoredox-Catalyzed S-Perfluoroalkylation of Aromatic and Heteroaromatic Thiols: Enabling Access to Long-Chain Fluoroalkyl Sulfides',
-		authors: 'A. Bhattacharyya, M. Ellanti, S. Ramaswamy, M. P. Sarmah, S. N. Karad, M. Muthukumar, R. Tester',
-		journal: 'Manuscript submitted to Journal of Organic Chemistry',
-		time: '2026',
-		link: '',
-		abstract: '',
-	},
-	{
 		title: 'A Comprehensive Insight into the Synthetic Pathways to Tetrahydrobenzoxazepines, Tetrahydrobenzothiazepines, and Tetrahydrobenzoimidazoazepines',
 		authors: 'A. Bhattacharyya, A. K. Sahoo',
 		journal: 'Current Organic Chemistry',
