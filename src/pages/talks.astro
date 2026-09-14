@@ -1,59 +1,409 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const researchTalks = [
+  {
+    date: "March 2026",
+    event: "10th International Conference on Catalysis and Chemical Engineering (CCE-2026)",
+    location: "Boston, USA",
+    mode: "Virtual",
+  },
+  {
+    date: "November 2024",
+    event: "BASF Chemicals India Pvt. Ltd., Innovation Campus",
+    location: "Navi Mumbai, India",
+    mode: "In-person",
+  },
+  {
+    date: "October 2023",
+    event: "Sygnature Discovery",
+    location: "Nottingham, England",
+    mode: "Virtual",
+  },
+  {
+    date: "June 2023",
+    event: "National Chemical Laboratory (NCL)",
+    location: "Pune, India",
+    mode: "In-person",
+  },
+  {
+    date: "August 2022",
+    event: "Indian Institute of Technology Mandi",
+    location: "Himachal Pradesh, India",
+    mode: "Virtual",
+  },
+  {
+    date: "June 2022",
+    event: "National Institute of Pharmaceutical Education and Research (NIPER)",
+    location: "S.A.S. Nagar, India",
+    mode: "Virtual",
+  },
+  {
+    date: "June 2022",
+    event: "Biocon Bristol Myers Squibb Research & Development Center (BBRC), Syngene",
+    location: "Bengaluru, India",
+    mode: "Virtual",
+  },
+  {
+    date: "May 2022",
+    event: "CSIR-Indian Institute of Integrative Medicine (IIIM)",
+    location: "Jammu, India",
+    mode: "Virtual",
+  },
+  {
+    date: "December 2021",
+    event: "Indian Institute of Technology Bombay",
+    location: "Mumbai, India",
+    mode: "Virtual",
+  },
+  {
+    date: "June 2021",
+    event: "Indian Association for the Cultivation of Science (IACS)",
+    location: "Kolkata, India",
+    mode: "Virtual",
+  },
+  {
+    date: "April 2021",
+    event: "CSIR-Central Salt & Marine Chemicals Research Institute (CSIR-CSMCRI)",
+    location: "Bhavnagar, India",
+    mode: "Virtual",
+  },
+  {
+    date: "February 2021",
+    event: "Tata Institute of Fundamental Research (TIFR)",
+    location: "Mumbai, India",
+    mode: "Virtual",
+  },
+  {
+    date: "December 2017",
+    event: "Drug Development and Discovery Centre, University of Cape Town",
+    location: "Cape Town, South Africa",
+    mode: "Virtual",
+  },
+  {
+    date: "2012",
+    event: "8th Junior-National Organic Symposium Trust Conference for Research Scholars",
+    location: "IIT Guwahati, India",
+    mode: "In-person",
+  },
+  {
+    date: "2009",
+    event: "Asymmetric Desymmetrization Reactions in Organic Synthesis",
+    location: "Graduate Seminar, IIT Kanpur, India",
+    mode: "In-person",
+  },
+];
+
+const posterPresentations = [
+  {
+    date: "March 2025",
+    event: "BBRC Science Fest",
+    location: "Syngene International Ltd., Bengaluru, India",
+    type: "E-Poster",
+  },
+  {
+    date: "December 2024",
+    event: "7th International Symposium on C–H Activation (ISCHA-7)",
+    location: "IIT Bombay, Mumbai, India",
+    type: "Poster",
+  },
+  {
+    date: "2021",
+    event: "Exploratory Photochemistry: Light Creates Structure",
+    location: "Leopoldina, Halle, Germany",
+    type: "Poster",
+  },
+  {
+    date: "2016",
+    event: "21st International Conference on Organic Synthesis",
+    location: "IIT Bombay, Mumbai, India",
+    type: "Poster",
+  },
+  {
+    date: "2014",
+    event: "Overcoming the Bottlenecks in Drug Discovery & Development",
+    location: "RSC Conference, Gurgaon, India",
+    type: "Poster",
+  },
+  {
+    date: "2014",
+    event: "6th International Conference on Drug Discovery and Therapy",
+    location: "Dubai, UAE",
+    type: "Poster",
+  },
+  {
+    date: "2013",
+    event: "14th Tetrahedron Symposium: Challenges in Organic & Bioorganic Chemistry",
+    location: "Vienna, Austria",
+    type: "Poster",
+  },
+  {
+    date: "2013",
+    event: "5th International Symposium on Drug Development for Orphan/Neglected Diseases",
+    location: "CDRI Lucknow, India",
+    type: "Poster",
+  },
+  {
+    date: "2012",
+    event: "Chemfest: In-House Symposium of the Department of Chemistry",
+    location: "IIT Kanpur, India",
+    type: "Poster",
+  },
+  {
+    date: "2010",
+    event: "Golden Jubilee Chemistry Conference – Molecules, Supramolecules & Materials",
+    location: "IIT Kanpur, India",
+    type: "Poster",
+  },
+];
+
+const careerTalks = [
+  {
+    date: "October 2025",
+    event: "Industrial Opportunities for Chemistry Graduates",
+    host: "Department of Chemistry, IIT Kanpur",
+    mode: "Virtual",
+  },
+  {
+    date: "April 2024",
+    event: "Navigating the Transition from Academia to Industry",
+    host: "ChemTalks, Thieme India",
+    mode: "Virtual Panel",
+    link: "https://doi.org/10.52843/cassyni.xhprl4",
+  },
+];
 ---
 
 <Layout title="Invited Talks | Dr. Aditya Bhattacharyya">
 
   <div class="max-w-none">
 
-    <p class="text-sm uppercase tracking-wider opacity-60 mb-2">
-      Presentations & Professional Engagement
-    </p>
-
-    <h1 class="text-3xl md:text-4xl font-bold mb-10">
-      Invited Talks
-    </h1>
-
-
-    <!-- Research Talks -->
-    <section class="mb-12">
-
-      <h2 class="text-2xl font-bold mb-4">
-        Research Talks
-      </h2>
-
-      <p class="opacity-70">
-        Selected research presentations and invited scientific talks.
+    <!-- Page introduction -->
+    <div class="mb-12">
+      <p class="text-sm uppercase tracking-wider opacity-60 mb-2">
+        Presentations & Professional Engagement
       </p>
+
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">
+        Invited Talks & Presentations
+      </h1>
+
+      <p class="max-w-3xl text-base leading-relaxed opacity-70">
+        Selected research talks, conference presentations, and
+        career-development engagements spanning academic research,
+        pharmaceutical science, and the transition from academia to industry.
+      </p>
+    </div>
+
+
+    <!-- ========================================================= -->
+    <!-- RESEARCH TALKS -->
+    <!-- ========================================================= -->
+
+    <section class="mb-16">
+
+      <div class="flex items-end justify-between gap-4 mb-7">
+        <div>
+          <p class="text-xs uppercase tracking-widest opacity-50 mb-1">
+            Scientific Presentations
+          </p>
+
+          <h2 class="text-2xl md:text-3xl font-bold">
+            Research Talks
+          </h2>
+        </div>
+
+        <div class="text-sm opacity-50 hidden sm:block">
+          {researchTalks.length} presentations
+        </div>
+      </div>
+
+
+      <div class="space-y-4">
+
+        {researchTalks.map((talk) => (
+          <article
+            class="card bg-base-200 border border-base-300/50 hover:border-base-content/20 transition-colors"
+          >
+            <div class="card-body p-5 md:p-6">
+
+              <div class="flex flex-col md:flex-row md:items-start gap-4">
+
+                <!-- Date -->
+                <div class="md:w-28 shrink-0">
+                  <div class="text-sm font-semibold opacity-60">
+                    {talk.date}
+                  </div>
+                </div>
+
+
+                <!-- Main information -->
+                <div class="flex-1 min-w-0">
+
+                  <h3 class="text-base md:text-lg font-semibold leading-snug">
+                    {talk.event}
+                  </h3>
+
+                  <p class="mt-2 text-sm opacity-65">
+                    {talk.location}
+                  </p>
+
+                </div>
+
+
+                <!-- Presentation mode -->
+                <div class="shrink-0">
+
+                  {talk.mode === "In-person" ? (
+                    <span class="badge badge-primary badge-outline whitespace-nowrap">
+                      In-person
+                    </span>
+                  ) : (
+                    <span class="badge badge-secondary badge-outline whitespace-nowrap">
+                      Virtual
+                    </span>
+                  )}
+
+                </div>
+
+              </div>
+
+            </div>
+          </article>
+        ))}
+
+      </div>
 
     </section>
 
 
-    <!-- Poster Presentations -->
-    <section class="mb-12">
+    <!-- ========================================================= -->
+    <!-- POSTER PRESENTATIONS -->
+    <!-- ========================================================= -->
 
-      <h2 class="text-2xl font-bold mb-4">
-        Poster Presentations
-      </h2>
+    <section class="mb-16">
 
-      <p class="opacity-70">
-        Selected poster presentations at scientific conferences and symposia.
-      </p>
+      <div class="flex items-end justify-between gap-4 mb-7">
+        <div>
+          <p class="text-xs uppercase tracking-widest opacity-50 mb-1">
+            Conference Contributions
+          </p>
+
+          <h2 class="text-2xl md:text-3xl font-bold">
+            Poster Presentations
+          </h2>
+        </div>
+
+        <div class="text-sm opacity-50 hidden sm:block">
+          {posterPresentations.length} presentations
+        </div>
+      </div>
+
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+        {posterPresentations.map((poster) => (
+          <article
+            class="card bg-base-200 border border-base-300/50 hover:border-base-content/20 transition-colors"
+          >
+            <div class="card-body p-5">
+
+              <div class="flex items-start justify-between gap-3 mb-3">
+
+                <span class="text-sm font-semibold opacity-60">
+                  {poster.date}
+                </span>
+
+                <span class="badge badge-accent badge-outline whitespace-nowrap">
+                  {poster.type}
+                </span>
+
+              </div>
+
+              <h3 class="font-semibold leading-snug">
+                {poster.event}
+              </h3>
+
+              <p class="text-sm opacity-60 mt-2">
+                {poster.location}
+              </p>
+
+            </div>
+          </article>
+        ))}
+
+      </div>
 
     </section>
 
 
-    <!-- Career Development Talks -->
+    <!-- ========================================================= -->
+    <!-- CAREER DEVELOPMENT TALKS -->
+    <!-- ========================================================= -->
+
     <section class="mb-12">
 
-      <h2 class="text-2xl font-bold mb-4">
-        Career Development Talks
-      </h2>
+      <div class="mb-7">
 
-      <p class="opacity-70">
-        Talks and professional-development activities related to academic,
-        industrial, and scientific careers.
-      </p>
+        <p class="text-xs uppercase tracking-widest opacity-50 mb-1">
+          Professional Development
+        </p>
+
+        <h2 class="text-2xl md:text-3xl font-bold">
+          Career Development Talks
+        </h2>
+
+      </div>
+
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+        {careerTalks.map((talk) => (
+          <article
+            class="card bg-base-200 border border-base-300/50 hover:border-base-content/20 transition-colors"
+          >
+            <div class="card-body p-6">
+
+              <div class="flex items-center justify-between gap-3 mb-5">
+
+                <span class="text-sm font-semibold opacity-60">
+                  {talk.date}
+                </span>
+
+                <span class="badge badge-secondary badge-outline whitespace-nowrap">
+                  {talk.mode}
+                </span>
+
+              </div>
+
+              <h3 class="text-lg font-semibold leading-snug">
+                {talk.event}
+              </h3>
+
+              <p class="text-sm opacity-60 mt-3">
+                {talk.host}
+              </p>
+
+              {talk.link && (
+                <div class="mt-5">
+
+                  <a
+                    href={talk.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link link-primary text-sm font-medium no-underline hover:underline"
+                  >
+                    View recorded session ↗
+                  </a>
+
+                </div>
+              )}
+
+            </div>
+          </article>
+        ))}
+
+      </div>
 
     </section>
 
