@@ -3,23 +3,31 @@ import { template } from '../settings'
 
 export function highlightAuthor(authors: string): string {
 
-  const authorName = profile.author_name
+  const author = profile.author_name
 
-  // Highlight Aditya's name.
-  // If an asterisk follows his name, treat it as corresponding-author status.
-  const escapedAuthor = authorName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  /*
+   * Highlight only the user's own name.
+   *
+   * Publication markers such as:
+   *   *  = corresponding author
+   *   †  = equal contribution
+   *
+   * remain outside the highlighted name.
+   */
 
-  const authorRegex = new RegExp(`(${escapedAuthor})(\\*)?`, 'g')
+  const escapedAuthor = author.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
-  return authors.replace(authorRegex, (_, name, star) => {
+  const authorRegex = new RegExp(
+    `(${escapedAuthor})(?=\\*|†|$)`,
+    'g'
+  )
 
-    if (star) {
-      return `<strong class="font-bold text-primary">${name}<sup class="ml-0.5 text-xs font-bold">*</sup></strong>`
-    }
-
-    return `<strong class="font-semibold">${name}</strong>`
-  })
+  return authors.replace(
+    authorRegex,
+    `<span class='font-medium underline'>$1</span>`
+  )
 }
+
 
 export function trimExcerpt(excerpt: string): string {
 
