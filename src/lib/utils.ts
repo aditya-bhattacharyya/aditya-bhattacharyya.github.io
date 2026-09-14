@@ -8,7 +8,7 @@ export function highlightAuthor(authors: string): string {
   /*
    * Authorship formatting:
    *
-   * Your name + *  → blue + bold
+   * Your name + *  → purple + bold
    * Your name      → bold, normal text color
    *
    * Other authors are left unchanged.
@@ -30,7 +30,7 @@ export function highlightAuthor(authors: string): string {
 
       if (markers.includes('*')) {
 
-        return `<span class="font-bold text-info">${name}${markers}</span>`
+        return `<span class="font-bold text-secondary">${name}${markers}</span>`
 
       }
 
