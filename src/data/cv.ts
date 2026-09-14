@@ -118,7 +118,7 @@ export const skills = [
 export const publications = [
 	{
 		title: 'A Comprehensive Insight into the Synthetic Pathways to Tetrahydrobenzoxazepines, Tetrahydrobenzothiazepines, and Tetrahydrobenzoimidazoazepines',
-		authors: 'A. Bhattacharyya, A. K. Sahoo',
+		authors: 'A. Bhattacharyya, A. K. Sahoo*',
 		journal: 'Current Organic Chemistry',
 		time: '2026',
 		link: 'https://doi.org/10.2174/0113852728394398251007105546',
@@ -134,7 +134,7 @@ export const publications = [
 	},
 	{
 		title: 'Lewis Acid Catalyzed SN2-Type Domino Ring-Opening Cyclization (DROC) of Aziridines with Alkynes: A Synthetic Route to 2,3-Dihydropyrroles',
-		authors: 'D. Shukla, S. Kashyap, B. Singh, A. K. Sharma, A. Bhattacharyya, N. Rahman, M. K. Ghorai',
+		authors: 'D. Shukla, S. Kashyap, B. Singh, A. K. Sharma, A. Bhattacharyya, N. Rahman, M. K. Ghorai*',
 		journal: 'Synthesis',
 		time: '2025, 57 (02), 447–456',
 		link: 'https://doi.org/10.1055/a-2415-1629',
@@ -142,7 +142,7 @@ export const publications = [
 	},
 	{
 		title: 'Lewis Acid Catalyzed Domino Ring-Opening Cyclization (DROC) of Azetidines with Alkynes: Synthesis of Tetrahydropyridines',
-		authors: 'D. Shukla, S. Singh, A. K. Sharma, B. Singh, A. Bhattacharyya, R. Talukdar, M. K. Ghorai',
+		authors: 'D. Shukla, S. Singh, A. K. Sharma, B. Singh, A. Bhattacharyya, R. Talukdar, M. K. Ghorai*',
 		journal: 'Synlett',
 		time: '2024, 35 (20), 2459–2464',
 		link: 'https://doi.org/10.1055/a-2422-1263',
@@ -150,7 +150,7 @@ export const publications = [
 	},
 	{
 		title: 'A Water-Dispersible, Magnetically Recyclable Heterogeneous Cobalt Catalyst for C–C and C–N Cross-Coupling Reactions in Aqueous Media',
-		authors: 'S. Sheikh, A. Bhattacharyya, M. Henriquez, M. A. Nasseri, M. Chahkandi, A. Allahresani, O. Reiser',
+		authors: 'S. Sheikh, A. Bhattacharyya, M. Henriquez, M. A. Nasseri, M. Chahkandi, A. Allahresani, O. Reiser*',
 		journal: 'ACS Omega',
 		time: '2024, 9 (29), 31393–31400',
 		link: 'https://doi.org/10.1021/acsomega.3c10462',
@@ -166,7 +166,7 @@ export const publications = [
 	},
 	{
 		title: 'Recent Advances in Synthetic Routes for Biologically Active Tetrahydroquinoxalines and Derivatives: A Comprehensive Review',
-		authors: 'A. K. Sahoo, A. Bhattacharyya',
+		authors: 'A. K. Sahoo*, A. Bhattacharyya',
 		journal: 'Current Organic Chemistry',
 		time: '2024, 28 (3), 161–175',
 		link: 'https://doi.org/10.2174/0113852728285439240109071659',
@@ -174,7 +174,7 @@ export const publications = [
 	},
 	{
 		title: 'Accessing HIV-1 Protease Inhibitors through Visible-Light-Induced Sequential Photocatalytic Decarboxylative Radical Conjugate Addition-Elimination-Oxa-Michael Reactions',
-		authors: 'T. Krolo, A. Bhattacharyya, O. Reiser',
+		authors: 'T. Krolo, A. Bhattacharyya, O. Reiser*',
 		journal: 'Organic Letters',
 		time: '2021, 23 (16), 6283–6287',
 		link: 'https://doi.org/10.1021/acs.orglett.1c01964',
@@ -182,7 +182,7 @@ export const publications = [
 	},
 	{
 		title: 'Visible-Light-Induced Homolysis of Earth-Abundant Metal-Substrate Complexes: A Complementary Activation Strategy in Photoredox Catalysis',
-		authors: 'Y. Abderrazak, A. Bhattacharyya*, O. Reiser',
+		authors: 'Y. Abderrazak, A. Bhattacharyya*, O. Reiser*',
 		journal: 'Angewandte Chemie International Edition',
 		time: '2021, 60 (39), 21100–21115',
 		link: 'https://doi.org/10.1002/anie.202100270',
@@ -190,7 +190,7 @@ export const publications = [
 	},
 	{
 		title: 'Diels-Alder Reactions and Electrophilic Substitutions with Atypical Regioselectivity Enable Functionalization of Terminal Rings of Anthracene',
-		authors: 'V. H. Ngoc, M. Leitner, A. Bhattacharyya, L. Uhlstein, P. Kreitmeier, P. Sakrausky, J. Rehbein, O. Reiser',
+		authors: 'V. H. Ngoc, M. Leitner, A. Bhattacharyya, L. Uhlstein, P. Kreitmeier, P. Sakrausky, J. Rehbein, O. Reiser*',
 		journal: 'Communications Chemistry',
 		time: '2020, 3, 158',
 		link: 'https://doi.org/10.1038/s42004-020-00407-9',
@@ -206,7 +206,7 @@ export const publications = [
 	},
 	{
 		title: 'Stereoselective Synthesis of Hexahydroimidazo[1,2-a]quinolines via DROC of Activated Aziridines with N-Propargylanilines',
-		authors: 'S. Pradhan, N. Chauhan, C. K. Shahi, A. Bhattacharyya, M. K. Ghorai',
+		authors: 'S. Pradhan, N. Chauhan, C. K. Shahi, A. Bhattacharyya, M. K. Ghorai*',
 		journal: 'Organic Letters',
 		time: '2020, 22 (20), 7903–7908',
 		link: 'https://doi.org/10.1021/acs.orglett.0c02801',
@@ -214,7 +214,7 @@ export const publications = [
 	},
 	{
 		title: 'Facile Synthesis of Oxime Amino Ethers via Lewis Acid-Catalyzed SN2-Type Ring Opening of Activated Aziridines with Aryl Aldehyde Oximes',
-		authors: 'A. Bhattacharyya, S. Das, N. Chauhan, P. K. Biswas, M. K. Ghorai',
+		authors: 'A. Bhattacharyya, S. Das, N. Chauhan, P. K. Biswas, M. K. Ghorai*',
 		journal: 'Synlett',
 		time: '2020, 31 (07), 708–712',
 		link: 'https://doi.org/10.1055/s-0039-1691596',
@@ -230,7 +230,7 @@ export const publications = [
 	},
 	{
 		title: 'Copper’s Rapid Ascent in Visible-Light Photoredox Catalysis',
-		authors: 'A. Hossain, A. Bhattacharyya, O. Reiser',
+		authors: "A. Hossain†, A. Bhattacharyya†, O. Reiser*",
 		journal: 'Science',
 		time: '2019, 364 (6439), eaav9713',
 		link: 'https://doi.org/10.1126/science.aav9713',
@@ -238,7 +238,7 @@ export const publications = [
 	},
 	{
 		title: 'Stereoselective Synthesis of 3-Spiropiperidino Indolenines via SN2-Type Ring Opening of Activated Aziridines with 1H-Indoles/Pd-Catalyzed Spirocyclization with Propargyl Carbonates',
-		authors: 'S. Pradhan, C. K. Shahi, A. Bhattacharyya, M. K. Ghorai',
+		authors: 'S. Pradhan, C. K. Shahi, A. Bhattacharyya, M. K. Ghorai*',
 		journal: 'Chemical Communications',
 		time: '2018, 54 (62), 8583–8586',
 		link: 'https://doi.org/10.1039/C8CC04249G',
@@ -246,7 +246,7 @@ export const publications = [
 	},
 	{
 		title: 'Stereospecific Synthesis of 1,4,5,6-Tetrahydropyrimidines via Domino Ring-Opening Cyclization of Activated Aziridines with α-Acidic Isocyanides',
-		authors: 'A. Bhattacharyya, C. K. Shahi, S. Pradhan, M. K. Ghorai',
+		authors: 'A. Bhattacharyya, C. K. Shahi, S. Pradhan, M. K. Ghorai*',
 		journal: 'Organic Letters',
 		time: '2018, 20 (10), 2925–2928',
 		link: 'https://doi.org/10.1021/acs.orglett.8b00986',
@@ -254,7 +254,7 @@ export const publications = [
 	},
 	{
 		title: 'Temperature-Modulated Diastereoselective Transformations of 2-Vinylindoles to Tetrahydrocarbazoles and Tetrahydrocycloheptadiindoles',
-		authors: 'I. A. Wani, A. Bhattacharyya, M. Sayyad, M. K. Ghorai',
+		authors: 'I. A. Wani, A. Bhattacharyya, M. Sayyad, M. K. Ghorai*',
 		journal: 'Organic & Biomolecular Chemistry',
 		time: '2018, 16, 2910–2922',
 		link: 'https://doi.org/10.1039/C8OB00228B',
@@ -262,7 +262,7 @@ export const publications = [
 	},
 	{
 		title: 'Stereospecific Syntheses of Enaminonitriles and β-Enaminoesters via Domino Ring-Opening Cyclization (DROC) of Activated Cyclopropanes with Pronucleophilic Malononitriles',
-		authors: 'A. Saha, A. Bhattacharyya, R. Talukdar, M. K. Ghorai',
+		authors: 'A. Saha, A. Bhattacharyya, R. Talukdar, M. K. Ghorai*',
 		journal: 'The Journal of Organic Chemistry',
 		time: '2018, 83 (4), 2131–2144',
 		link: 'https://doi.org/10.1021/acs.joc.7b03033',
@@ -270,7 +270,7 @@ export const publications = [
 	},
 	{
 		title: 'Enantioselective Aldol Reactions in Water by a Proline-Derived Cryptand and Fixation of CO2 by Its Exocyclic Co(II) Complex',
-		authors: 'D. De, A. Bhattacharyya, P. K. Bharadwaj',
+		authors: 'D. De, A. Bhattacharyya, P. K. Bharadwaj*',
 		journal: 'Inorganic Chemistry',
 		time: '2017, 56 (18), 11443–11449',
 		link: 'https://doi.org/10.1021/acs.inorgchem.7b02007',
@@ -278,7 +278,7 @@ export const publications = [
 	},
 	{
 		title: 'Syntheses of Tetrahydrobenzoazepinoindoles and Dihydrobenzodiazepinoindoles via Ring-Opening Cyclization of Activated Aziridines with 2-(2-Bromophenyl)-1H-indoles',
-		authors: 'S. Pradhan, C. K. Shahi, A. Bhattacharyya, N. Chauhan, M. K. Ghorai',
+		authors: 'S. Pradhan, C. K. Shahi, A. Bhattacharyya, N. Chauhan, M. K. Ghorai*',
 		journal: 'Organic Letters',
 		time: '2017, 19 (13), 3438–3441',
 		link: 'https://doi.org/10.1021/acs.orglett.7b01397',
@@ -286,7 +286,7 @@ export const publications = [
 	},
 	{
 		title: 'Accessing Quinoxalines via Ring-Opening/Cyclization/Detosylation/Aromatization of Activated Aziridines with 2-Bromoanilines: Synthesis of Tyrphostin AG 1296',
-		authors: 'C. K. Shahi, S. Pradhan, A. Bhattacharyya, R. Kumar, M. K. Ghorai',
+		authors: 'C. K. Shahi, S. Pradhan, A. Bhattacharyya, R. Kumar, M. K. Ghorai*',
 		journal: 'European Journal of Organic Chemistry',
 		time: '2017, 3487–3495',
 		link: 'https://doi.org/10.1002/ejoc.201700506',
@@ -294,7 +294,7 @@ export const publications = [
 	},
 	{
 		title: 'Divergent and Stereospecific Routes to Five to Eight-Membered 1,3- and 1,4-Di-Aza-Heterocycles via Ring-Opening Cyclization of Activated Aziridines with Aryl Amines',
-		authors: 'S. Pradhan, C. K. Shahi, A. Bhattacharyya, N. Chauhan, M. K. Ghorai',
+		authors: 'S. Pradhan, C. K. Shahi, A. Bhattacharyya, N. Chauhan, M. K. Ghorai*',
 		journal: 'ChemistrySelect',
 		time: '2017, 2, 550–556',
 		link: 'https://doi.org/10.1002/slct.201602062',
@@ -302,7 +302,7 @@ export const publications = [
 	},
 	{
 		title: 'A Stereoselective Route to Tetrahydrobenzoxazepines and Tetrahydrobenzodiazepines via Ring-Opening and Aza-Michael Addition of Activated Aziridines with 2-Hydroxyphenyl and 2-Aminophenyl Acrylates',
-		authors: 'C. K. Shahi, A. Bhattacharyya, Y. Nanaji, M. K. Ghorai',
+		authors: 'C. K. Shahi, A. Bhattacharyya, Y. Nanaji, M. K. Ghorai*',
 		journal: 'The Journal of Organic Chemistry',
 		time: '2017, 82 (1), 37–47',
 		link: 'https://doi.org/10.1021/acs.joc.6b01919',
@@ -310,7 +310,7 @@ export const publications = [
 	},
 	{
 		title: 'Stereospecific Synthesis of 2-Iminothiazolidines via Domino Ring-Opening Cyclization of Activated Aziridines with Aryl- and Alkyl Isothiocyanates',
-		authors: 'A. Bhattacharyya, C. V. Kavitha, M. K. Ghorai',
+		authors: 'A. Bhattacharyya, C. V. Kavitha, M. K. Ghorai*',
 		journal: 'The Journal of Organic Chemistry',
 		time: '2016, 81 (15), 6433–6443',
 		link: 'https://doi.org/10.1021/acs.joc.6b01551',
@@ -318,7 +318,7 @@ export const publications = [
 	},
 	{
 		title: 'Ring Expansions of Activated Aziridines and Azetidines. In Synthesis of 4- to 7-membered Heterocycles by Ring Expansion: Aza-, oxa- and thiaheterocyclic small-ring systems',
-		authors: 'M. K. Ghorai, A. Bhattacharyya, S. Das, N. Chauhan',
+		authors: 'M. K. Ghorai*, A. Bhattacharyya, S. Das, N. Chauhan',
 		journal: 'Topics in Heterocyclic Chemistry',
 		time: '2016, 41, 49–142',
 		link: 'https://doi.org/10.1007/7081_2015_159',
@@ -326,7 +326,7 @@ export const publications = [
 	},
 	{
 		title: 'Syntheses of Tetrahydrobenzodiazepines via SN2-Type Ring-Opening of Activated Aziridines with 2-Bromobenzylamine Followed by Cu-Powder Mediated C–N Bond Formation',
-		authors: 'M. K. Ghorai, C. K. Shahi, A. Bhattacharyya, M. Sayyad, A. Mal, I. A. Wani, N. Chauhan',
+		authors: 'M. K. Ghorai*, C. K. Shahi, A. Bhattacharyya, M. Sayyad, A. Mal, I. A. Wani, N. Chauhan',
 		journal: 'Asian Journal of Organic Chemistry',
 		time: '2015, 4 (10), 1103–1111',
 		link: 'https://doi.org/10.1002/ajoc.201500224',
@@ -334,7 +334,7 @@ export const publications = [
 	},
 	{
 		title: 'Organocatalytic Domino Approaches for Enantioselective Formation of Six Membered Carbacycles',
-		authors: 'S. Samanta, A. Bhattacharyya, S. Das, M. K. Ghorai',
+		authors: 'S. Samanta, A. Bhattacharyya, S. Das, M. K. Ghorai*',
 		journal: 'Current Organic Chemistry',
 		time: '2014, 18 (22), 2842–2856',
 		link: 'https://doi.org/10.2174/1385272819666141009215403',
@@ -342,7 +342,7 @@ export const publications = [
 	},
 	{
 		title: 'Syntheses of Imidazo-, Oxa- and Thiazepine Ring Systems via Ring-Opening of Aziridines/Cu-Catalyzed C–N/C–C Bond Formation',
-		authors: 'M. K. Ghorai, A. K. Sahoo, A. Bhattacharyya',
+		authors: 'M. K. Ghorai*, A. K. Sahoo, A. Bhattacharyya',
 		journal: 'The Journal of Organic Chemistry',
 		time: '2014, 79 (14), 6468–6479',
 		link: 'https://doi.org/10.1021/jo500888j',
@@ -350,7 +350,7 @@ export const publications = [
 	},
 	{
 		title: 'Selective Colorimetric and Ratiometric Probe for Ni(II) in Quinoxaline Matrix with the Single Crystal X-ray Structure',
-		authors: 'S. Goswami, S. Chakraborty, A. K. Das, A. Manna, A. Bhattacharyya, C. K. Quah, H.-K. Fun',
+		authors: 'S. Goswami*, S. Chakraborty, A. K. Das, A. Manna, A. Bhattacharyya, C. K. Quah, H.-K. Fun',
 		journal: 'RSC Advances',
 		time: '2014, 4, 20922–20926',
 		link: 'https://doi.org/10.1039/C4RA00594E',
@@ -358,7 +358,7 @@ export const publications = [
 	},
 	{
 		title: 'Asymmetric Hydroamination and Reductive Amination in Total Synthesis',
-		authors: 'M. K. Ghorai, D. P. Tiwari, A. Bhattacharyya',
+		authors: 'M. K. Ghorai*, D. P. Tiwari, A. Bhattacharyya',
 		journal: 'Stereoselective Synthesis of Drugs and Natural Products, John Wiley & Sons',
 		time: '2013, Vol. 2, pp. 1173–1210',
 		link: 'https://doi.org/10.1002/9781118596784.ssd039',
@@ -374,7 +374,7 @@ export const publications = [
 	},
 	{
 		title: 'Syntheses of Chiral β- and γ-Amino Ethers, Morpholines, and Their Homologues via Nucleophilic Ring-Opening of Chiral Activated Aziridines and Azetidines',
-		authors: 'M. K. Ghorai, D. Shukla, A. Bhattacharyya',
+		authors: 'M. K. Ghorai*, D. Shukla, A. Bhattacharyya',
 		journal: 'The Journal of Organic Chemistry',
 		time: '2012, 77 (8), 3740–3753',
 		link: 'https://doi.org/10.1021/jo300002u',
