@@ -71,14 +71,15 @@ const recentPublications = publications.slice(0, 5);
       <!-- Profile Picture -->
       <div class="flex justify-center md:justify-end">
 
-        <div class="avatar">
-          <div class="w-52 md:w-60 rounded-full ring ring-base-300 ring-offset-base-100 ring-offset-4">
-            <img
-              src={ProfilePictures.src}
-              alt="Dr. Aditya Bhattacharyya"
-            />
-          </div>
-        </div>
+<div class="avatar">
+  <div class="w-52 md:w-60 aspect-square rounded-full ring ring-base-300 ring-offset-base-100 ring-offset-4 overflow-hidden">
+    <img
+      src={ProfilePictures.src}
+      alt="Dr. Aditya Bhattacharyya"
+      class="w-full h-full object-cover object-[50%_25%]"
+    />
+  </div>
+</div>
 
       </div>
 
