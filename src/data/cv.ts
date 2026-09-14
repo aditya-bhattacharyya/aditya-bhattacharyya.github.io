@@ -44,7 +44,7 @@ export const experiences = [
 export const education = [
 	{
 		school: 'Indian Institute of Technology Kanpur',
-		time: '2016',
+		time: "2026, 30 (15), 1047–1060",
 		degree: 'Ph.D. in Organic Chemistry',
 		location: 'Kanpur, India',
 		description:
