@@ -1,69 +1,202 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import Layout from "../layouts/Layout.astro";
 import { profile } from "@/settings";
-import BetterIcon from "@/components/ui/BetterIcon.astro";
-import List from "@/components/ui/List.astro";
-import {RESEARCH_ICONS} from "@/data/researchIcons";
-
-const { research_areas } = profile;
 ---
 
-<Layout title="Research | Dr. Marie Curie">
+<Layout title="Research | Dr. Aditya Bhattacharyya">
+
   <div class="prose max-w-none">
-    <h1 class="text-3xl font-bold mb-8">Research Statement</h1>
+
+    <!-- Research Overview -->
+    <h1 class="text-3xl font-bold mb-8">
+      Research
+    </h1>
 
     <div class="mb-12">
-      <p class="text-lg mb-6">
-        My research focuses on groundbreaking investigations into radioactivity and the discovery of new radioactive elements. Through meticulous experimental techniques and innovative methodologies, I aim to advance our understanding of radioactive phenomena and their applications in both physics and chemistry.
+
+      <p class="text-lg leading-relaxed mb-6">
+        My research interests lie at the interface of synthetic organic
+        chemistry, photochemistry, and reaction technology, with a particular
+        focus on developing practical and efficient methods for the synthesis
+        of structurally complex molecules of relevance to medicinal and
+        pharmaceutical chemistry.
       </p>
-      <p class="text-lg mb-6">
-        This interdisciplinary approach has led to significant discoveries, including the isolation of polonium and radium, contributing to the foundation of modern nuclear physics and radiochemistry.
+
+      <p class="text-lg leading-relaxed mb-6">
+        My academic research has focused extensively on the synthesis and
+        reactivity of strained small-ring heterocycles, including aziridines
+        and related nitrogen-containing compounds, as well as the development
+        of new ring-opening and functionalization strategies. During my
+        postdoctoral research in Germany, I worked extensively on visible-light
+        photochemistry and copper-mediated photoredox catalysis.
       </p>
+
+      <p class="text-lg leading-relaxed mb-6">
+        In my current industrial research activities, these interests are
+        complemented by a strong emphasis on synthetic methodology,
+        reaction development, and enabling technologies for pharmaceutical
+        discovery. My work includes photochemical transformations,
+        cross-coupling chemistry, continuous-flow processing, and the
+        development of robust synthetic routes for complex small molecules.
+      </p>
+
     </div>
 
-    <h2 class="text-2xl font-bold mb-6">Research Areas</h2>
+
+    <!-- Research Areas -->
+    <h2 class="text-2xl font-bold mb-6">
+      Research Areas
+    </h2>
+
     <div class="grid gap-8 mb-12">
+
       {
-        research_areas.map((area) => (
-          <div class="flex gap-6 items-start">
-            <BetterIcon>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke-width="2"
-                class="size-6 stroke-accent"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d={RESEARCH_ICONS[area.field as keyof typeof RESEARCH_ICONS]?.path || RESEARCH_ICONS['computer-science'].path}
-                />
-              </svg>
-            </BetterIcon>
-            <div>
-              <h3 class="text-xl font-semibold mb-2">{area.title}</h3>
-              <p class="text-base">{area.description}</p>
+        profile.research_areas.map((area) => (
+          <div class="flex gap-5 items-start">
+
+            <div class="mt-1 shrink-0">
+              <div class="size-3 rounded-full bg-accent"></div>
             </div>
+
+            <div>
+              <h3 class="text-xl font-semibold mb-2">
+                {area.title}
+              </h3>
+
+              <p class="text-base leading-relaxed">
+                {area.description}
+              </p>
+            </div>
+
           </div>
         ))
       }
+
     </div>
 
-    <List listTitle="Current Projects" listItems={[
-      {
-        title: "Radioactivity Studies",
-        description: "Investigation of radioactive properties in uranium minerals and isolation of new radioactive elements."
-      },
-      {
-        title: "Measurement Techniques",
-        description: "Development of precise methods for measuring radioactive emissions and their properties."
-      }
-    ]} />
 
-    <h2 class="text-2xl font-bold mb-6">Research Impact</h2>
-    <p class="text-lg mb-6">
-      My research has opened new frontiers in radioactivity studies, leading to practical applications in both scientific research and medical treatments. The discoveries have revolutionized our understanding of atomic structure and radioactive decay processes.
-    </p>
+    <!-- Scientific Themes -->
+    <h2 class="text-2xl font-bold mb-6">
+      Scientific Themes
+    </h2>
+
+    <div class="grid gap-6 mb-12">
+
+      <div class="card bg-base-200">
+        <div class="card-body">
+
+          <h3 class="card-title text-lg">
+            Photoredox &amp; Photochemical Synthesis
+          </h3>
+
+          <p class="leading-relaxed">
+            Development of visible-light-driven synthetic transformations,
+            including copper photoredox chemistry and radical-based
+            functionalization strategies for the construction of valuable
+            organic molecules.
+          </p>
+
+        </div>
+      </div>
+
+
+      <div class="card bg-base-200">
+        <div class="card-body">
+
+          <h3 class="card-title text-lg">
+            Small-Ring Heterocycle Chemistry
+          </h3>
+
+          <p class="leading-relaxed">
+            Synthesis, activation, ring opening, and functionalization of
+            strained heterocycles, particularly aziridines, azetidines, and
+            related nitrogen-containing small-ring systems.
+          </p>
+
+        </div>
+      </div>
+
+
+      <div class="card bg-base-200">
+        <div class="card-body">
+
+          <h3 class="card-title text-lg">
+            Synthetic Methodology
+          </h3>
+
+          <p class="leading-relaxed">
+            Design and development of new synthetic methods involving
+            carbon–carbon, carbon–nitrogen, carbon–oxygen, and carbon–sulfur
+            bond formation, with an emphasis on selectivity, efficiency,
+            and practical applicability.
+          </p>
+
+        </div>
+      </div>
+
+
+      <div class="card bg-base-200">
+        <div class="card-body">
+
+          <h3 class="card-title text-lg">
+            Reaction &amp; Process Technology
+          </h3>
+
+          <p class="leading-relaxed">
+            Application of flow chemistry, photochemical reactors,
+            continuous-flow hydrogenation, reaction screening, and modern
+            purification technologies to improve synthetic processes and
+            enable efficient preparation of complex molecules.
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- Research in Drug Discovery -->
+    <h2 class="text-2xl font-bold mb-6">
+      Research in Drug Discovery
+    </h2>
+
+    <div class="mb-12">
+
+      <p class="text-lg leading-relaxed mb-6">
+        My industrial research experience has involved the application of
+        synthetic organic chemistry to pharmaceutical discovery programs.
+        This includes developing synthetic routes, solving challenging
+        chemical problems, and delivering practical methodologies for the
+        preparation and diversification of complex small molecules.
+      </p>
+
+      <p class="text-lg leading-relaxed">
+        A major emphasis of this work is the translation of modern synthetic
+        chemistry into reliable and scalable laboratory processes suitable
+        for discovery and development environments.
+      </p>
+
+    </div>
+
+
+    <!-- Research Philosophy -->
+    <h2 class="text-2xl font-bold mb-6">
+      Research Philosophy
+    </h2>
+
+    <div class="mb-8">
+
+      <p class="text-lg leading-relaxed">
+        I am particularly interested in chemistry that combines fundamental
+        mechanistic understanding with practical synthetic utility. My
+        approach is to identify new reactivity, understand the underlying
+        reaction mechanisms, and translate these insights into efficient
+        synthetic methods that can address real challenges in molecular
+        synthesis and drug discovery.
+      </p>
+
+    </div>
+
   </div>
+
 </Layout>
