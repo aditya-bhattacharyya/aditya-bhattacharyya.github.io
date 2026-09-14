@@ -2,7 +2,9 @@ export const profile = {
   fullName: 'Dr. Aditya Bhattacharyya',
   title: 'Associate Scientific Director | Chemical Synthesis',
   institute: 'Biocon Bristol Myers Squibb R&D Center (BBRC), Syngene International Ltd.',
-  author_name: 'Aditya Bhattacharyya',
+
+  // Name used for highlighting in publication author lists
+  author_name: 'A. Bhattacharyya',
 
   research_areas: [
     {
@@ -34,15 +36,28 @@ export const profile = {
 
 export const social = {
   email: 'dr.aditya.bhattacharyya@gmail.com',
-  linkedin: '',
+
+  orcid: 'https://orcid.org/0000-0001-7011-2102',
+
+  scopus:
+    'http://www.scopus.com/inward/authorDetails.url?authorID=55195487900&partnerID=MN8TOARS',
+
+  researcherid:
+    'http://www.researcherid.com/rid/E-7815-2011',
+
+  scholar:
+    'https://scholar.google.co.in/citations?user=-yNOmCwAAAAJ&hl=en',
+
+  linkedin:
+    'https://www.linkedin.com/in/aditya-bhattacharyya/',
+
+  // These are intentionally hidden
   x: '',
   bluesky: '',
-  github: 'https://github.com/aditya-bhattacharyya',
+  github: '',
   gitlab: '',
-  scholar: '',
   inspire: '',
   arxiv: '',
-  orcid: 'https://orcid.org/0000-0001-7011-2102',
 };
 
 export const template = {
