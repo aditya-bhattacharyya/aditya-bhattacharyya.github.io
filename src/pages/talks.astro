@@ -4,8 +4,20 @@ import Layout from "../layouts/Layout.astro";
 const researchTalks = [
   {
     date: "March 2026",
-    event: "10th International Conference on Catalysis and Chemical Engineering (CCE-2026)",
+    event: "10<sup>th</sup> International Conference on Catalysis and Chemical Engineering (CCE-2026)",
     location: "Boston, USA",
+    mode: "Virtual",
+  },
+  {
+    date: "November 2024",
+    event: "BASF Chemicals India Pvt. Ltd., Innovation Campus",
+    location: "Navi Mumbai, India",
+    mode: "In-person",
+  },
+  {
+    date: "October 2023",
+    event: "Sygnature Discovery",
+    location: "Nottingham, England",
     mode: "Virtual",
   },
   {
@@ -23,7 +35,7 @@ const researchTalks = [
   {
     date: "June 2022",
     event: "National Institute of Pharmaceutical Education and Research (NIPER)",
-    location: "Mohali, India",
+    location: "S.A.S. Nagar, India",
     mode: "Virtual",
   },
   {
@@ -170,11 +182,11 @@ const careerTalks = [
     <div class="mb-12">
 
       <p class="text-sm uppercase tracking-wider opacity-60 mb-2">
-        Presentations & Professional Engagement
+        Presentations &amp; Professional Engagement
       </p>
 
       <h1 class="text-3xl md:text-4xl font-bold mb-4">
-        Invited Talks & Presentations
+        Invited Talks &amp; Presentations
       </h1>
 
       <p class="max-w-3xl text-base leading-relaxed opacity-70">
@@ -239,7 +251,7 @@ const careerTalks = [
                 <div class="flex-1 min-w-0">
 
                   <h3 class="text-base md:text-lg font-semibold leading-snug">
-                    {talk.event}
+                    <span set:html={talk.event} />
                   </h3>
 
                   <p class="mt-2 text-sm opacity-65">
