@@ -171,7 +171,7 @@ const ALL_PAPERS = publications;
                              hover:text-accent
                              transition-colors duration-200"
                     >
-                      {paper.title}
+                      <span set:html={paper.title} />
                     </a>
 
                   </h2>
