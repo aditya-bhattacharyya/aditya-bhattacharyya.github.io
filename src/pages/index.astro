@@ -1,15 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { profile } from "@/settings";
 import { publications } from "@/data/cv";
-import ProfilePictures from '@/assets/profile.png';
+import ProfilePictures from "@/assets/profile.png";
 
 const recentPublications = publications.slice(0, 5);
 ---
 
 <Layout title="Dr. Aditya Bhattacharyya | Synthetic Organic Chemist">
 
+  <!-- ========================================================= -->
   <!-- Hero Section -->
+  <!-- ========================================================= -->
+
   <section class="py-8 md:py-14">
 
     <div class="grid md:grid-cols-[1fr_auto] gap-10 items-center">
@@ -17,7 +19,7 @@ const recentPublications = publications.slice(0, 5);
       <div>
 
         <p class="text-sm font-medium uppercase tracking-wider opacity-60 mb-3">
-          Synthetic Organic Chemistry · Photochemistry · Drug Discovery
+          Synthetic Organic Chemistry · Photoredox · Drug Discovery · ADC Research
         </p>
 
         <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">
@@ -34,12 +36,16 @@ const recentPublications = publications.slice(0, 5);
         </p>
 
         <p class="text-lg leading-relaxed max-w-3xl mb-8">
-          Synthetic organic chemist with research and industrial experience
-          spanning photoredox catalysis, visible-light-driven transformations,
-          small-ring heterocycle chemistry, synthetic methodology, and reaction
-          technology for pharmaceutical discovery.
+          Synthetic organic chemist with multidisciplinary research and
+          industrial experience spanning synthetic methodology, photoredox
+          catalysis, small-ring heterocycle chemistry, pharmaceutical drug
+          discovery, and advanced antibody–drug conjugate (ADC) research.
+          My work bridges fundamental reaction development with the practical
+          synthesis of complex molecules for pharmaceutical research.
         </p>
 
+
+        <!-- Hero buttons -->
         <div class="flex flex-wrap gap-3">
 
           <a
@@ -71,15 +77,23 @@ const recentPublications = publications.slice(0, 5);
       <!-- Profile Picture -->
       <div class="flex justify-center md:justify-end">
 
-<div class="avatar">
-  <div class="w-52 md:w-60 aspect-square rounded-full ring ring-base-300 ring-offset-base-100 ring-offset-4 overflow-hidden">
-    <img
-      src={ProfilePictures.src}
-      alt="Dr. Aditya Bhattacharyya"
-      class="w-full h-full object-cover object-[50%_25%]"
-    />
-  </div>
-</div>
+        <div class="avatar">
+
+          <div
+            class="w-52 md:w-60 rounded-full
+                   ring ring-base-300
+                   ring-offset-base-100
+                   ring-offset-4"
+          >
+
+            <img
+              src={ProfilePictures.src}
+              alt="Dr. Aditya Bhattacharyya"
+            />
+
+          </div>
+
+        </div>
 
       </div>
 
@@ -88,45 +102,63 @@ const recentPublications = publications.slice(0, 5);
   </section>
 
 
-  <!-- Career Highlights -->
+  <!-- ========================================================= -->
+  <!-- Career / Research Metrics -->
+  <!-- ========================================================= -->
+
   <section class="border-y py-8 my-6">
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
 
       <div>
+
         <div class="text-3xl font-bold">
           33
         </div>
+
         <div class="text-sm opacity-70 mt-1">
           Publications
         </div>
+
       </div>
 
+
       <div>
+
         <div class="text-3xl font-bold">
           1,800+
         </div>
+
         <div class="text-sm opacity-70 mt-1">
           Citations
         </div>
+
       </div>
 
+
       <div>
+
         <div class="text-3xl font-bold">
           18
         </div>
+
         <div class="text-sm opacity-70 mt-1">
           h-index
         </div>
+
       </div>
 
+
       <div>
+
         <div class="text-3xl font-bold">
           2
         </div>
+
         <div class="text-sm opacity-70 mt-1">
           Granted patents
         </div>
+
       </div>
 
     </div>
@@ -134,12 +166,164 @@ const recentPublications = publications.slice(0, 5);
   </section>
 
 
-  <!-- Research Areas -->
+  <!-- ========================================================= -->
+  <!-- Research Journey -->
+  <!-- ========================================================= -->
+
   <section class="py-12">
+
+    <div class="max-w-4xl mb-8">
+
+      <p class="text-sm uppercase tracking-wider opacity-60 mb-2">
+        Scientific Journey
+      </p>
+
+      <h2 class="text-3xl font-bold mb-4">
+        From Reaction Discovery to Drug Discovery
+      </h2>
+
+      <p class="text-lg leading-relaxed opacity-75">
+        My research career has evolved across fundamental synthetic chemistry,
+        photoredox catalysis, industrial reaction development, pharmaceutical
+        drug discovery, and advanced ADC research—bringing together mechanistic
+        understanding, synthetic problem-solving, and translational
+        applications.
+      </p>
+
+    </div>
+
+
+    <div class="grid gap-4 md:grid-cols-5">
+
+      <!-- Stage 1 -->
+      <div class="card bg-base-200">
+
+        <div class="card-body">
+
+          <div class="text-sm font-bold text-primary mb-2">
+            01
+          </div>
+
+          <h3 class="text-lg font-semibold">
+            Synthetic Chemistry
+          </h3>
+
+          <p class="text-sm leading-relaxed opacity-75">
+            Fundamental reaction development, small-ring heterocycles,
+            ring-opening chemistry, and complex-molecule synthesis.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- Stage 2 -->
+      <div class="card bg-base-200">
+
+        <div class="card-body">
+
+          <div class="text-sm font-bold text-primary mb-2">
+            02
+          </div>
+
+          <h3 class="text-lg font-semibold">
+            Photoredox Chemistry
+          </h3>
+
+          <p class="text-sm leading-relaxed opacity-75">
+            Visible-light-driven transformations, radical chemistry, and
+            earth-abundant metal photoredox catalysis.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- Stage 3 -->
+      <div class="card bg-base-200">
+
+        <div class="card-body">
+
+          <div class="text-sm font-bold text-primary mb-2">
+            03
+          </div>
+
+          <h3 class="text-lg font-semibold">
+            Industrial Synthesis
+          </h3>
+
+          <p class="text-sm leading-relaxed opacity-75">
+            Reaction development and practical synthetic solutions within
+            pharmaceutical R&amp;D environments.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- Stage 4 -->
+      <div class="card bg-base-200">
+
+        <div class="card-body">
+
+          <div class="text-sm font-bold text-primary mb-2">
+            04
+          </div>
+
+          <h3 class="text-lg font-semibold">
+            Drug Discovery
+          </h3>
+
+          <p class="text-sm leading-relaxed opacity-75">
+            Medicinal-chemistry support, analogue synthesis, route development,
+            and chemical problem-solving for discovery programs.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- Stage 5 -->
+      <div class="card bg-base-200">
+
+        <div class="card-body">
+
+          <div class="text-sm font-bold text-primary mb-2">
+            05
+          </div>
+
+          <h3 class="text-lg font-semibold">
+            ADC Research
+          </h3>
+
+          <p class="text-sm leading-relaxed opacity-75">
+            Synthetic chemistry supporting advanced antibody–drug conjugate
+            programs and emerging bioconjugation-based therapeutics.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ========================================================= -->
+  <!-- Research Areas -->
+  <!-- ========================================================= -->
+
+  <section class="py-12 border-t">
 
     <div class="flex items-end justify-between gap-4 mb-8">
 
       <div>
+
         <p class="text-sm uppercase tracking-wider opacity-60 mb-2">
           Research
         </p>
@@ -147,7 +331,9 @@ const recentPublications = publications.slice(0, 5);
         <h2 class="text-3xl font-bold">
           Research Areas
         </h2>
+
       </div>
+
 
       <a
         href="/research"
@@ -161,32 +347,94 @@ const recentPublications = publications.slice(0, 5);
 
     <div class="grid md:grid-cols-2 gap-6">
 
-      {
-        profile.research_areas.map((area) => (
-          <div class="card bg-base-200">
 
-            <div class="card-body">
+      <!-- Photoredox Catalysis -->
+      <div class="card bg-base-200">
 
-              <h3 class="card-title">
-                {area.title}
-              </h3>
+        <div class="card-body">
 
-              <p class="leading-relaxed">
-                {area.description}
-              </p>
+          <h3 class="card-title">
+            Photoredox Catalysis
+          </h3>
 
-            </div>
+          <p class="leading-relaxed">
+            Visible-light-driven synthetic transformations, radical chemistry,
+            and earth-abundant metal-based photoredox catalysis for organic
+            synthesis.
+          </p>
 
-          </div>
-        ))
-      }
+        </div>
+
+      </div>
+
+
+      <!-- Small-Ring Heterocycle Chemistry -->
+      <div class="card bg-base-200">
+
+        <div class="card-body">
+
+          <h3 class="card-title">
+            Small-Ring Heterocycle Chemistry
+          </h3>
+
+          <p class="leading-relaxed">
+            Synthesis, activation, ring opening, and functionalization of
+            strained heterocycles, particularly aziridines, azetidines,
+            and carbacycles.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- Drug Discovery -->
+      <div class="card bg-base-200">
+
+        <div class="card-body">
+
+          <h3 class="card-title">
+            Drug Discovery &amp; Medicinal Chemistry
+          </h3>
+
+          <p class="leading-relaxed">
+            Synthetic support for pharmaceutical discovery programs, including
+            analogue synthesis, route development, diversification of complex
+            molecules, and solving challenging chemistry problems.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- ADC Research -->
+      <div class="card bg-base-200">
+
+        <div class="card-body">
+
+          <h3 class="card-title">
+            ADC Chemistry &amp; Bioconjugation
+          </h3>
+
+          <p class="leading-relaxed">
+            Synthetic chemistry supporting advanced antibody–drug conjugate
+            programs and emerging bioconjugation-based therapeutic platforms.
+          </p>
+
+        </div>
+
+      </div>
 
     </div>
 
   </section>
 
 
+  <!-- ========================================================= -->
   <!-- Research Focus -->
+  <!-- ========================================================= -->
+
   <section class="py-12 border-t">
 
     <div class="max-w-4xl">
@@ -196,30 +444,39 @@ const recentPublications = publications.slice(0, 5);
       </p>
 
       <h2 class="text-3xl font-bold mb-6">
-        From fundamental reactivity to practical synthesis
+        From fundamental reactivity to advanced drug discovery
       </h2>
 
+
       <p class="text-lg leading-relaxed mb-5">
-        My research combines fundamental synthetic chemistry with practical
-        reaction development. I am particularly interested in discovering
-        new reactivity, understanding reaction mechanisms, and translating
-        these insights into efficient methods for the synthesis of complex
-        organic molecules.
+        I believe that impactful synthetic chemistry lies at the intersection
+        of fundamental mechanistic understanding and real-world utility. My
+        approach aims to transform intricate radical and catalytic mechanisms
+        into reliable, scalable synthetic technologies that empower drug
+        discovery and solve complex structural challenges in organic synthesis.
       </p>
+
 
       <p class="text-lg leading-relaxed">
-        My work spans academic research and pharmaceutical discovery,
-        connecting modern synthetic methodology with practical challenges
-        in the preparation and diversification of small molecules.
+        My industrial research experience has expanded this foundation into
+        pharmaceutical drug discovery, where I have contributed to medicinal-
+        chemistry programs involving synthesis, route development,
+        diversification of complex molecules, and chemical problem-solving.
+        More recently, my work has extended into advanced antibody–drug
+        conjugate research, bringing together synthetic chemistry expertise
+        with emerging bioconjugation-based therapeutic technologies.
       </p>
 
+
       <div class="mt-7">
+
         <a
           href="/research"
-          class="btn btn-outline"
+          class="btn btn-primary"
         >
           Explore my research
         </a>
+
       </div>
 
     </div>
@@ -227,12 +484,16 @@ const recentPublications = publications.slice(0, 5);
   </section>
 
 
+  <!-- ========================================================= -->
   <!-- Recent Publications -->
+  <!-- ========================================================= -->
+
   <section class="py-12 border-t">
 
     <div class="flex items-end justify-between gap-4 mb-8">
 
       <div>
+
         <p class="text-sm uppercase tracking-wider opacity-60 mb-2">
           Selected Work
         </p>
@@ -240,7 +501,9 @@ const recentPublications = publications.slice(0, 5);
         <h2 class="text-3xl font-bold">
           Recent Publications
         </h2>
+
       </div>
+
 
       <a
         href="/papers"
@@ -256,6 +519,7 @@ const recentPublications = publications.slice(0, 5);
 
       {
         recentPublications.map((paper, index) => (
+
           <article class="border-b pb-6">
 
             <div class="flex gap-4">
@@ -264,19 +528,27 @@ const recentPublications = publications.slice(0, 5);
                 {index + 1}
               </div>
 
+
               <div>
 
                 <h3 class="text-lg font-semibold leading-snug mb-2">
                   {paper.title}
                 </h3>
 
+
                 <p class="text-sm leading-relaxed mb-2">
                   {paper.authors}
                 </p>
 
+
                 <p class="text-sm opacity-70">
-                  <span class="italic">{paper.journal}</span>
+
+                  <span class="italic">
+                    {paper.journal}
+                  </span>
+
                   {paper.time && ` · ${paper.time}`}
+
                 </p>
 
               </div>
@@ -284,6 +556,7 @@ const recentPublications = publications.slice(0, 5);
             </div>
 
           </article>
+
         ))
       }
 
@@ -291,23 +564,34 @@ const recentPublications = publications.slice(0, 5);
 
 
     <div class="mt-8">
+
       <a
         href="/papers"
         class="btn btn-outline"
       >
         Browse all publications
       </a>
+
     </div>
 
   </section>
 
 
+  <!-- ========================================================= -->
   <!-- Call to Action -->
+  <!-- ========================================================= -->
+
   <section class="py-12 border-t">
 
     <div class="card bg-base-200">
 
-      <div class="card-body md:flex-row md:items-center md:justify-between gap-6">
+      <div
+        class="card-body
+               md:flex-row
+               md:items-center
+               md:justify-between
+               gap-6"
+      >
 
         <div>
 
@@ -317,19 +601,21 @@ const recentPublications = publications.slice(0, 5);
 
           <p class="opacity-70">
             Research interests, publications, professional experience,
-            and curriculum vitae.
+            scientific expertise, and curriculum vitae.
           </p>
 
         </div>
+
 
         <div class="flex flex-wrap gap-3 shrink-0">
 
           <a
             href="/cv"
-            class="btn btn-outline"
+            class="btn btn-primary"
           >
             View CV
           </a>
+
 
           <a
             href="/papers"
