@@ -125,7 +125,7 @@ export const publications = [
 		abstract: '',
 	},
 	{
-		title: 'Organic Photoredox-Catalyzed S-Difluoromethylation of Aromatic and Heteroaromatic Thiols: Advancing Thiol Functionalization',
+		title: 'Organic Photoredox-Catalyzed <i>S</i>-Difluoromethylation of Aromatic and Heteroaromatic Thiols: Advancing Thiol Functionalization',
 		authors: 'A. Bhattacharyya*, V. Vadde, M. P. Sarmah, M. Muthukumar, A. Mathur, R. Tester',
 		journal: 'Advanced Synthesis & Catalysis',
 		time: '2025, 367 (15), e9606',
@@ -133,7 +133,7 @@ export const publications = [
 		abstract: '',
 	},
 	{
-		title: 'Lewis Acid Catalyzed SN2-Type Domino Ring-Opening Cyclization (DROC) of Aziridines with Alkynes: A Synthetic Route to 2,3-Dihydropyrroles',
+		title: 'Lewis Acid Catalyzed S<sub>N</sub>2-Type Domino Ring-Opening Cyclization (DROC) of Aziridines with Alkynes: A Synthetic Route to 2,3-Dihydropyrroles',
 		authors: 'D. Shukla, S. Kashyap, B. Singh, A. K. Sharma, A. Bhattacharyya, N. Rahman, M. K. Ghorai*',
 		journal: 'Synthesis',
 		time: '2025, 57 (02), 447–456',
@@ -157,7 +157,7 @@ export const publications = [
 		abstract: '',
 	},
 	{
-		title: 'Organic Photoredox-Catalyzed S-Trifluoromethylation of Aromatic and Heteroaromatic Thiols',
+		title: 'Organic Photoredox-Catalyzed <i>S</i>-Trifluoromethylation of Aromatic and Heteroaromatic Thiols',
 		authors: 'A. Bhattacharyya*, V. Vadde, M. P. Sarmah, M. Muthukumar, A. Mathur, R. Tester',
 		journal: 'Organic Letters',
 		time: '2024, 26 (25), 5370–5374',
@@ -205,7 +205,7 @@ export const publications = [
 		abstract: '',
 	},
 	{
-		title: 'Stereoselective Synthesis of Hexahydroimidazo[1,2-a]quinolines via DROC of Activated Aziridines with N-Propargylanilines',
+		title: 'Stereoselective Synthesis of Hexahydroimidazo[1,2-a]quinolines via DROC of Activated Aziridines with <i>N</i>-Propargylanilines',
 		authors: 'S. Pradhan, N. Chauhan, C. K. Shahi, A. Bhattacharyya, M. K. Ghorai*',
 		journal: 'Organic Letters',
 		time: '2020, 22 (20), 7903–7908',
@@ -213,7 +213,7 @@ export const publications = [
 		abstract: '',
 	},
 	{
-		title: 'Facile Synthesis of Oxime Amino Ethers via Lewis Acid-Catalyzed SN2-Type Ring Opening of Activated Aziridines with Aryl Aldehyde Oximes',
+		title: 'Facile Synthesis of Oxime Amino Ethers via Lewis Acid-Catalyzed S<sub>N</sub>2-Type Ring Opening of Activated Aziridines with Aryl Aldehyde Oximes',
 		authors: 'A. Bhattacharyya, S. Das, N. Chauhan, P. K. Biswas, M. K. Ghorai*',
 		journal: 'Synlett',
 		time: '2020, 31 (07), 708–712',
@@ -237,7 +237,7 @@ export const publications = [
 		abstract: '',
 	},
 	{
-		title: 'Stereoselective Synthesis of 3-Spiropiperidino Indolenines via SN2-Type Ring Opening of Activated Aziridines with 1H-Indoles/Pd-Catalyzed Spirocyclization with Propargyl Carbonates',
+		title: 'Stereoselective Synthesis of 3-Spiropiperidino Indolenines via S<sub>N</sub>2-Type Ring Opening of Activated Aziridines with 1<i>H</i>-Indoles/Pd-Catalyzed Spirocyclization with Propargyl Carbonates',
 		authors: 'S. Pradhan, C. K. Shahi, A. Bhattacharyya, M. K. Ghorai*',
 		journal: 'Chemical Communications',
 		time: '2018, 54 (62), 8583–8586',
@@ -245,7 +245,7 @@ export const publications = [
 		abstract: '',
 	},
 	{
-		title: 'Stereospecific Synthesis of 1,4,5,6-Tetrahydropyrimidines via Domino Ring-Opening Cyclization of Activated Aziridines with α-Acidic Isocyanides',
+		title: 'Stereospecific Synthesis of 1,4,5,6-Tetrahydropyrimidines via Domino Ring-Opening Cyclization of Activated Aziridines with <i>α</i>-Acidic Isocyanides',
 		authors: 'A. Bhattacharyya, C. K. Shahi, S. Pradhan, M. K. Ghorai*',
 		journal: 'Organic Letters',
 		time: '2018, 20 (10), 2925–2928',
@@ -261,7 +261,7 @@ export const publications = [
 		abstract: '',
 	},
 	{
-		title: 'Stereospecific Syntheses of Enaminonitriles and β-Enaminoesters via Domino Ring-Opening Cyclization (DROC) of Activated Cyclopropanes with Pronucleophilic Malononitriles',
+		title: 'Stereospecific Syntheses of Enaminonitriles and <i>β</i>-Enaminoesters via Domino Ring-Opening Cyclization (DROC) of Activated Cyclopropanes with Pronucleophilic Malononitriles',
 		authors: 'A. Saha, A. Bhattacharyya, R. Talukdar, M. K. Ghorai*',
 		journal: 'The Journal of Organic Chemistry',
 		time: '2018, 83 (4), 2131–2144',
@@ -269,7 +269,7 @@ export const publications = [
 		abstract: '',
 	},
 	{
-		title: 'Enantioselective Aldol Reactions in Water by a Proline-Derived Cryptand and Fixation of CO2 by Its Exocyclic Co(II) Complex',
+		title: 'Enantioselective Aldol Reactions in Water by a Proline-Derived Cryptand and Fixation of CO<sub>2</sub> by Its Exocyclic Co(II) Complex',
 		authors: 'D. De, A. Bhattacharyya, P. K. Bharadwaj*',
 		journal: 'Inorganic Chemistry',
 		time: '2017, 56 (18), 11443–11449',
@@ -277,7 +277,7 @@ export const publications = [
 		abstract: '',
 	},
 	{
-		title: 'Syntheses of Tetrahydrobenzoazepinoindoles and Dihydrobenzodiazepinoindoles via Ring-Opening Cyclization of Activated Aziridines with 2-(2-Bromophenyl)-1H-indoles',
+		title: 'Syntheses of Tetrahydrobenzoazepinoindoles and Dihydrobenzodiazepinoindoles via Ring-Opening Cyclization of Activated Aziridines with 2-(2-Bromophenyl)-1<i>H</i>-indoles',
 		authors: 'S. Pradhan, C. K. Shahi, A. Bhattacharyya, N. Chauhan, M. K. Ghorai*',
 		journal: 'Organic Letters',
 		time: '2017, 19 (13), 3438–3441',
@@ -317,7 +317,7 @@ export const publications = [
 		abstract: '',
 	},
 	{
-		title: 'Ring Expansions of Activated Aziridines and Azetidines. In Synthesis of 4- to 7-membered Heterocycles by Ring Expansion: Aza-, oxa- and thiaheterocyclic small-ring systems',
+		title: 'Ring Expansions of Activated Aziridines and Azetidines. In Synthesis of 4- to 7-membered Heterocycles by Ring Expansion: Aza-, Oxa- and Thiaheterocyclic Small-Ring Systems',
 		authors: 'M. K. Ghorai*, A. Bhattacharyya, S. Das, N. Chauhan',
 		journal: 'Topics in Heterocyclic Chemistry',
 		time: '2016, 41, 49–142',
@@ -325,7 +325,7 @@ export const publications = [
 		abstract: '',
 	},
 	{
-		title: 'Syntheses of Tetrahydrobenzodiazepines via SN2-Type Ring-Opening of Activated Aziridines with 2-Bromobenzylamine Followed by Cu-Powder Mediated C–N Bond Formation',
+		title: 'Syntheses of Tetrahydrobenzodiazepines via S<sub>N</sub>2-Type Ring-Opening of Activated Aziridines with 2-Bromobenzylamine Followed by Cu-Powder Mediated C–N Bond Formation',
 		authors: 'M. K. Ghorai*, C. K. Shahi, A. Bhattacharyya, M. Sayyad, A. Mal, I. A. Wani, N. Chauhan',
 		journal: 'Asian Journal of Organic Chemistry',
 		time: '2015, 4 (10), 1103–1111',
@@ -373,7 +373,7 @@ export const publications = [
 		abstract: '',
 	},
 	{
-		title: 'Syntheses of Chiral β- and γ-Amino Ethers, Morpholines, and Their Homologues via Nucleophilic Ring-Opening of Chiral Activated Aziridines and Azetidines',
+		title: 'Syntheses of Chiral <i>β</i>- and <i>γ</i>-Amino Ethers, Morpholines, and Their Homologues via Nucleophilic Ring-Opening of Chiral Activated Aziridines and Azetidines',
 		authors: 'M. K. Ghorai*, D. Shukla, A. Bhattacharyya',
 		journal: 'The Journal of Organic Chemistry',
 		time: '2012, 77 (8), 3740–3753',
