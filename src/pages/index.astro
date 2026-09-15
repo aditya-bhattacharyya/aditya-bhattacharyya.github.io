@@ -4,6 +4,45 @@ import { publications } from "@/data/cv";
 import ProfilePictures from "@/assets/profile.png";
 
 const recentPublications = publications.slice(0, 5);
+
+/*
+ * Format publication citation:
+ *
+ * 2026, 30 (15), 1047–1060
+ * └── year bold
+ *       └── volume italic
+ *
+ * Other information such as issue and page numbers remains normal.
+ */
+function formatCitation(time: string): string {
+  if (!time) return "";
+
+  const match = time.match(/^(\d{4}),\s*(.*)$/);
+
+  if (!match) {
+    return time;
+  }
+
+  const year = match[1];
+  const rest = match[2];
+
+  /*
+   * Standard journal format:
+   * 2026, 30 (15), 1047–1060
+   */
+  const standardMatch = rest.match(
+    /^(\d+(?:\.\d+)?)(.*)$/
+  );
+
+  if (!standardMatch) {
+    return `<strong>${year}</strong>, ${rest}`;
+  }
+
+  const volume = standardMatch[1];
+  const remaining = standardMatch[2];
+
+  return `<strong>${year}</strong>, <em>${volume}</em>${remaining}`;
+}
 ---
 
 <Layout title="Dr. Aditya Bhattacharyya | Synthetic Organic Chemist">
@@ -12,13 +51,14 @@ const recentPublications = publications.slice(0, 5);
   <!-- HERO SECTION -->
   <!-- ========================================================= -->
   <section class="py-8 md:py-14">
+
     <div class="grid md:grid-cols-[1fr_auto] gap-8 md:gap-12 items-start">
 
       <!-- Hero Text -->
       <div class="max-w-3xl">
 
         <p class="text-sm font-medium uppercase tracking-wider opacity-60 mb-3">
-          Synthetic Chemistry · Photoredox Catalysis · Drug Discovery · ADC Research
+          Photoredox Catalysis · Synthetic Chemistry · Drug Discovery · ADC Research
         </p>
 
         <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">
@@ -36,14 +76,15 @@ const recentPublications = publications.slice(0, 5);
 
         <p class="text-lg leading-relaxed max-w-3xl mb-8">
           Synthetic organic chemist with multidisciplinary research and
-          industrial experience spanning synthetic methodology, small-ring
-          heterocycle chemistry, photoredox catalysis, pharmaceutical drug
+          industrial experience spanning photoredox catalysis, synthetic
+          methodology, small-ring heterocycle chemistry, pharmaceutical drug
           discovery, and advanced antibody–drug conjugate (ADC) research.
           My work connects fundamental reaction development with the practical
           synthesis of complex molecules for pharmaceutical research.
         </p>
 
         <div class="flex flex-wrap gap-3">
+
           <a href="/research" class="btn btn-outline">
             Research
           </a>
@@ -55,30 +96,37 @@ const recentPublications = publications.slice(0, 5);
           <a href="/cv" class="btn btn-outline">
             Curriculum Vitae
           </a>
+
         </div>
 
       </div>
+
 
       <!-- Hero Photo -->
       <div class="flex justify-center md:justify-end items-start pt-2 md:pt-1">
 
         <div class="avatar">
+
           <div
             class="w-48 md:w-56 aspect-square rounded-full
                    ring ring-base-300 ring-offset-base-100
                    ring-offset-4 overflow-hidden"
           >
+
             <img
               src={ProfilePictures.src}
               alt="Dr. Aditya Bhattacharyya"
               class="w-full h-full object-cover object-[50%_32%]"
             />
+
           </div>
+
         </div>
 
       </div>
 
     </div>
+
   </section>
 
 
@@ -93,33 +141,40 @@ const recentPublications = publications.slice(0, 5);
         <div class="text-3xl font-bold">
           33
         </div>
+
         <div class="text-sm opacity-70 mt-1">
           Publications
         </div>
       </div>
 
+
       <div>
         <div class="text-3xl font-bold">
           1,800+
         </div>
+
         <div class="text-sm opacity-70 mt-1">
           Citations
         </div>
       </div>
 
+
       <div>
         <div class="text-3xl font-bold">
           18
         </div>
+
         <div class="text-sm opacity-70 mt-1">
           h-index
         </div>
       </div>
 
+
       <div>
         <div class="text-3xl font-bold">
           2
         </div>
+
         <div class="text-sm opacity-70 mt-1">
           Granted patents
         </div>
@@ -138,6 +193,7 @@ const recentPublications = publications.slice(0, 5);
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
 
       <div>
+
         <p class="text-sm uppercase tracking-wider opacity-60 mb-2">
           Research &amp; Expertise
         </p>
@@ -145,7 +201,9 @@ const recentPublications = publications.slice(0, 5);
         <h2 class="text-3xl font-bold">
           Research &amp; Scientific Expertise
         </h2>
+
       </div>
+
 
       <a
         href="/research"
@@ -156,6 +214,7 @@ const recentPublications = publications.slice(0, 5);
 
     </div>
 
+
     <p class="text-lg leading-relaxed opacity-75 max-w-4xl mb-8">
       My work spans fundamental synthetic chemistry and modern pharmaceutical
       research, from photoredox reaction development to drug discovery and
@@ -163,28 +222,13 @@ const recentPublications = publications.slice(0, 5);
     </p>
 
 
-    <!-- Expertise Cards -->
+    <!-- ======================================================= -->
+    <!-- EXPERTISE CARDS -->
+    <!-- ======================================================= -->
     <div class="grid md:grid-cols-2 gap-6">
 
 
-    <!-- Card 01 -->
-      <div class="card bg-base-200">
-
-        <div class="card-body">
-
-          <h3 class="card-title text-xl">
-            Synthetic &amp; Heterocyclic Chemistry
-          </h3>
-
-          <p class="leading-relaxed opacity-75">
-            Synthetic methodology, small-ring heterocycles, ring-opening
-            chemistry, and complex-molecule synthesis.
-          </p>
-
-        </div>
-
-      </div>
-      <!-- Card 02 -->
+      <!-- Photoredox Catalysis -->
       <div class="card bg-base-200">
 
         <div class="card-body">
@@ -203,7 +247,26 @@ const recentPublications = publications.slice(0, 5);
       </div>
 
 
-      <!-- Card 03 -->
+      <!-- Synthetic & Heterocyclic Chemistry -->
+      <div class="card bg-base-200">
+
+        <div class="card-body">
+
+          <h3 class="card-title text-xl">
+            Synthetic &amp; Heterocyclic Chemistry
+          </h3>
+
+          <p class="leading-relaxed opacity-75">
+            Synthetic methodology, small-ring heterocycles, ring-opening
+            chemistry, and complex-molecule synthesis.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- Drug Discovery -->
       <div class="card bg-base-200">
 
         <div class="card-body">
@@ -223,7 +286,7 @@ const recentPublications = publications.slice(0, 5);
       </div>
 
 
-      <!-- Card 04 -->
+      <!-- ADC Chemistry -->
       <div class="card bg-base-200">
 
         <div class="card-body">
@@ -254,6 +317,7 @@ const recentPublications = publications.slice(0, 5);
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
 
       <div>
+
         <p class="text-sm uppercase tracking-wider opacity-60 mb-2">
           Selected Work
         </p>
@@ -261,7 +325,9 @@ const recentPublications = publications.slice(0, 5);
         <h2 class="text-3xl font-bold">
           Recent Publications
         </h2>
+
       </div>
+
 
       <a
         href="/papers"
@@ -281,29 +347,50 @@ const recentPublications = publications.slice(0, 5);
 
           <div class="flex gap-4">
 
+            <!-- Publication Number -->
             <div class="text-sm opacity-50 pt-1 shrink-0">
               {index + 1}
             </div>
 
+
             <div class="min-w-0">
 
+              <!-- Publication Title -->
               <h3 class="text-lg font-semibold leading-snug mb-2">
-                {paper.title}
+
+                <a
+                  href={paper.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-primary transition-colors"
+                >
+                  <span set:html={paper.title} />
+                </a>
+
               </h3>
 
+
+              <!-- Authors -->
               <p class="text-sm leading-relaxed mb-2">
                 {paper.authors}
               </p>
 
+
+              <!-- Journal -->
               <p class="text-sm opacity-70">
 
                 <span class="italic">
                   {paper.journal}
                 </span>
 
-                {paper.time && ` · ${paper.time}`}
-
               </p>
+
+
+              <!-- Citation -->
+              <p
+                class="text-sm opacity-70 mt-1"
+                set:html={formatCitation(paper.time)}
+              />
 
             </div>
 
