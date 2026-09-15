@@ -3,7 +3,13 @@ import Layout from "../layouts/Layout.astro";
 import { publications } from "@/data/cv";
 import ProfilePictures from "@/assets/profile.png";
 
-const recentPublications = publications.slice(0, 5);
+const selectedPublications = [
+  publications[1],  // Advanced Synthesis & Catalysis, 2025
+  publications[5],  // Organic Letters, 2024
+  publications[8],  // Angewandte Chemie International Edition, 2021
+  publications[14], // Science, 2019
+  publications[16], // Organic Letters, 2018
+];
 
 /*
  * Format publication citation:
@@ -309,7 +315,7 @@ function formatCitation(time: string): string {
 
 
   <!-- ========================================================= -->
-  <!-- RECENT PUBLICATIONS -->
+  <!-- SELECTED PUBLICATIONS -->
   <!-- ========================================================= -->
   <section class="py-12 border-t">
 
@@ -322,7 +328,7 @@ function formatCitation(time: string): string {
         </p>
 
         <h2 class="text-3xl font-bold">
-          Recent Publications
+          Selected Publications
         </h2>
 
       </div>
@@ -338,16 +344,22 @@ function formatCitation(time: string): string {
     </div>
 
 
+    <p class="text-base md:text-lg leading-relaxed opacity-70 max-w-4xl mb-8">
+      Selected publications highlighting my contributions to photoredox
+      catalysis, synthetic methodology, and pharmaceutical chemistry.
+    </p>
+
+
     <div class="space-y-6">
 
-      {recentPublications.map((paper, index) => (
+      {selectedPublications.map((paper, index) => (
 
         <article class="border-b pb-6">
 
           <div class="flex gap-4">
 
             <!-- Publication Number -->
-            <div class="text-sm opacity-50 pt-1 shrink-0">
+            <div class="text-sm opacity-50 pt-1 shrink-0 w-5">
               {index + 1}
             </div>
 
@@ -371,7 +383,7 @@ function formatCitation(time: string): string {
 
               <!-- Authors -->
               <p class="text-sm leading-relaxed mb-2">
-                {paper.authors}
+                <span set:html={paper.authors} />
               </p>
 
 
