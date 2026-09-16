@@ -285,7 +285,7 @@ export const publications = [
 		abstract: '',
 	},
 	{
-		title: 'Accessing Quinoxalines via Ring-Opening/Cyclization/Detosylation/Aromatization of Activated Aziridines with 2-Bromoanilines: Synthesis of Tyrphostin AG 1296',
+		title: 'Accessing Quinoxalines via Ring-Opening/Cyclization/Detosylation/ Aromatization of Activated Aziridines with 2-Bromoanilines: Synthesis of Tyrphostin AG 1296',
 		authors: 'C. K. Shahi, S. Pradhan, A. Bhattacharyya, R. Kumar, M. K. Ghorai*',
 		journal: 'European Journal of Organic Chemistry',
 		time: '2017, 3487–3495',
