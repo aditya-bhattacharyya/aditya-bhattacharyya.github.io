@@ -30,22 +30,33 @@ const {
 
 		<Head title={title} description={description} image={image} />
 
-
-
 	</head>
+
 	<body>
 		<div class={`bg-base-100 drawer lg:drawer-open ${template.menu_left ? 'drawer-end' : ''}`}>
+
 			<input id='my-drawer' type='checkbox' class='drawer-toggle' />
+
 			<!-- Drawer content -->
-            <div class='drawer-content bg-base-100'>
+			<div class='drawer-content bg-base-100'>
+
 				<div class='bg-base-100 z-50 text-base-content shadow-sm'>
-					<nav class='navbar'>
-						<div class='navbar-start'>
+
+					<!-- Mobile / top navigation -->
+					<nav class='navbar flex-nowrap px-4'>
+
+						<!-- Left side: menu button -->
+						<div class='flex-none'>
+
 							{template.menu_left &&
 								<DarkLightController/>
 								/* <ThemeSelector transition:persist /> */
 							}
-							<label for='my-drawer' class='btn btn-square btn-ghost lg:hidden'>
+
+							<label
+								for='my-drawer'
+								class='btn btn-square btn-ghost lg:hidden'
+							>
 								<BetterIcon>
 									<svg
 										xmlns='http://www.w3.org/2000/svg'
@@ -57,34 +68,59 @@ const {
 										<path
 											stroke-linecap='round'
 											stroke-linejoin='round'
-											d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5'></path>
+											d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5'
+										></path>
 									</svg>
 								</BetterIcon>
 							</label>
+
 						</div>
-<div class='navbar-center lg:hidden min-w-0 flex-1 px-2 text-lg font-black truncate'>
-    Associate Scientific Director
-</div>
-						<div class='navbar-end'>
+
+						<!-- Mobile title -->
+						<div
+							class='min-w-0 flex-1 lg:hidden text-lg font-black text-center truncate px-2'
+						>
+							Dr. Aditya
+						</div>
+
+						<!-- Right side: theme controller -->
+						<div class='flex-none'>
+
 							{!template.menu_left &&
 								<DarkLightController/>
 								/* <ThemeSelector transition:persist /> */
 							}
+
 						</div>
+
 					</nav>
+
 				</div>
-                <main class='p-8 pt-10 lg:pt-16 lg:max-w-5xl max-w-full mx-auto min-h-screen flex flex-col justify-between'>
+
+				<main class='p-8 pt-10 lg:pt-16 lg:max-w-5xl max-w-full mx-auto min-h-screen flex flex-col justify-between'>
+
 					<!-- Page content -->
 					<slot />
-				<Footer />
+
+					<Footer />
+
 				</main>
+
 			</div>
+
 			<!-- Drawer side -->
 			<div class='drawer-side z-40'>
-				<label for='my-drawer' aria-label='close sidebar' class='drawer-overlay'
+
+				<label
+					for='my-drawer'
+					aria-label='close sidebar'
+					class='drawer-overlay'
 				></label>
+
 				<Navbar />
+
 			</div>
+
 		</div>
 	</body>
 </html>
@@ -95,6 +131,7 @@ const {
 			--my-color: #252b30;
 		}
 	}
+
 	html,
 	body {
 		margin: 0;
