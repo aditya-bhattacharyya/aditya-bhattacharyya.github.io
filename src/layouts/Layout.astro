@@ -26,27 +26,48 @@ const {
 <!doctype html>
 <html lang='en'>
 	<head>
-		{template.transitions && <ClientRouter /> }
 
-		<Head title={title} description={description} image={image} />
+		{template.transitions && <ClientRouter />}
+
+		<Head
+			title={title}
+			description={description}
+			image={image}
+		/>
 
 	</head>
 
 	<body>
-		<div class={`bg-base-100 drawer lg:drawer-open ${template.menu_left ? 'drawer-end' : ''}`}>
 
-			<input id='my-drawer' type='checkbox' class='drawer-toggle' />
+		<div
+			class={`bg-base-100 drawer lg:drawer-open ${
+				template.menu_left ? 'drawer-end' : ''
+			}`}
+		>
 
-			<!-- Drawer content -->
-			<div class='drawer-content bg-base-100'>
+			<input
+				id='my-drawer'
+				type='checkbox'
+				class='drawer-toggle'
+			/>
 
-				<div class='bg-base-100 z-50 text-base-content shadow-sm'>
 
-					<!-- Mobile / top navigation -->
-					<nav class='navbar flex-nowrap px-4'>
+			<!-- ===================================================== -->
+			<!-- MAIN CONTENT                                         -->
+			<!-- ===================================================== -->
 
-						<!-- Left side: menu button -->
-						<div class='flex-none'>
+			<div class='drawer-content bg-base-100 min-w-0'>
+
+				<!-- Top navigation bar -->
+				<div
+					class='bg-base-100 z-50
+						   text-base-content
+						   shadow-sm'
+				>
+
+					<nav class='navbar'>
+
+						<div class='navbar-start'>
 
 							{template.menu_left &&
 								<DarkLightController/>
@@ -57,7 +78,9 @@ const {
 								for='my-drawer'
 								class='btn btn-square btn-ghost lg:hidden'
 							>
+
 								<BetterIcon>
+
 									<svg
 										xmlns='http://www.w3.org/2000/svg'
 										fill='none'
@@ -65,26 +88,37 @@ const {
 										stroke-width='1.5'
 										class='size-6 stroke-current'
 									>
+
 										<path
 											stroke-linecap='round'
 											stroke-linejoin='round'
 											d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5'
 										></path>
+
 									</svg>
+
 								</BetterIcon>
+
 							</label>
 
 						</div>
 
+
 						<!-- Mobile title -->
 						<div
-							class='min-w-0 flex-1 lg:hidden text-lg font-black text-center truncate px-2'
+							class='navbar-center
+								   lg:hidden
+								   text-lg
+								   font-black'
 						>
-							Dr. Aditya Bhattacharyya
+
+							{profile.title}
+							{profile.fullName}
+
 						</div>
 
-						<!-- Right side: theme controller -->
-						<div class='flex-none'>
+
+						<div class='navbar-end'>
 
 							{!template.menu_left &&
 								<DarkLightController/>
@@ -97,34 +131,76 @@ const {
 
 				</div>
 
-				<main class='p-8 pt-10 lg:pt-16 lg:max-w-5xl max-w-full mx-auto min-h-screen flex flex-col justify-between'>
+
+				<!-- ================================================= -->
+				<!-- PAGE CONTENT                                      -->
+				<!-- ================================================= -->
+
+				<main
+					class='p-8
+						   pt-10
+						   lg:pt-16
+						   lg:max-w-5xl
+						   max-w-full
+						   mx-auto
+						   min-h-screen
+						   flex
+						   flex-col
+						   justify-between'
+				>
 
 					<!-- Page content -->
 					<slot />
 
+					<!-- Footer -->
 					<Footer />
 
 				</main>
 
 			</div>
 
-			<!-- Drawer side -->
-<div class='drawer-side z-40 bg-base-200'>
-    <label for='my-drawer' aria-label='close sidebar' class='drawer-overlay'
-    ></label>
-    <Navbar />
-</div>
+
+			<!-- ===================================================== -->
+			<!-- SIDEBAR                                               -->
+			<!-- ===================================================== -->
+
+			<div
+				class='drawer-side
+					   z-40
+					   bg-base-200
+					   lg:w-80
+					   lg:min-w-80
+					   lg:max-w-80
+					   lg:shrink-0'
+			>
+
+				<label
+					for='my-drawer'
+					aria-label='close sidebar'
+					class='drawer-overlay'
+				></label>
+
+				<Navbar />
+
+			</div>
 
 		</div>
+
 	</body>
+
 </html>
 
+
 <style>
+
 	@media (prefers-color-scheme: dark) {
+
 		:root {
 			--my-color: #252b30;
 		}
+
 	}
+
 
 	html,
 	body {
@@ -132,4 +208,5 @@ const {
 		width: 100%;
 		height: 100%;
 	}
+
 </style>
