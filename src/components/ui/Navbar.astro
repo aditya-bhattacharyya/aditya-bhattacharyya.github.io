@@ -9,13 +9,16 @@ const { fullName, title } = profile
 ---
 
 <aside
-  class='px-4 pt-4 min-h-screen w-[20rem] bg-base-200 text-base-content flex flex-col'
+  class='px-4 pt-4 min-h-screen w-80 min-w-80 max-w-80 shrink-0 bg-base-200 text-base-content flex flex-col'
 >
   <div class='flex flex-col my-8 justify-between h-full'>
 
     <div>
 
-      <!-- Profile -->
+      <!-- ===================================================== -->
+      <!-- PROFILE                                               -->
+      <!-- ===================================================== -->
+
       <div class='flex justify-center items-center flex-col'>
 
         <Image
@@ -24,15 +27,18 @@ const { fullName, title } = profile
           alt={`Profile picture of ${fullName}`}
         />
 
+
         <div class="mt-8 hidden lg:block text-center px-2">
 
           <div class="text-lg font-black leading-tight">
             {fullName}
           </div>
 
+
           <div class="text-sm font-medium opacity-60 mt-2">
             Associate Scientific Director
           </div>
+
 
           <div class="text-sm opacity-50 mt-1">
             BBRC, Syngene
@@ -43,45 +49,83 @@ const { fullName, title } = profile
       </div>
 
 
-      <!-- Navigation -->
+      <!-- ===================================================== -->
+      <!-- NAVIGATION                                            -->
+      <!-- ===================================================== -->
+
       <div class='mx-4 mt-16'>
 
         <ul class='space-y-4 menu grow shrink menu-md overflow-y-auto'>
 
           <li>
-            <a href={`${template.base}/`} class='text-lg'>
+
+            <a
+              href={`${template.base}/`}
+              class='text-lg'
+            >
               Home
             </a>
+
           </li>
 
+
           <li>
-            <a href={`${template.base}/research`} class='text-lg'>
+
+            <a
+              href={`${template.base}/research`}
+              class='text-lg'
+            >
               Research
             </a>
+
           </li>
 
+
           <li>
-            <a href={`${template.base}/papers`} class='text-lg'>
+
+            <a
+              href={`${template.base}/papers`}
+              class='text-lg'
+            >
               Publications
             </a>
+
           </li>
 
+
           <li>
-            <a href={`${template.base}/patents`} class='text-lg'>
+
+            <a
+              href={`${template.base}/patents`}
+              class='text-lg'
+            >
               Patents
             </a>
+
           </li>
 
+
           <li>
-            <a href={`${template.base}/talks`} class='text-lg'>
+
+            <a
+              href={`${template.base}/talks`}
+              class='text-lg'
+            >
               Invited Talks
             </a>
+
           </li>
 
+
           <li>
-            <a href={`${template.base}/cv`} class='text-lg'>
+
+            <a
+              href={`${template.base}/cv`}
+              class='text-lg'
+            >
               CV
             </a>
+
           </li>
 
         </ul>
@@ -91,10 +135,16 @@ const { fullName, title } = profile
     </div>
 
 
-    <!-- Social links -->
+    <!-- ===================================================== -->
+    <!-- SOCIAL LINKS                                          -->
+    <!-- ===================================================== -->
+
     <div class='mx-4'>
+
       <SocialIcons/>
+
     </div>
 
   </div>
+
 </aside>
