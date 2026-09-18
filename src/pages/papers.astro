@@ -3,7 +3,65 @@ import Layout from "@/layouts/Layout.astro";
 import { publications } from "@/data/cv";
 import { highlightAuthor } from "@/lib/utils";
 import { template } from "@/settings";
-import Publication33Graphic from "@/assets/publications/publication-33-scheme.jpg";
+
+/*
+ * Automatically load all graphical abstracts from:
+ *
+ * src/assets/publications/
+ *
+ * Supported formats:
+ * JPG / JPEG / PNG / GIF / WEBP / SVG
+ *
+ * Files should be named:
+ *
+ * publication-01-scheme.png
+ * publication-02-scheme.gif
+ * ...
+ * publication-33-scheme.jpg
+ */
+const publicationGraphics = import.meta.glob(
+  "/src/assets/publications/*",
+  {
+    eager: true,
+    query: "?url",
+    import: "default",
+  }
+);
+
+/*
+ * Find the graphical abstract belonging to a publication.
+ *
+ * Example:
+ *
+ * Publication 33
+ * →
+ * publication-33-scheme.jpg
+ *
+ * Publication 02
+ * →
+ * publication-02-scheme.gif
+ */
+function getPublicationGraphic(serialNumber: number): string | null {
+
+  const paddedNumber = String(serialNumber).padStart(2, "0");
+
+  const possibleFileName =
+    new RegExp(
+      `/publication-${paddedNumber}-scheme\\.(jpg|jpeg|png|gif|webp|svg)$`,
+      "i"
+    );
+
+  for (const [path, graphic] of Object.entries(publicationGraphics)) {
+
+    if (possibleFileName.test(path)) {
+      return graphic as string;
+    }
+
+  }
+
+  return null;
+}
+
 
 const ALL_PAPERS = publications;
 ---
@@ -12,14 +70,25 @@ const ALL_PAPERS = publications;
 
   <div class="max-w-none">
 
-    <!-- Page header -->
+    <!-- ============================================================= -->
+    <!-- PAGE HEADER                                                   -->
+    <!-- ============================================================= -->
+
     <div class="mb-10">
 
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+      <div
+        class="flex flex-col md:flex-row
+               md:items-end md:justify-between
+               gap-4"
+      >
 
         <div>
 
-          <p class="text-sm uppercase tracking-wider opacity-60 mb-2">
+          <p
+            class="text-sm uppercase
+                   tracking-wider
+                   opacity-60 mb-2"
+          >
             Research Output
           </p>
 
@@ -29,11 +98,13 @@ const ALL_PAPERS = publications;
 
         </div>
 
+
         <div class="text-sm opacity-60">
           {ALL_PAPERS.length} publications
         </div>
 
       </div>
+
 
       <div class="mt-5 max-w-3xl">
 
@@ -48,43 +119,66 @@ const ALL_PAPERS = publications;
     </div>
 
 
-    <!-- Authorship notation -->
+    <!-- ============================================================= -->
+    <!-- AUTHORSHIP NOTATION                                          -->
+    <!-- ============================================================= -->
+
     <div class="mb-6 text-sm text-base-content/60">
 
-      <span class="font-medium text-base-content/80">*</span>
+      <span class="font-medium text-base-content/80">
+        *
+      </span>
       Corresponding author
 
-      <span class="mx-2 text-base-content/30">·</span>
+      <span class="mx-2 text-base-content/30">
+        ·
+      </span>
 
-      <span class="font-medium text-base-content/80">†</span>
+      <span class="font-medium text-base-content/80">
+        †
+      </span>
       Equal contribution
 
     </div>
 
 
-    <!-- Publication list -->
+    <!-- ============================================================= -->
+    <!-- PUBLICATION LIST                                              -->
+    <!-- ============================================================= -->
+
     <div class="space-y-4">
 
       {ALL_PAPERS.map((paper, index) => {
 
+        /*
+         * Publications are displayed in reverse order.
+         *
+         * Therefore the first item in the data array is
+         * Publication 33.
+         */
         const serialNumber = ALL_PAPERS.length - index;
 
         /*
-         * Existing publication references are formatted like:
+         * Find the graphical abstract for this publication.
          *
-         * 2026
+         * If a graphic exists, the publication becomes a flip card.
+         * If no graphic exists, it remains a normal card.
+         */
+        const publicationGraphic =
+          getPublicationGraphic(serialNumber);
+
+
+        /*
+         * Bibliographic reference formatting.
+         *
+         * Example:
+         *
          * 2025, 367 (15), e9606
-         * 2024, 35 (20), 2459–2464
          *
-         * Display format:
-         *
-         * 2025, 367 (15), e9606
-         *
-         * Year  → bold
+         * Year   → bold
          * Volume → italic
          * Issue/pages → normal
          */
-
         const timeMatch = paper.time.match(
           /^(\d{4})(?:,\s*(\d+)(.*))?$/
         );
@@ -93,255 +187,173 @@ const ALL_PAPERS = publications;
         const volume = timeMatch?.[2] ?? "";
         const remainingReference = timeMatch?.[3] ?? "";
 
+
         /*
-         * Publication 33 is the first item because the publication
-         * numbers are displayed in reverse chronological order.
+         * ============================================================
+         * PUBLICATION WITH GRAPHICAL ABSTRACT
+         * ============================================================
          */
-        const isPublication33 = index === 0;
 
-        return (
+        return publicationGraphic ? (
 
-          isPublication33 ? (
+          <div class="publication-flip-container">
 
-            <!-- ========================================================= -->
-            <!-- PUBLICATION 33 — FLIP CARD                              -->
-            <!-- ========================================================= -->
-
-            <div class="publication-flip-container">
-
-              <article class="publication-flip-card">
+            <article class="publication-flip-card">
 
 
-                <!-- =================================================== -->
-                <!-- FRONT                                               -->
-                <!-- =================================================== -->
+              <!-- ================================================= -->
+              <!-- FRONT                                             -->
+              <!-- ================================================= -->
 
-                <div
-                  class="publication-flip-face publication-flip-front
-                         group relative rounded-2xl bg-base-200
-                         border border-base-300/50
-                         hover:border-primary/40 hover:shadow-sm
-                         transition-all duration-200"
-                >
+              <div
+                class="publication-flip-face
+                       publication-flip-front
+                       group relative
+                       rounded-2xl
+                       bg-base-200
+                       border border-base-300/50
+                       hover:border-primary/40
+                       hover:shadow-sm
+                       transition-all duration-200"
+              >
 
-                  <div class="p-5 md:p-6">
+                <div class="p-5 md:p-6">
 
-                    <div class="flex gap-4 md:gap-6">
-
-                      <!-- Serial number -->
-                      <div class="shrink-0 w-10 md:w-14 pt-1">
-
-                        <div
-                          class="text-2xl md:text-3xl font-bold
-                                 text-base-content/20
-                                 group-hover:text-accent
-                                 transition-colors duration-200"
-                        >
-                          {String(serialNumber).padStart(2, "0")}
-                        </div>
-
-                      </div>
+                  <div class="flex gap-4 md:gap-6">
 
 
-                      <!-- Publication content -->
-                      <div class="flex-1 min-w-0">
+                    <!-- =========================================== -->
+                    <!-- PUBLICATION NUMBER                          -->
+                    <!-- =========================================== -->
 
+                    <div class="shrink-0 w-10 md:w-14 pt-1">
 
-                        <!-- Journal -->
-                        <div class="mb-2 leading-relaxed">
-
-                          <span
-                            class="text-base md:text-lg
-                                   font-semibold
-                                   italic
-                                   text-secondary"
-                          >
-                            {paper.journal}
-                          </span>
-
-                        </div>
-
-
-                        <!-- Bibliographic reference -->
-                        <div
-                          class="mb-3
-                                 text-xs md:text-sm
-                                 text-base-content/55"
-                        >
-
-                          {volume ? (
-                            <>
-                              <span class="font-bold">{year}</span>{`, `}
-                              <span class="italic">{volume}</span>{remainingReference}
-                            </>
-                          ) : (
-                            <span class="font-bold">{year}</span>
-                          )}
-
-                        </div>
-
-
-                        <!-- Title -->
-                        <h2
-                          class="text-lg md:text-xl
-                                 font-semibold
-                                 leading-snug"
-                        >
-
-                          <a
-                            href={template.base + paper.link}
-                            class="no-underline
-                                   text-base-content
-                                   hover:text-accent
-                                   transition-colors duration-200"
-                          >
-                            <span set:html={paper.title} />
-                          </a>
-
-                        </h2>
-
-
-                        <!-- Authors -->
-                        <p
-                          class="text-sm md:text-base
-                                 mt-3
-                                 leading-relaxed
-                                 text-base-content/70"
-                        >
-
-                          <span
-                            class="font-medium
-                                   text-base-content/90"
-                          >
-                            Authors:
-                          </span>
-
-                          {" "}
-
-                          <span set:html={highlightAuthor(paper.authors)} />
-
-                        </p>
-
-
-                        <!-- Buttons -->
-                        <div
-                          class="mt-5 flex flex-wrap
-                                 justify-end gap-2"
-                        >
-
-                          <!-- Read Paper -->
-                          <a
-                            href={paper.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center
-                                   rounded-md
-                                   px-3 py-1.5
-                                   text-xs
-                                   font-semibold
-                                   bg-accent
-                                   text-black
-                                   hover:opacity-90
-                                   transition-opacity duration-200"
-                          >
-                            Read Paper
-                          </a>
-
-
-                          <!-- Graphical Abstract -->
-                          <button
-                            type="button"
-                            class="flip-button inline-flex items-center
-                                   rounded-md
-                                   px-3 py-1.5
-                                   text-xs
-                                   font-semibold
-                                   bg-primary
-                                   text-primary-content
-                                   hover:opacity-90
-                                   transition-opacity duration-200"
-                            aria-label="View graphical abstract"
-                            data-flip-button
-                          >
-                            Graphical Abstract
-                          </button>
-
-                        </div>
-
+                      <div
+                        class="text-2xl md:text-3xl
+                               font-bold
+                               text-base-content/20
+                               group-hover:text-accent
+                               transition-colors duration-200"
+                      >
+                        {String(serialNumber).padStart(2, "0")}
                       </div>
 
                     </div>
 
-                  </div>
 
-                </div>
+                    <!-- =========================================== -->
+                    <!-- PUBLICATION CONTENT                         -->
+                    <!-- =========================================== -->
+
+                    <div class="flex-1 min-w-0">
 
 
-                <!-- =================================================== -->
-                <!-- BACK                                                -->
-                <!-- =================================================== -->
-
-                <div
-                  class="publication-flip-face publication-flip-back
-                         rounded-2xl bg-base-200
-                         border border-base-300/50"
-                >
-
-                  <div
-                    class="p-4 md:p-5 h-full
-                           flex flex-col"
-                  >
-
-                    <!-- ================================================= -->
-                    <!-- BACK HEADER                                      -->
-                    <!-- ================================================= -->
-
-                    <div
-                      class="flex items-center
-                             justify-between
-                             gap-3
-                             mb-3"
-                    >
-
-                      <!-- Publication number + title -->
-                      <div
-                        class="flex items-center
-                               gap-2
-                               min-w-0"
-                      >
+                      <!-- Journal -->
+                      <div class="mb-2 leading-relaxed">
 
                         <span
-                          class="text-sm
+                          class="text-base md:text-lg
                                  font-semibold
-                                 text-base-content/40
-                                 shrink-0"
+                                 italic
+                                 text-secondary"
                         >
-                          33
-                        </span>
-
-                        <span
-                          class="text-base-content/30"
-                        >
-                          ·
-                        </span>
-
-                        <span
-                          class="text-sm md:text-base
-                                 font-semibold
-                                 text-base-content/75
-                                 whitespace-nowrap"
-                        >
-                          Graphical Abstract
+                          {paper.journal}
                         </span>
 
                       </div>
 
 
-                      <!-- Back controls -->
+                      <!-- Bibliographic reference -->
                       <div
-                        class="flex items-center
-                               gap-2
-                               shrink-0"
+                        class="mb-3
+                               text-xs md:text-sm
+                               text-base-content/55"
+                      >
+
+                        {volume ? (
+
+                          <>
+
+                            <span class="font-bold">
+                              {year}
+                            </span>
+
+                            {`, `}
+
+                            <span class="italic">
+                              {volume}
+                            </span>
+
+                            {remainingReference}
+
+                          </>
+
+                        ) : (
+
+                          <span class="font-bold">
+                            {year}
+                          </span>
+
+                        )}
+
+                      </div>
+
+
+                      <!-- Title -->
+                      <h2
+                        class="text-lg md:text-xl
+                               font-semibold
+                               leading-snug"
+                      >
+
+                        <a
+                          href={template.base + paper.link}
+                          class="no-underline
+                                 text-base-content
+                                 hover:text-accent
+                                 transition-colors duration-200"
+                        >
+
+                          <span set:html={paper.title} />
+
+                        </a>
+
+                      </h2>
+
+
+                      <!-- Authors -->
+                      <p
+                        class="text-sm md:text-base
+                               mt-3
+                               leading-relaxed
+                               text-base-content/70"
+                      >
+
+                        <span
+                          class="font-medium
+                                 text-base-content/90"
+                        >
+                          Authors:
+                        </span>
+
+                        {" "}
+
+                        <span
+                          set:html={highlightAuthor(paper.authors)}
+                        />
+
+                      </p>
+
+
+                      <!-- ========================================= -->
+                      <!-- BUTTONS                                   -->
+                      <!-- ========================================= -->
+
+                      <div
+                        class="mt-5
+                               flex flex-wrap
+                               justify-end
+                               gap-2"
                       >
 
                         <!-- Read Paper -->
@@ -349,7 +361,8 @@ const ALL_PAPERS = publications;
                           href={paper.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          class="inline-flex items-center
+                          class="inline-flex
+                                 items-center
                                  rounded-md
                                  px-3 py-1.5
                                  text-xs
@@ -363,11 +376,12 @@ const ALL_PAPERS = publications;
                         </a>
 
 
-                        <!-- Back -->
+                        <!-- Graphical Abstract -->
                         <button
                           type="button"
                           class="flip-button
-                                 inline-flex items-center
+                                 inline-flex
+                                 items-center
                                  rounded-md
                                  px-3 py-1.5
                                  text-xs
@@ -376,178 +390,13 @@ const ALL_PAPERS = publications;
                                  text-primary-content
                                  hover:opacity-90
                                  transition-opacity duration-200"
-                          aria-label="Return to publication details"
+                          aria-label={`View graphical abstract for Publication ${serialNumber}`}
                           data-flip-button
                         >
-                          Back
+                          Graphical Abstract
                         </button>
 
                       </div>
-
-                    </div>
-
-
-                    <!-- ================================================= -->
-                    <!-- GRAPHICAL ABSTRACT                               -->
-                    <!-- ================================================= -->
-
-                    <div
-                      class="graphical-abstract-container
-                             flex-1 min-h-0
-                             rounded-xl
-                             bg-base-100
-                             border border-base-300/40
-                             overflow-hidden
-                             flex items-center justify-center
-                             p-2 md:p-3"
-                    >
-
-                      <img
-                        src={Publication33Graphic.src}
-                        alt="Graphical abstract for Publication 33"
-                        class="graphical-abstract-image"
-                      />
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </article>
-
-            </div>
-
-          ) : (
-
-            <!-- ========================================================= -->
-            <!-- EXISTING PUBLICATION CARDS — UNCHANGED                   -->
-            <!-- ========================================================= -->
-
-            <article
-              class="group relative rounded-2xl bg-base-200 border border-base-300/50
-                     hover:border-primary/40 hover:shadow-sm
-                     transition-all duration-200"
-            >
-
-              <div class="p-5 md:p-6">
-
-                <div class="flex gap-4 md:gap-6">
-
-                  <!-- Reverse serial number -->
-                  <div class="shrink-0 w-10 md:w-14 pt-1">
-
-                    <div
-                      class="text-2xl md:text-3xl font-bold
-                             text-base-content/20
-                             group-hover:text-accent
-                             transition-colors duration-200"
-                    >
-                      {String(serialNumber).padStart(2, "0")}
-                    </div>
-
-                  </div>
-
-
-                  <!-- Publication content -->
-                  <div class="flex-1 min-w-0">
-
-
-                    <!-- Journal -->
-                    <div class="mb-2 leading-relaxed">
-
-                      <span
-                        class="text-base md:text-lg
-                               font-semibold
-                               italic
-                               text-secondary"
-                      >
-                        {paper.journal}
-                      </span>
-
-                    </div>
-
-
-                    <!-- Bibliographic reference -->
-                    <div
-                      class="mb-3
-                             text-xs md:text-sm
-                             text-base-content/55"
-                    >
-
-                      {volume ? (
-                        <>
-                          <span class="font-bold">{year}</span>{`, `}
-                          <span class="italic">{volume}</span>{remainingReference}
-                        </>
-                      ) : (
-                        <span class="font-bold">{year}</span>
-                      )}
-
-                    </div>
-
-
-                    <!-- Title -->
-                    <h2
-                      class="text-lg md:text-xl
-                             font-semibold
-                             leading-snug"
-                    >
-
-                      <a
-                        href={template.base + paper.link}
-                        class="no-underline
-                               text-base-content
-                               hover:text-accent
-                               transition-colors duration-200"
-                      >
-                        <span set:html={paper.title} />
-                      </a>
-
-                    </h2>
-
-
-                    <!-- Authors -->
-                    <p
-                      class="text-sm md:text-base
-                             mt-3
-                             leading-relaxed
-                             text-base-content/70"
-                    >
-
-                      <span
-                        class="font-medium
-                               text-base-content/90"
-                      >
-                        Authors:
-                      </span>
-
-                      {" "}
-
-                      <span set:html={highlightAuthor(paper.authors)} />
-
-                    </p>
-
-
-                    <!-- Read Paper -->
-                    <div class="mt-4 flex justify-end">
-
-                      <a
-                        href={paper.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="inline-flex items-center
-                               rounded-md
-                               px-3 py-1.5
-                               text-xs
-                               font-semibold
-                               bg-accent
-                               text-black
-                               hover:opacity-90
-                               transition-opacity duration-200"
-                      >
-                        Read Paper
-                      </a>
 
                     </div>
 
@@ -557,9 +406,335 @@ const ALL_PAPERS = publications;
 
               </div>
 
+
+              <!-- ================================================= -->
+              <!-- BACK                                              -->
+              <!-- ================================================= -->
+
+              <div
+                class="publication-flip-face
+                       publication-flip-back
+                       rounded-2xl
+                       bg-base-200
+                       border border-base-300/50"
+              >
+
+                <div
+                  class="p-4 md:p-5
+                         h-full
+                         flex flex-col"
+                >
+
+
+                  <!-- ============================================= -->
+                  <!-- BACK HEADER                                   -->
+                  <!-- ============================================= -->
+
+                  <div
+                    class="flex items-center
+                           justify-between
+                           gap-3
+                           mb-3"
+                  >
+
+
+                    <!-- Publication number + title -->
+                    <div
+                      class="flex items-center
+                             gap-2
+                             min-w-0"
+                    >
+
+                      <span
+                        class="text-sm
+                               font-semibold
+                               text-base-content/40
+                               shrink-0"
+                      >
+                        {serialNumber}
+                      </span>
+
+
+                      <span
+                        class="text-base-content/30"
+                      >
+                        ·
+                      </span>
+
+
+                      <span
+                        class="text-sm md:text-base
+                               font-semibold
+                               text-base-content/75
+                               whitespace-nowrap"
+                      >
+                        Graphical Abstract
+                      </span>
+
+                    </div>
+
+
+                    <!-- =========================================== -->
+                    <!-- BACK BUTTONS                               -->
+                    <!-- =========================================== -->
+
+                    <div
+                      class="flex items-center
+                             gap-2
+                             shrink-0"
+                    >
+
+                      <!-- Read Publication -->
+                      <a
+                        href={paper.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex
+                               items-center
+                               rounded-md
+                               px-3 py-1.5
+                               text-xs
+                               font-semibold
+                               bg-primary
+                               text-primary-content
+                               hover:opacity-90
+                               transition-opacity duration-200"
+                      >
+                        Read Publication
+                      </a>
+
+
+                      <!-- Back -->
+                      <button
+                        type="button"
+                        class="flip-button
+                               inline-flex
+                               items-center
+                               rounded-md
+                               px-3 py-1.5
+                               text-xs
+                               font-semibold
+                               bg-primary
+                               text-primary-content
+                               hover:opacity-90
+                               transition-opacity duration-200"
+                        aria-label={`Return to Publication ${serialNumber}`}
+                        data-flip-button
+                      >
+                        Back
+                      </button>
+
+                    </div>
+
+                  </div>
+
+
+                  <!-- ============================================= -->
+                  <!-- GRAPHICAL ABSTRACT                            -->
+                  <!-- ============================================= -->
+
+                  <div
+                    class="graphical-abstract-container
+                           flex-1
+                           min-h-0
+                           rounded-xl
+                           bg-base-100
+                           border border-base-300/40
+                           overflow-hidden
+                           flex
+                           items-center
+                           justify-center
+                           p-2 md:p-3"
+                  >
+
+                    <img
+                      src={publicationGraphic}
+                      alt={`Graphical abstract for Publication ${serialNumber}`}
+                      class="graphical-abstract-image"
+                    />
+
+                  </div>
+
+                </div>
+
+              </div>
+
             </article>
 
-          )
+          </div>
+
+        ) : (
+
+          /*
+           * ==========================================================
+           * PUBLICATION WITHOUT GRAPHICAL ABSTRACT
+           * ==========================================================
+           *
+           * This keeps the normal publication-card design.
+           */
+
+          <article
+            class="group relative
+                   rounded-2xl
+                   bg-base-200
+                   border border-base-300/50
+                   hover:border-primary/40
+                   hover:shadow-sm
+                   transition-all duration-200"
+          >
+
+            <div class="p-5 md:p-6">
+
+              <div class="flex gap-4 md:gap-6">
+
+
+                <!-- Publication number -->
+                <div class="shrink-0 w-10 md:w-14 pt-1">
+
+                  <div
+                    class="text-2xl md:text-3xl
+                           font-bold
+                           text-base-content/20
+                           group-hover:text-accent
+                           transition-colors duration-200"
+                  >
+                    {String(serialNumber).padStart(2, "0")}
+                  </div>
+
+                </div>
+
+
+                <!-- Publication content -->
+                <div class="flex-1 min-w-0">
+
+
+                  <!-- Journal -->
+                  <div class="mb-2 leading-relaxed">
+
+                    <span
+                      class="text-base md:text-lg
+                             font-semibold
+                             italic
+                             text-secondary"
+                    >
+                      {paper.journal}
+                    </span>
+
+                  </div>
+
+
+                  <!-- Bibliographic reference -->
+                  <div
+                    class="mb-3
+                           text-xs md:text-sm
+                           text-base-content/55"
+                  >
+
+                    {volume ? (
+
+                      <>
+
+                        <span class="font-bold">
+                          {year}
+                        </span>
+
+                        {`, `}
+
+                        <span class="italic">
+                          {volume}
+                        </span>
+
+                        {remainingReference}
+
+                      </>
+
+                    ) : (
+
+                      <span class="font-bold">
+                        {year}
+                      </span>
+
+                    )}
+
+                  </div>
+
+
+                  <!-- Title -->
+                  <h2
+                    class="text-lg md:text-xl
+                           font-semibold
+                           leading-snug"
+                  >
+
+                    <a
+                      href={template.base + paper.link}
+                      class="no-underline
+                             text-base-content
+                             hover:text-accent
+                             transition-colors duration-200"
+                    >
+
+                      <span set:html={paper.title} />
+
+                    </a>
+
+                  </h2>
+
+
+                  <!-- Authors -->
+                  <p
+                    class="text-sm md:text-base
+                           mt-3
+                           leading-relaxed
+                           text-base-content/70"
+                  >
+
+                    <span
+                      class="font-medium
+                             text-base-content/90"
+                    >
+                      Authors:
+                    </span>
+
+                    {" "}
+
+                    <span
+                      set:html={highlightAuthor(paper.authors)}
+                    />
+
+                  </p>
+
+
+                  <!-- Read Paper -->
+                  <div class="mt-4 flex justify-end">
+
+                    <a
+                      href={paper.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex
+                             items-center
+                             rounded-md
+                             px-3 py-1.5
+                             text-xs
+                             font-semibold
+                             bg-accent
+                             text-black
+                             hover:opacity-90
+                             transition-opacity duration-200"
+                    >
+                      Read Paper
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
 
         );
 
@@ -568,10 +743,22 @@ const ALL_PAPERS = publications;
     </div>
 
 
-    <!-- Closing note -->
-    <div class="mt-10 pt-6 border-t border-base-300/60">
+    <!-- ============================================================= -->
+    <!-- CLOSING NOTE                                                  -->
+    <!-- ============================================================= -->
 
-      <p class="text-sm opacity-50 text-center">
+    <div
+      class="mt-10
+             pt-6
+             border-t
+             border-base-300/60"
+    >
+
+      <p
+        class="text-sm
+               opacity-50
+               text-center"
+      >
         Graphical abstracts and additional publication details will be added
         progressively.
       </p>
@@ -590,19 +777,25 @@ const ALL_PAPERS = publications;
 <style>
 
   /*
-   * Establish the 3D perspective.
+   * =============================================================
+   * 3D PERSPECTIVE
+   * =============================================================
    */
+
   .publication-flip-container {
     perspective: 1200px;
   }
 
 
   /*
-   * The front determines the card height.
+   * =============================================================
+   * FLIP CARD
+   * =============================================================
    *
-   * The back is positioned absolutely and therefore cannot
-   * make the publication card taller.
+   * The front determines the card height.
+   * The back is positioned absolutely over the same rectangle.
    */
+
   .publication-flip-card {
     position: relative;
     width: 100%;
@@ -613,8 +806,11 @@ const ALL_PAPERS = publications;
 
 
   /*
-   * Both faces occupy the same physical width.
+   * =============================================================
+   * CARD FACES
+   * =============================================================
    */
+
   .publication-flip-face {
     width: 100%;
     backface-visibility: hidden;
@@ -623,11 +819,14 @@ const ALL_PAPERS = publications;
 
 
   /*
+   * =============================================================
    * FRONT
+   * =============================================================
    *
-   * Remains in normal document flow.
-   * Therefore it determines the height of the card.
+   * The front remains in normal document flow and therefore
+   * determines the height of the entire card.
    */
+
   .publication-flip-front {
     position: relative;
     z-index: 2;
@@ -635,10 +834,13 @@ const ALL_PAPERS = publications;
 
 
   /*
+   * =============================================================
    * BACK
+   * =============================================================
    *
-   * Occupies exactly the same rectangle as the front.
+   * The back occupies exactly the same rectangle as the front.
    */
+
   .publication-flip-back {
     position: absolute;
     inset: 0;
@@ -648,26 +850,42 @@ const ALL_PAPERS = publications;
 
 
   /*
-   * Rotate the card when flipped.
+   * =============================================================
+   * FLIPPED STATE
+   * =============================================================
    */
+
   .publication-flip-card.is-flipped {
     transform: rotateY(180deg);
   }
 
 
   /*
-   * Graphical abstract container.
+   * =============================================================
+   * GRAPHICAL ABSTRACT CONTAINER
+   * =============================================================
    */
+
   .graphical-abstract-container {
     position: relative;
   }
 
 
   /*
-   * Keep the chemical scheme proportional.
+   * =============================================================
+   * GRAPHICAL ABSTRACT IMAGE
+   * =============================================================
    *
-   * contain = no distortion and no additional cropping.
+   * contain:
+   *
+   * - preserves aspect ratio
+   * - prevents distortion
+   * - prevents additional cropping
+   * - works with JPG, PNG, GIF, WebP and SVG
+   *
+   * Animated GIFs remain animated.
    */
+
   .graphical-abstract-image {
     display: block;
     width: 100%;
@@ -678,8 +896,11 @@ const ALL_PAPERS = publications;
 
 
   /*
-   * Respect reduced-motion accessibility settings.
+   * =============================================================
+   * REDUCED MOTION
+   * =============================================================
    */
+
   @media (prefers-reduced-motion: reduce) {
 
     .publication-flip-card {
@@ -690,11 +911,15 @@ const ALL_PAPERS = publications;
 
 
   /*
-   * Mobile layout.
+   * =============================================================
+   * MOBILE
+   * =============================================================
    *
-   * The controls can wrap if the screen becomes too narrow,
-   * while retaining their normal button size.
+   * Keep the buttons at their normal size.
+   * If the screen becomes narrow, the back header can wrap
+   * rather than shrinking the buttons.
    */
+
   @media (max-width: 767px) {
 
     .publication-flip-back > div > div:first-child {
@@ -716,11 +941,13 @@ const ALL_PAPERS = publications;
 
     const target = event.target as HTMLElement | null;
 
-    const button = target?.closest("[data-flip-button]");
+    const button =
+      target?.closest("[data-flip-button]");
 
     if (!button) return;
 
-    const card = button.closest(".publication-flip-card");
+    const card =
+      button.closest(".publication-flip-card");
 
     if (!card) return;
 
