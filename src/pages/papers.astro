@@ -96,8 +96,6 @@ const ALL_PAPERS = publications;
         /*
          * Publication 33 is currently the first item in the array
          * because the serial numbers are displayed in reverse order.
-         *
-         * Only this publication is being used for the flip-card prototype.
          */
         const isPublication33 = index === 0;
 
@@ -106,14 +104,18 @@ const ALL_PAPERS = publications;
           isPublication33 ? (
 
             <!-- ========================================================= -->
-            <!-- PUBLICATION 33 — FLIP CARD PROTOTYPE                     -->
+            <!-- PUBLICATION 33 — FLIP CARD                              -->
             <!-- ========================================================= -->
 
             <div class="publication-flip-container">
 
               <article class="publication-flip-card">
 
-                <!-- FRONT -->
+
+                <!-- =================================================== -->
+                <!-- FRONT                                               -->
+                <!-- =================================================== -->
+
                 <div
                   class="publication-flip-face publication-flip-front
                          group relative rounded-2xl bg-base-200
@@ -131,7 +133,9 @@ const ALL_PAPERS = publications;
 
                         <div
                           class="text-2xl md:text-3xl font-bold
-                                 text-base-content/20"
+                                 text-base-content/20
+                                 group-hover:text-accent
+                                 transition-colors duration-200"
                         >
                           {String(serialNumber).padStart(2, "0")}
                         </div>
@@ -273,7 +277,10 @@ const ALL_PAPERS = publications;
                 </div>
 
 
-                <!-- BACK -->
+                <!-- =================================================== -->
+                <!-- BACK                                                -->
+                <!-- =================================================== -->
+
                 <div
                   class="publication-flip-face publication-flip-back
                          rounded-2xl bg-base-200
@@ -281,14 +288,14 @@ const ALL_PAPERS = publications;
                 >
 
                   <div
-                    class="p-4 md:p-6 h-full
+                    class="p-4 md:p-5 h-full
                            flex flex-col"
                   >
 
                     <!-- Back header -->
                     <div
                       class="flex items-center
-                             justify-between gap-3 mb-4"
+                             justify-between gap-3 mb-3"
                     >
 
                       <div>
@@ -332,30 +339,31 @@ const ALL_PAPERS = publications;
                     </div>
 
 
-                    <!-- Graphical abstract -->
+                    <!-- ================================================= -->
+                    <!-- GRAPHICAL ABSTRACT                               -->
+                    <!-- ================================================= -->
+
                     <div
-                      class="flex-1 min-h-0
+                      class="graphical-abstract-container
+                             flex-1
                              rounded-xl
                              bg-base-100
                              border border-base-300/40
-                             flex items-center justify-center
                              overflow-hidden
-                             p-2 md:p-4"
+                             flex items-start justify-center"
                     >
 
                       <img
                         src={Publication33Graphic.src}
                         alt="Graphical abstract for Publication 33"
-                        class="max-w-full max-h-full
-                               w-auto h-auto
-                               object-contain"
+                        class="graphical-abstract-image"
                       />
 
                     </div>
 
 
                     <!-- Read paper -->
-                    <div class="mt-4 flex justify-center">
+                    <div class="mt-3 flex justify-center">
 
                       <a
                         href={paper.link}
@@ -556,7 +564,7 @@ const ALL_PAPERS = publications;
 <style>
 
   /*
-   * The container establishes the 3D perspective.
+   * Establishes the 3D perspective.
    */
   .publication-flip-container {
     perspective: 1200px;
@@ -564,22 +572,22 @@ const ALL_PAPERS = publications;
 
 
   /*
-   * The card contains the front and back faces.
+   * The card itself does not have a fixed height.
+   * The front face determines the card height.
    */
   .publication-flip-card {
     position: relative;
-    display: grid;
     width: 100%;
     transform-style: preserve-3d;
-    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition:
+      transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
   }
 
 
   /*
-   * Both faces occupy the same grid area.
+   * Both faces occupy the same physical width.
    */
   .publication-flip-face {
-    grid-area: 1 / 1;
     width: 100%;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -587,16 +595,33 @@ const ALL_PAPERS = publications;
 
 
   /*
-   * Back side starts rotated 180 degrees.
+   * FRONT:
+   *
+   * Remains in normal document flow.
+   * Therefore the front determines the card height.
    */
-  .publication-flip-back {
-    transform: rotateY(180deg);
+  .publication-flip-front {
+    position: relative;
+    z-index: 2;
   }
 
 
   /*
-   * JavaScript adds this class when the user clicks
-   * "View Graphical Abstract".
+   * BACK:
+   *
+   * Absolutely positioned so it cannot change
+   * the height of the card.
+   */
+  .publication-flip-back {
+    position: absolute;
+    inset: 0;
+    transform: rotateY(180deg);
+    overflow: hidden;
+  }
+
+
+  /*
+   * Flip the complete card.
    */
   .publication-flip-card.is-flipped {
     transform: rotateY(180deg);
@@ -604,20 +629,47 @@ const ALL_PAPERS = publications;
 
 
   /*
-   * Keep buttons clearly clickable.
+   * Graphical abstract container.
    */
-  .flip-button {
-    cursor: pointer;
+  .graphical-abstract-container {
+    position: relative;
   }
 
 
   /*
-   * Respect users who have reduced-motion enabled.
+   * Keep the graphical abstract proportional.
+   *
+   * The container clips the lower explanatory text
+   * from the current Publication 33 image.
+   */
+  .graphical-abstract-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: none;
+    flex-shrink: 0;
+  }
+
+
+  /*
+   * Respect reduced-motion accessibility settings.
    */
   @media (prefers-reduced-motion: reduce) {
 
     .publication-flip-card {
       transition: none;
+    }
+
+  }
+
+
+  /*
+   * Mobile adjustment.
+   */
+  @media (max-width: 767px) {
+
+    .graphical-abstract-container {
+      min-height: 0;
     }
 
   }
