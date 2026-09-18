@@ -24,7 +24,9 @@ const {
 ---
 
 <!doctype html>
+
 <html lang='en'>
+
 	<head>
 
 		{template.transitions && <ClientRouter />}
@@ -36,6 +38,7 @@ const {
 		/>
 
 	</head>
+
 
 	<body>
 
@@ -58,22 +61,27 @@ const {
 
 			<div class='drawer-content bg-base-100 min-w-0'>
 
-				<!-- Top navigation bar -->
+				<!-- ================================================= -->
+				<!-- TOP NAVIGATION                                    -->
+				<!-- ================================================= -->
+
 				<div
-					class='bg-base-100 z-50
+					class='bg-base-100
+						   z-50
 						   text-base-content
 						   shadow-sm'
 				>
 
 					<nav class='navbar'>
 
+
+						<!-- ========================================= -->
+						<!-- LEFT SIDE                                 -->
+						<!-- ========================================= -->
+
 						<div class='navbar-start'>
 
-							{template.menu_left &&
-								<DarkLightController/>
-								/* <ThemeSelector transition:persist /> */
-							}
-
+							<!-- Mobile hamburger menu -->
 							<label
 								for='my-drawer'
 								class='btn btn-square btn-ghost lg:hidden'
@@ -104,7 +112,10 @@ const {
 						</div>
 
 
-						<!-- Mobile title -->
+						<!-- ========================================= -->
+						<!-- MOBILE TITLE                               -->
+						<!-- ========================================= -->
+
 						<div
 							class='navbar-center
 								   lg:hidden
@@ -118,12 +129,14 @@ const {
 						</div>
 
 
+						<!-- ========================================= -->
+						<!-- RIGHT SIDE                                -->
+						<!-- ========================================= -->
+
 						<div class='navbar-end'>
 
-							{!template.menu_left &&
-								<DarkLightController/>
-								/* <ThemeSelector transition:persist /> */
-							}
+							<!-- Dark / Light mode -->
+							<DarkLightController/>
 
 						</div>
 
@@ -151,6 +164,7 @@ const {
 
 					<!-- Page content -->
 					<slot />
+
 
 					<!-- Footer -->
 					<Footer />
