@@ -3,7 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import { publications } from "@/data/cv";
 import { highlightAuthor } from "@/lib/utils";
 import { template } from "@/settings";
-import Publication33Graphic from "@/assets/publications/publication-33.jpg";
+import Publication33Graphic from "@/assets/publications/publication-33-scheme.jpg";
 
 const ALL_PAPERS = publications;
 ---
@@ -292,29 +292,29 @@ const ALL_PAPERS = publications;
                            flex flex-col"
                   >
 
-                    <!-- Back header -->
+                    <!-- Back controls -->
                     <div
                       class="flex items-center
-                             justify-between gap-3 mb-3"
+                             justify-end gap-2 mb-3"
                     >
 
-                      <div>
-
-                        <p
-                          class="text-xs uppercase
-                                 tracking-wider
-                                 opacity-50"
-                        >
-                          Publication 33
-                        </p>
-
-                        <h3
-                          class="text-lg font-semibold mt-1"
-                        >
-                          Graphical Abstract
-                        </h3>
-
-                      </div>
+                      <!-- Read publication -->
+                      <a
+                        href={paper.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center
+                               rounded-md
+                               px-3 py-1.5
+                               text-xs
+                               font-semibold
+                               bg-accent
+                               text-black
+                               hover:opacity-90
+                               transition-opacity duration-200"
+                      >
+                        Read Publication ↗
+                      </a>
 
 
                       <!-- Back button -->
@@ -339,18 +339,16 @@ const ALL_PAPERS = publications;
                     </div>
 
 
-                    <!-- ================================================= -->
-                    <!-- GRAPHICAL ABSTRACT                               -->
-                    <!-- ================================================= -->
-
+                    <!-- Graphical abstract -->
                     <div
                       class="graphical-abstract-container
-                             flex-1
+                             flex-1 min-h-0
                              rounded-xl
                              bg-base-100
                              border border-base-300/40
                              overflow-hidden
-                             flex items-start justify-center"
+                             flex items-center justify-center
+                             p-2 md:p-3"
                     >
 
                       <img
@@ -358,29 +356,6 @@ const ALL_PAPERS = publications;
                         alt="Graphical abstract for Publication 33"
                         class="graphical-abstract-image"
                       />
-
-                    </div>
-
-
-                    <!-- Read paper -->
-                    <div class="mt-3 flex justify-center">
-
-                      <a
-                        href={paper.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="inline-flex items-center
-                               rounded-md
-                               px-4 py-2
-                               text-xs
-                               font-semibold
-                               bg-accent
-                               text-black
-                               hover:opacity-90
-                               transition-opacity duration-200"
-                      >
-                        Read Publication ↗
-                      </a>
 
                     </div>
 
@@ -564,7 +539,7 @@ const ALL_PAPERS = publications;
 <style>
 
   /*
-   * Establishes the 3D perspective.
+   * Establish the 3D perspective.
    */
   .publication-flip-container {
     perspective: 1200px;
@@ -572,8 +547,7 @@ const ALL_PAPERS = publications;
 
 
   /*
-   * The card itself does not have a fixed height.
-   * The front face determines the card height.
+   * The front determines the card height.
    */
   .publication-flip-card {
     position: relative;
@@ -585,7 +559,7 @@ const ALL_PAPERS = publications;
 
 
   /*
-   * Both faces occupy the same physical width.
+   * Both faces occupy the same width.
    */
   .publication-flip-face {
     width: 100%;
@@ -595,10 +569,8 @@ const ALL_PAPERS = publications;
 
 
   /*
-   * FRONT:
-   *
-   * Remains in normal document flow.
-   * Therefore the front determines the card height.
+   * Front remains in normal document flow.
+   * Therefore it determines the card height.
    */
   .publication-flip-front {
     position: relative;
@@ -607,10 +579,8 @@ const ALL_PAPERS = publications;
 
 
   /*
-   * BACK:
-   *
-   * Absolutely positioned so it cannot change
-   * the height of the card.
+   * Back is positioned over exactly the same rectangle.
+   * It therefore cannot increase the card height.
    */
   .publication-flip-back {
     position: absolute;
@@ -621,7 +591,7 @@ const ALL_PAPERS = publications;
 
 
   /*
-   * Flip the complete card.
+   * Rotate the card when flipped.
    */
   .publication-flip-card.is-flipped {
     transform: rotateY(180deg);
@@ -629,25 +599,22 @@ const ALL_PAPERS = publications;
 
 
   /*
-   * Graphical abstract container.
+   * Graphical abstract image.
+   *
+   * The image keeps its original aspect ratio and is fitted
+   * inside the available space without distortion or cropping.
    */
   .graphical-abstract-container {
     position: relative;
   }
 
 
-  /*
-   * Keep the graphical abstract proportional.
-   *
-   * The container clips the lower explanatory text
-   * from the current Publication 33 image.
-   */
   .graphical-abstract-image {
     display: block;
     width: 100%;
-    height: auto;
-    max-width: none;
-    flex-shrink: 0;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
   }
 
 
