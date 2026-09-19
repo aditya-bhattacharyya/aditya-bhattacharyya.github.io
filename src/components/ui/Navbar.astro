@@ -9,38 +9,36 @@ const { fullName, title } = profile
 ---
 
 <aside
-  class='px-4 pt-4 min-h-screen w-80 min-w-80 max-w-80 shrink-0 bg-base-200 text-base-content flex flex-col'
+  class='sidebar-inner'
 >
-  <div class='flex flex-col my-8 justify-between h-full'>
+
+  <div class='sidebar-content'>
+
+    <!-- ========================================================= -->
+    <!-- PROFILE                                                    -->
+    <!-- ========================================================= -->
 
     <div>
 
-      <!-- ===================================================== -->
-      <!-- PROFILE                                               -->
-      <!-- ===================================================== -->
-
-      <div class='flex justify-center items-center flex-col'>
+      <div class='profile-section'>
 
         <Image
-          class='mask mask-circle size-44 object-cover object-[50%_25%]'
+          class='profile-image'
           src={ProfilePictures}
           alt={`Profile picture of ${fullName}`}
         />
 
+        <div class='profile-details'>
 
-        <div class="mt-8 hidden lg:block text-center px-2">
-
-          <div class="text-lg font-black leading-tight">
+          <div class='profile-name'>
             {fullName}
           </div>
 
-
-          <div class="text-sm font-medium opacity-60 mt-2">
+          <div class='profile-role'>
             Associate Scientific Director
           </div>
 
-
-          <div class="text-sm opacity-50 mt-1">
+          <div class='profile-institute'>
             BBRC, Syngene
           </div>
 
@@ -49,102 +47,270 @@ const { fullName, title } = profile
       </div>
 
 
-      <!-- ===================================================== -->
-      <!-- NAVIGATION                                            -->
-      <!-- ===================================================== -->
+      <!-- ======================================================= -->
+      <!-- NAVIGATION                                               -->
+      <!-- ======================================================= -->
 
-      <div class='mx-4 mt-16'>
+      <nav class='navigation'>
 
-        <ul class='space-y-4 menu grow shrink menu-md overflow-y-auto'>
+        <ul>
 
           <li>
-
-            <a
-              href={`${template.base}/`}
-              class='text-lg'
-            >
+            <a href={`${template.base}/`}>
               Home
             </a>
-
           </li>
 
-
           <li>
-
-            <a
-              href={`${template.base}/research`}
-              class='text-lg'
-            >
+            <a href={`${template.base}/research`}>
               Research
             </a>
-
           </li>
 
-
           <li>
-
-            <a
-              href={`${template.base}/papers`}
-              class='text-lg'
-            >
+            <a href={`${template.base}/papers`}>
               Publications
             </a>
-
           </li>
 
-
           <li>
-
-            <a
-              href={`${template.base}/patents`}
-              class='text-lg'
-            >
+            <a href={`${template.base}/patents`}>
               Patents
             </a>
-
           </li>
 
-
           <li>
-
-            <a
-              href={`${template.base}/talks`}
-              class='text-lg'
-            >
+            <a href={`${template.base}/talks`}>
               Invited Talks
             </a>
-
           </li>
 
-
           <li>
-
-            <a
-              href={`${template.base}/cv`}
-              class='text-lg'
-            >
+            <a href={`${template.base}/cv`}>
               CV
             </a>
-
           </li>
 
         </ul>
 
-      </div>
+      </nav>
 
     </div>
 
 
-    <!-- ===================================================== -->
-    <!-- SOCIAL LINKS                                          -->
-    <!-- ===================================================== -->
+    <!-- ========================================================= -->
+    <!-- SOCIAL LINKS                                               -->
+    <!-- ========================================================= -->
 
-    <div class='mx-4'>
+    <div class='social-links'>
 
-      <SocialIcons/>
+      <SocialIcons />
 
     </div>
 
   </div>
 
 </aside>
+
+
+<style>
+  /* ============================================================= */
+  /* SIDEBAR INNER                                                  */
+  /* ============================================================= */
+
+  .sidebar-inner {
+    width: 100%;
+    min-height: 100vh;
+    background: hsl(var(--b2));
+    color: hsl(var(--bc));
+    box-sizing: border-box;
+  }
+
+
+  /* ============================================================= */
+  /* SIDEBAR CONTENT                                                 */
+  /* ============================================================= */
+
+  .sidebar-content {
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+
+    padding: 2rem 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+
+  /* ============================================================= */
+  /* PROFILE                                                         */
+  /* ============================================================= */
+
+  .profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+
+  .profile-image {
+    width: 11rem;
+    height: 11rem;
+
+    object-fit: cover;
+    object-position: 50% 25%;
+
+    border-radius: 9999px;
+
+    flex-shrink: 0;
+  }
+
+
+  .profile-details {
+    margin-top: 2rem;
+    text-align: center;
+    padding: 0 0.5rem;
+  }
+
+
+  .profile-name {
+    font-size: 1.125rem;
+    line-height: 1.25;
+    font-weight: 900;
+  }
+
+
+  .profile-role {
+    margin-top: 0.5rem;
+
+    font-size: 0.875rem;
+    line-height: 1.25;
+
+    font-weight: 500;
+
+    opacity: 0.6;
+  }
+
+
+  .profile-institute {
+    margin-top: 0.25rem;
+
+    font-size: 0.875rem;
+    line-height: 1.25;
+
+    opacity: 0.5;
+  }
+
+
+  /* ============================================================= */
+  /* NAVIGATION                                                      */
+  /* ============================================================= */
+
+  .navigation {
+    margin: 4rem 1rem 0;
+  }
+
+
+  .navigation ul {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 1rem;
+  }
+
+
+  .navigation li {
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .navigation a {
+    display: block;
+
+    width: 100%;
+
+    padding: 0.25rem 0;
+
+    color: inherit;
+
+    font-size: 1.125rem;
+    line-height: 1.5;
+
+    text-decoration: none;
+
+    border-radius: 0.375rem;
+
+    transition:
+      color 0.15s ease,
+      background-color 0.15s ease;
+  }
+
+
+  .navigation a:hover {
+    color: hsl(var(--p));
+  }
+
+
+  .navigation a:focus-visible {
+    outline: 2px solid hsl(var(--p));
+    outline-offset: 3px;
+  }
+
+
+  /* ============================================================= */
+  /* SOCIAL LINKS                                                    */
+  /* ============================================================= */
+
+  .social-links {
+    margin: 0 1rem;
+  }
+
+
+  /* ============================================================= */
+  /* MOBILE                                                         */
+  /* ============================================================= */
+
+  @media (max-width: 1023px) {
+
+    .sidebar-inner {
+      min-height: 100vh;
+      height: 100%;
+    }
+
+
+    .sidebar-content {
+      min-height: 100vh;
+      height: 100%;
+
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+
+    /*
+     * On mobile the profile details remain available inside
+     * the hamburger menu, but the sidebar itself is controlled
+     * by Layout.astro.
+     */
+
+    .profile-image {
+      width: 10rem;
+      height: 10rem;
+    }
+
+
+    .navigation {
+      margin-top: 3rem;
+    }
+
+  }
+</style>
