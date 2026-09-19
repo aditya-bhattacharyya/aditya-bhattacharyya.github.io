@@ -169,7 +169,7 @@ import { template } from '../../settings'
 
     background: hsl(var(--bc) / 0.12);
 
-    border: 1px solid hsl(var(--bc) / 0.10);
+    border: 2px solid hsl(var(--bc) / 0.30);
 
     box-sizing: border-box;
 
@@ -388,12 +388,14 @@ import { template } from '../../settings'
   /* HOVER                                                          */
   /* ============================================================= */
 
-  .theme-toggle:hover {
-    background: hsl(var(--bc) / 0.17);
+.theme-toggle:hover {
+  background: hsl(var(--bc) / 0.17);
 
-    box-shadow:
-      0 2px 6px rgb(0 0 0 / 0.08);
-  }
+  border-color: hsl(var(--bc) / 0.45);
+
+  box-shadow:
+    0 2px 6px rgb(0 0 0 / 0.08);
+}
 
 
   /* ============================================================= */
