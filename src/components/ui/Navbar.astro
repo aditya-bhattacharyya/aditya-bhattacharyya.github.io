@@ -119,11 +119,7 @@ const { fullName } = profile
   .sidebar-inner {
     width: 100%;
     min-height: 100vh;
-
     box-sizing: border-box;
-
-    /* Keep DaisyUI's base-200 background */
-    background-color: hsl(var(--b2));
   }
 
 
@@ -257,18 +253,23 @@ const { fullName } = profile
 
     transition:
       background-color 0.15s ease,
-      color 0.15s ease;
+      color 0.15s ease,
+      transform 0.1s ease;
   }
 
 
-  /* Subtle hover effect */
+  /* ============================================================= */
+  /* HOVER                                                          */
+  /* ============================================================= */
 
   .navigation a:hover {
     background-color: hsl(var(--b3));
   }
 
 
-  /* Pleasant darker pressed/click effect */
+  /* ============================================================= */
+  /* CLICK / PRESS FEEDBACK                                         */
+  /* ============================================================= */
 
   .navigation a:active {
     background-color: hsl(var(--b3));
@@ -276,7 +277,9 @@ const { fullName } = profile
   }
 
 
-  /* Keyboard focus */
+  /* ============================================================= */
+  /* KEYBOARD FOCUS                                                 */
+  /* ============================================================= */
 
   .navigation a:focus-visible {
     outline: 2px solid hsl(var(--p));
@@ -305,8 +308,6 @@ const { fullName } = profile
       width: 100%;
       min-height: 100vh;
       height: 100%;
-
-      background-color: hsl(var(--b2));
     }
 
 
