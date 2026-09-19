@@ -1,10 +1,8 @@
 ---
 import BetterIcon from '../components/ui/BetterIcon.astro'
 import DarkLightController from '../components/ui/DarkLightController.astro'
-import ThemeSelector from '../components/ui/ThemeSelector.astro'
 import Navbar from '../components/ui/Navbar.astro'
 import Head from '../components/Head.astro'
-
 import { seo, profile, template } from '../settings'
 import Footer from '../components/ui/Footer.astro'
 
@@ -131,7 +129,7 @@ const {
             </div>
 
 
-            <!-- RIGHT SIDE -->
+            <!-- MOBILE DARK / LIGHT SWITCH -->
 
             <div class='mobile-navbar-right'>
 
@@ -140,6 +138,17 @@ const {
             </div>
 
           </nav>
+
+
+          <!-- ===================================================== -->
+          <!-- DESKTOP DARK / LIGHT SWITCH                           -->
+          <!-- ===================================================== -->
+
+          <div class='desktop-theme-controller'>
+
+            <DarkLightController />
+
+          </div>
 
         </header>
 
@@ -150,12 +159,7 @@ const {
 
         <main class='page-content'>
 
-          <!-- Page content -->
-
           <slot />
-
-
-          <!-- Footer -->
 
           <Footer />
 
@@ -240,10 +244,11 @@ const {
 
 
   /* ============================================================= */
-  /* DESKTOP HEADER                                                  */
+  /* HEADER                                                          */
   /* ============================================================= */
 
   .site-header {
+    position: relative;
     width: 100%;
     background: hsl(var(--b1));
     color: hsl(var(--bc));
@@ -263,7 +268,9 @@ const {
     justify-content: space-between;
     padding: 0 1rem;
     gap: 0.5rem;
+    box-sizing: border-box;
   }
+
 
   .mobile-navbar-left,
   .mobile-navbar-right {
@@ -271,6 +278,7 @@ const {
     align-items: center;
     flex-shrink: 0;
   }
+
 
   .mobile-navbar-title {
     min-width: 0;
@@ -285,22 +293,51 @@ const {
 
 
   /* ============================================================= */
-  /* MOBILE MENU BUTTON                                              */
+  /* MOBILE HAMBURGER                                               */
   /* ============================================================= */
 
   .mobile-menu-button {
     width: 2.75rem;
     height: 2.75rem;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     cursor: pointer;
+
     border-radius: 0.5rem;
-    background: transparent;
+
+    background: hsl(var(--b2));
+    color: hsl(var(--bc));
+
+    -webkit-tap-highlight-color: transparent;
   }
 
+
+  .mobile-menu-button:hover {
+    background: hsl(var(--b3));
+  }
+
+
   .mobile-menu-button:active {
-    background: hsl(var(--b2));
+    background: hsl(var(--b3));
+  }
+
+
+  /* ============================================================= */
+  /* DESKTOP THEME CONTROLLER                                      */
+  /* ============================================================= */
+
+  .desktop-theme-controller {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
   }
 
 
@@ -314,18 +351,22 @@ const {
 
 
   /* ============================================================= */
-  /* PAGE CONTENT                                                     */
+  /* PAGE CONTENT                                                    */
   /* ============================================================= */
 
   .page-content {
     width: 100%;
     max-width: 64rem;
     min-height: 100vh;
+
     margin: 0 auto;
+
     padding: 4rem 2rem 2rem;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     box-sizing: border-box;
   }
 
@@ -342,11 +383,11 @@ const {
     }
 
 
-    /* Sidebar starts completely outside the screen */
-
     .site-sidebar {
       position: fixed;
+
       z-index: 100;
+
       top: 0;
       left: 0;
 
@@ -358,6 +399,7 @@ const {
       min-height: 100vh;
 
       transform: translateX(-100%);
+
       transition: transform 0.25s ease;
 
       overflow-y: auto;
@@ -367,8 +409,6 @@ const {
     }
 
 
-    /* Main area always occupies the complete mobile width */
-
     .site-main {
       width: 100%;
       min-width: 0;
@@ -376,31 +416,37 @@ const {
     }
 
 
-    /* Mobile header becomes visible */
-
     .mobile-navbar {
       display: flex;
     }
 
 
-    /* Mobile page padding */
+    /* Hide desktop duplicate */
+
+    .desktop-theme-controller {
+      display: none;
+    }
+
 
     .page-content {
       width: 100%;
       max-width: none;
+
       min-height: calc(100vh - 4rem);
 
-      padding: 1.5rem 1rem 1.5rem;
+      padding: 1.5rem 1rem;
 
       margin: 0;
     }
 
 
-    /* Overlay */
+    /* Mobile overlay */
 
     .mobile-menu-overlay {
       position: fixed;
+
       z-index: 90;
+
       inset: 0;
 
       display: block;
@@ -425,17 +471,11 @@ const {
       transform: translateX(0);
     }
 
+
     #mobile-menu:checked ~ .mobile-menu-overlay {
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
-    }
-
-
-    /* Prevent background page scrolling while menu is open */
-
-    #mobile-menu:checked ~ .site-main {
-      overflow: hidden;
     }
 
   }
@@ -453,9 +493,11 @@ const {
       padding-right: 0.5rem;
     }
 
+
     .mobile-navbar-title {
       font-size: 0.95rem;
     }
+
 
     .page-content {
       padding-left: 1rem;
