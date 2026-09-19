@@ -198,7 +198,9 @@ const {
   .site-layout {
     width: 100%;
     min-height: 100vh;
+
     display: flex;
+
     background: hsl(var(--b1));
     color: hsl(var(--bc));
   }
@@ -210,9 +212,12 @@ const {
 
   .mobile-menu-toggle {
     position: fixed;
+
     width: 1px;
     height: 1px;
+
     opacity: 0;
+
     pointer-events: none;
   }
 
@@ -225,9 +230,16 @@ const {
     width: 320px;
     min-width: 320px;
     max-width: 320px;
+
+    height: 100vh;
     min-height: 100vh;
+
     flex-shrink: 0;
-    background: hsl(var(--b2));
+
+    position: sticky;
+    top: 0;
+
+    align-self: flex-start;
   }
 
 
@@ -237,8 +249,11 @@ const {
 
   .site-main {
     min-width: 0;
+
     flex: 1 1 auto;
+
     min-height: 100vh;
+
     background: hsl(var(--b1));
   }
 
@@ -249,9 +264,12 @@ const {
 
   .site-header {
     position: relative;
+
     width: 100%;
+
     background: hsl(var(--b1));
     color: hsl(var(--bc));
+
     box-shadow: 0 1px 3px rgb(0 0 0 / 0.08);
   }
 
@@ -262,12 +280,17 @@ const {
 
   .mobile-navbar {
     display: none;
+
     width: 100%;
     min-height: 4rem;
+
     align-items: center;
     justify-content: space-between;
+
     padding: 0 1rem;
+
     gap: 0.5rem;
+
     box-sizing: border-box;
   }
 
@@ -275,19 +298,27 @@ const {
   .mobile-navbar-left,
   .mobile-navbar-right {
     display: flex;
+
     align-items: center;
+
     flex-shrink: 0;
   }
 
 
   .mobile-navbar-title {
     min-width: 0;
+
     flex: 1 1 auto;
+
     text-align: center;
+
     font-size: 1rem;
     font-weight: 700;
+
     white-space: nowrap;
+
     overflow: hidden;
+
     text-overflow: ellipsis;
   }
 
@@ -301,6 +332,7 @@ const {
     height: 2.75rem;
 
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
@@ -312,6 +344,10 @@ const {
     color: hsl(var(--bc));
 
     -webkit-tap-highlight-color: transparent;
+
+    transition:
+      background-color 0.15s ease,
+      transform 0.1s ease;
   }
 
 
@@ -322,6 +358,8 @@ const {
 
   .mobile-menu-button:active {
     background: hsl(var(--b3));
+
+    transform: scale(0.96);
   }
 
 
@@ -331,12 +369,14 @@ const {
 
   .desktop-theme-controller {
     position: absolute;
+
     top: 1rem;
     right: 1.5rem;
 
     z-index: 20;
 
     display: flex;
+
     align-items: center;
   }
 
@@ -357,6 +397,7 @@ const {
   .page-content {
     width: 100%;
     max-width: 64rem;
+
     min-height: 100vh;
 
     margin: 0 auto;
@@ -364,7 +405,9 @@ const {
     padding: 4rem 2rem 2rem;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: space-between;
 
     box-sizing: border-box;
@@ -379,9 +422,14 @@ const {
 
     .site-layout {
       display: block;
+
       min-height: 100vh;
     }
 
+
+    /* ----------------------------------------------------------- */
+    /* Mobile sidebar                                               */
+    /* ----------------------------------------------------------- */
 
     .site-sidebar {
       position: fixed;
@@ -406,30 +454,47 @@ const {
       overflow-x: hidden;
 
       -webkit-overflow-scrolling: touch;
+
+      align-self: auto;
     }
 
+
+    /* ----------------------------------------------------------- */
+    /* Main area                                                    */
+    /* ----------------------------------------------------------- */
 
     .site-main {
       width: 100%;
+
       min-width: 0;
+
       min-height: 100vh;
     }
 
+
+    /* ----------------------------------------------------------- */
+    /* Mobile header                                                */
+    /* ----------------------------------------------------------- */
 
     .mobile-navbar {
       display: flex;
     }
 
 
-    /* Hide desktop duplicate */
+    /* Hide desktop theme switch */
 
     .desktop-theme-controller {
       display: none;
     }
 
 
+    /* ----------------------------------------------------------- */
+    /* Mobile page content                                          */
+    /* ----------------------------------------------------------- */
+
     .page-content {
       width: 100%;
+
       max-width: none;
 
       min-height: calc(100vh - 4rem);
@@ -440,7 +505,9 @@ const {
     }
 
 
-    /* Mobile overlay */
+    /* ----------------------------------------------------------- */
+    /* Mobile overlay                                               */
+    /* ----------------------------------------------------------- */
 
     .mobile-menu-overlay {
       position: fixed;
@@ -454,7 +521,9 @@ const {
       background: rgb(0 0 0 / 0.45);
 
       opacity: 0;
+
       visibility: hidden;
+
       pointer-events: none;
 
       transition:
@@ -474,7 +543,9 @@ const {
 
     #mobile-menu:checked ~ .mobile-menu-overlay {
       opacity: 1;
+
       visibility: visible;
+
       pointer-events: auto;
     }
 
@@ -489,6 +560,7 @@ const {
 
     .mobile-navbar {
       min-height: 3.75rem;
+
       padding-left: 0.5rem;
       padding-right: 0.5rem;
     }
