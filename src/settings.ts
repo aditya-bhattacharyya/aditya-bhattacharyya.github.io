@@ -63,7 +63,7 @@ export const social = {
 export const template = {
   website_url: 'https://aditya-bhattacharyya.github.io',
   menu_left: false,
-  transitions: true,
+  transitions: false,
   lightTheme: 'light',
   darkTheme: 'dark',
   excerptLength: 200,
