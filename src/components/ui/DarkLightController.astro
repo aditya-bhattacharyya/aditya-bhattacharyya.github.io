@@ -1,5 +1,4 @@
 ---
-import { template } from '../../settings'
 ---
 
 <label
@@ -7,78 +6,152 @@ import { template } from '../../settings'
   aria-label="Toggle dark and light mode"
 >
 
+  <!-- =========================================================== -->
+  <!-- HIDDEN CHECKBOX                                              -->
+  <!-- =========================================================== -->
+
   <input
-    id="theme-toggle"
     type="checkbox"
     class="theme-toggle-input"
     aria-label="Toggle dark and light mode"
   />
 
+
   <!-- =========================================================== -->
-  <!-- SUN ICON                                                     -->
+  <!-- CAPSULE                                                      -->
   <!-- =========================================================== -->
 
-  <span class="theme-icon theme-sun" aria-hidden="true">
+  <span class="theme-track">
 
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+    <!-- --------------------------------------------------------- -->
+    <!-- SUN — FIXED POSITION                                      -->
+    <!-- --------------------------------------------------------- -->
+
+    <span
+      class="theme-icon theme-sun"
+      aria-hidden="true"
     >
 
-      <circle cx="12" cy="12" r="5" />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
 
-      <path
-        d="M12 1v2
-           M12 21v2
-           M4.22 4.22l1.42 1.42
-           M18.36 18.36l1.42 1.42
-           M1 12h2
-           M21 12h2
-           M4.22 19.78l1.42-1.42
-           M18.36 5.64l1.42-1.42"
-      />
+        <circle cx="12" cy="12" r="5" />
 
-    </svg>
+        <path
+          d="M12 1v2
+             M12 21v2
+             M4.22 4.22l1.42 1.42
+             M18.36 18.36l1.42 1.42
+             M1 12h2
+             M21 12h2
+             M4.22 19.78l1.42-1.42
+             M18.36 5.64l1.42-1.42"
+        />
 
-  </span>
+      </svg>
+
+    </span>
 
 
-  <!-- =========================================================== -->
-  <!-- MOON ICON                                                    -->
-  <!-- =========================================================== -->
+    <!-- --------------------------------------------------------- -->
+    <!-- MOON — FIXED POSITION                                     -->
+    <!-- --------------------------------------------------------- -->
 
-  <span class="theme-icon theme-moon" aria-hidden="true">
-
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+    <span
+      class="theme-icon theme-moon"
+      aria-hidden="true"
     >
 
-      <path
-        d="M21 12.79A9 9 0 1 1 11.21 3
-           7 7 0 0 0 21 12.79z"
-      />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
 
-    </svg>
+        <path
+          d="M21 12.79A9 9 0 1 1 11.21 3
+             7 7 0 0 0 21 12.79z"
+        />
+
+      </svg>
+
+    </span>
+
+
+    <!-- --------------------------------------------------------- -->
+    <!-- MOVING ACTIVE KNOB                                        -->
+    <!-- --------------------------------------------------------- -->
+
+    <span
+      class="theme-toggle-knob"
+      aria-hidden="true"
+    >
+
+      <span class="knob-sun">
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+
+          <circle cx="12" cy="12" r="5" />
+
+          <path
+            d="M12 1v2
+               M12 21v2
+               M4.22 4.22l1.42 1.42
+               M18.36 18.36l1.42 1.42
+               M1 12h2
+               M21 12h2
+               M4.22 19.78l1.42-1.42
+               M18.36 5.64l1.42-1.42"
+          />
+
+        </svg>
+
+      </span>
+
+
+      <span class="knob-moon">
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+
+          <path
+            d="M21 12.79A9 9 0 1 1 11.21 3
+               7 7 0 0 0 21 12.79z"
+          />
+
+        </svg>
+
+      </span>
+
+    </span>
 
   </span>
-
-
-  <!-- =========================================================== -->
-  <!-- SLIDING KNOB                                                 -->
-  <!-- =========================================================== -->
-
-  <span class="theme-toggle-knob"></span>
 
 </label>
 
@@ -87,10 +160,17 @@ import { template } from '../../settings'
   const initializeThemeToggle = () => {
 
     const toggles =
-      document.querySelectorAll<HTMLInputElement>('.theme-toggle-input')
+      document.querySelectorAll<HTMLInputElement>(
+        '.theme-toggle-input'
+      )
+
 
     if (!toggles.length) return
 
+
+    /* ----------------------------------------------------------- */
+    /* DETERMINE CURRENT THEME                                     */
+    /* ----------------------------------------------------------- */
 
     const storedTheme =
       localStorage.getItem('theme')
@@ -108,15 +188,26 @@ import { template } from '../../settings'
     )
 
 
+    /* ----------------------------------------------------------- */
+    /* INITIAL STATE                                                */
+    /* ----------------------------------------------------------- */
+
     toggles.forEach((toggle) => {
 
-      toggle.checked = currentTheme === 'dark'
+      toggle.checked =
+        currentTheme === 'dark'
 
+
+      /* --------------------------------------------------------- */
+      /* TOGGLE                                                     */
+      /* --------------------------------------------------------- */
 
       toggle.onchange = () => {
 
         const newTheme =
-          toggle.checked ? 'dark' : 'light'
+          toggle.checked
+            ? 'dark'
+            : 'light'
 
 
         document.documentElement.setAttribute(
@@ -131,11 +222,12 @@ import { template } from '../../settings'
         )
 
 
+        /* Synchronize desktop + mobile switches */
+
         toggles.forEach((otherToggle) => {
 
-          if (otherToggle !== toggle) {
-            otherToggle.checked = toggle.checked
-          }
+          otherToggle.checked =
+            toggle.checked
 
         })
 
@@ -151,44 +243,34 @@ import { template } from '../../settings'
 
 
 <style>
+
   /* ============================================================= */
-  /* MAIN SWITCH                                                    */
+  /* OUTER LABEL                                                    */
   /* ============================================================= */
 
   .theme-toggle {
+
     position: relative;
 
     display: block;
 
-    width: 3.4rem;
-    height: 1.8rem;
-
-    border-radius: 9999px;
+    width: 3.5rem;
+    height: 1.85rem;
 
     cursor: pointer;
-
-    background: hsl(var(--bc) / 0.12);
-
-    border: 2px solid hsl(var(--bc) / 0.30);
-
-    box-sizing: border-box;
 
     flex-shrink: 0;
 
     -webkit-tap-highlight-color: transparent;
-
-    transition:
-      background-color 0.35s ease,
-      border-color 0.35s ease,
-      box-shadow 0.35s ease;
   }
 
 
   /* ============================================================= */
-  /* CHECKBOX                                                       */
+  /* HIDDEN INPUT                                                   */
   /* ============================================================= */
 
   .theme-toggle-input {
+
     position: absolute;
 
     inset: 0;
@@ -202,7 +284,7 @@ import { template } from '../../settings'
 
     cursor: pointer;
 
-    z-index: 10;
+    z-index: 20;
 
     appearance: none;
     -webkit-appearance: none;
@@ -210,172 +292,319 @@ import { template } from '../../settings'
 
 
   /* ============================================================= */
-  /* SLIDING KNOB                                                   */
+  /* CAPSULE                                                        */
+  /* ============================================================= */
+
+  .theme-track {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    box-sizing: border-box;
+
+    border-radius: 9999px;
+
+    background: hsl(var(--b1));
+
+    border: 2px solid hsl(var(--bc) / 0.30);
+
+    box-shadow:
+      0 1px 3px rgb(0 0 0 / 0.08);
+
+    overflow: hidden;
+
+    transition:
+      background-color 0.35s ease,
+      border-color 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+
+
+  /* ============================================================= */
+  /* FIXED ICONS                                                    */
+  /* ============================================================= */
+
+  .theme-icon {
+
+    position: absolute;
+
+    top: 50%;
+
+    width: 1.05rem;
+    height: 1.05rem;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: hsl(var(--bc));
+
+    transform: translateY(-50%);
+
+    pointer-events: none;
+
+    z-index: 2;
+
+    transition:
+      opacity 0.35s ease,
+      transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+
+  .theme-icon svg {
+
+    width: 100%;
+    height: 100%;
+  }
+
+
+  /* ------------------------------------------------------------- */
+  /* FIXED SUN                                                     */
+  /* ------------------------------------------------------------- */
+
+  .theme-sun {
+
+    left: 0.35rem;
+
+    opacity: 0.38;
+
+    transform:
+      translateY(-50%)
+      scale(0.85);
+  }
+
+
+  /* ------------------------------------------------------------- */
+  /* FIXED MOON                                                    */
+  /* ------------------------------------------------------------- */
+
+  .theme-moon {
+
+    right: 0.35rem;
+
+    opacity: 0.38;
+
+    transform:
+      translateY(-50%)
+      scale(0.85);
+  }
+
+
+  /* ============================================================= */
+  /* MOVING KNOB                                                    */
   /* ============================================================= */
 
   .theme-toggle-knob {
+
     position: absolute;
 
-    top: 2px;
-    left: 2px;
+    top: 0.12rem;
+    left: 0.12rem;
 
-    width: 1.4rem;
-    height: 1.4rem;
+    width: 1.45rem;
+    height: 1.45rem;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
 
     border-radius: 50%;
 
     background: hsl(var(--b1));
 
+    color: hsl(var(--bc));
+
     box-shadow:
-      0 1px 3px rgb(0 0 0 / 0.22),
+      0 1px 3px rgb(0 0 0 / 0.20),
       0 2px 5px rgb(0 0 0 / 0.10);
+
+    z-index: 5;
 
     pointer-events: none;
 
-    z-index: 4;
-
-    transform: translateX(0) rotate(0deg) scale(1);
+    transform:
+      translateX(0)
+      rotate(0deg)
+      scale(1);
 
     transition:
-      transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
       background-color 0.35s ease,
       box-shadow 0.35s ease;
   }
 
 
   /* ============================================================= */
-  /* ICON CONTAINER                                                 */
+  /* KNOB ICONS                                                     */
   /* ============================================================= */
 
-  .theme-icon {
+  .knob-sun,
+  .knob-moon {
+
     position: absolute;
 
-    top: 50%;
-
-    width: 13px;
-    height: 13px;
+    width: 0.9rem;
+    height: 0.9rem;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
-    transform: translateY(-50%);
-
-    pointer-events: none;
-
-    z-index: 5;
-
     transition:
-      transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
-      opacity 0.3s ease;
+      opacity 0.25s ease,
+      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
 
-  .theme-icon svg {
+  .knob-sun svg,
+  .knob-moon svg {
+
     width: 100%;
     height: 100%;
   }
 
 
-  /* ============================================================= */
-  /* SUN                                                           */
-  /* ============================================================= */
+  /* Light mode: sun visible */
 
-  .theme-sun {
-    left: 6px;
+  .knob-sun {
 
     opacity: 1;
 
     transform:
-      translateY(-50%)
       rotate(0deg)
       scale(1);
   }
 
 
-  /* ============================================================= */
-  /* MOON                                                          */
-  /* ============================================================= */
+  .knob-moon {
 
-  .theme-moon {
-    right: 6px;
-
-    opacity: 0.55;
+    opacity: 0;
 
     transform:
-      translateY(-50%)
-      rotate(-25deg)
-      scale(0.8);
+      rotate(-45deg)
+      scale(0.55);
   }
 
 
   /* ============================================================= */
-  /* DARK MODE                                                      */
+  /* DARK MODE — MOVE KNOB TO RIGHT                                 */
   /* ============================================================= */
 
   .theme-toggle-input:checked
-    ~ .theme-toggle-knob {
+    + .theme-track
+    .theme-toggle-knob {
 
     transform:
-      translateX(1.6rem)
+      translateX(1.65rem)
       rotate(180deg)
       scale(1.02);
   }
 
 
-  .theme-toggle-input:checked
-    ~ .theme-sun {
+  /* Dark mode: moon appears inside moving knob */
 
-    opacity: 0.55;
+  .theme-toggle-input:checked
+    + .theme-track
+    .knob-sun {
+
+    opacity: 0;
 
     transform:
-      translateY(-50%)
-      rotate(25deg)
-      scale(0.8);
+      rotate(45deg)
+      scale(0.55);
   }
 
 
   .theme-toggle-input:checked
-    ~ .theme-moon {
+    + .theme-track
+    .knob-moon {
 
     opacity: 1;
 
     transform:
-      translateY(-50%)
       rotate(0deg)
       scale(1);
   }
 
 
   /* ============================================================= */
-  /* ACTIVE / PRESS FEEDBACK                                        */
+  /* ACTIVE ICON EMPHASIS                                           */
+  /* ============================================================= */
+
+  .theme-toggle-input:not(:checked)
+    + .theme-track
+    .theme-sun {
+
+    opacity: 0.18;
+
+    transform:
+      translateY(-50%)
+      scale(0.72);
+  }
+
+
+  .theme-toggle-input:checked
+    + .theme-track
+    .theme-moon {
+
+    opacity: 0.18;
+
+    transform:
+      translateY(-50%)
+      scale(0.72);
+  }
+
+
+  /* ============================================================= */
+  /* HOVER                                                          */
+  /* ============================================================= */
+
+  .theme-toggle:hover
+    .theme-track {
+
+    border-color: hsl(var(--bc) / 0.45);
+
+    box-shadow:
+      0 2px 7px rgb(0 0 0 / 0.12);
+  }
+
+
+  .theme-toggle:hover
+    .theme-toggle-knob {
+
+    box-shadow:
+      0 2px 5px rgb(0 0 0 / 0.22),
+      0 3px 8px rgb(0 0 0 / 0.10);
+  }
+
+
+  /* ============================================================= */
+  /* PRESS                                                          */
   /* ============================================================= */
 
   .theme-toggle-input:active
-    ~ .theme-toggle-knob {
+    + .theme-track
+    .theme-toggle-knob {
 
-    transform:
-      translateX(0)
-      rotate(0deg)
-      scale(0.9);
-  }
-
-
-  .theme-toggle-input:checked:active
-    ~ .theme-toggle-knob {
-
-    transform:
-      translateX(1.6rem)
-      rotate(180deg)
-      scale(0.9);
+    scale: 0.88;
   }
 
 
   /* ============================================================= */
-  /* FOCUS                                                         */
+  /* FOCUS                                                          */
   /* ============================================================= */
 
   .theme-toggle-input:focus-visible {
+
     outline: 2px solid hsl(var(--p));
 
     outline-offset: 3px;
@@ -385,30 +614,20 @@ import { template } from '../../settings'
 
 
   /* ============================================================= */
-  /* HOVER                                                          */
-  /* ============================================================= */
-
-.theme-toggle:hover {
-  background: hsl(var(--bc) / 0.17);
-
-  border-color: hsl(var(--bc) / 0.45);
-
-  box-shadow:
-    0 2px 6px rgb(0 0 0 / 0.08);
-}
-
-
-  /* ============================================================= */
   /* REDUCED MOTION                                                 */
   /* ============================================================= */
 
   @media (prefers-reduced-motion: reduce) {
 
-    .theme-toggle,
+    .theme-track,
     .theme-toggle-knob,
-    .theme-icon {
+    .theme-icon,
+    .knob-sun,
+    .knob-moon {
+
       transition: none;
     }
 
   }
+
 </style>
